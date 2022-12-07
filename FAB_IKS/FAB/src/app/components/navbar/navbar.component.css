@@ -1,0 +1,18 @@
+#toolbar{
+    height: 60px;
+    background-color: #805D84;
+}
+
+#title{
+    font-size: 50px;
+    color: white;
+}
+
+.toolbar-content {
+    flex: 1 1 auto;
+}
+
+#icon{
+    color: white;
+    background-color: #805D84;
+}
