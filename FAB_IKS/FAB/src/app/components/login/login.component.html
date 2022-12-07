@@ -1,25 +1,69 @@
 <div id="bg">
-    <div id="containter">
-        <div id="login_title">
-            <h1>LogIn</h1>
-            <p>Hello! Please fill out the form bellow to get started</p>
-        </div>
-        <div id="login_form">
-            <div id="email">
-                <label>Email</label>
-                <input type="text" placeholder="name@example.com">
-            </div>
-            <div id="password">
-                <label>Password</label>
-                <input type="text" placeholder="min. 8 characters">
-            </div>
-            <div id="login">
-                <button type="submit">LogIn</button>
-            </div>
-            <div id="signup">
-                <label>No account?</label>
-                <button type="button">SignUp</button>
-            </div>
-        </div>
+  <div id="containter">
+    <div id="login_title">
+      <h1>LogIn</h1>
+      <p>Hello! Please fill out the form bellow to get started</p>
     </div>
+    <div id="login_form">
+      <form [formGroup]="login" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            formControlName="email"
+            [ngClass]="{
+              'is-invalid': submitted && login.controls.email.errors
+            }"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && login.controls.firstName.errors"
+            class="text-danger"
+          >
+            <div *ngIf="submitted && login.controls.firstName.errors.required">
+              Email is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            [ngClass]="{
+              'is-invalid': submitted && login.controls.password.errors
+            }"
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && login.controls.password.errors"
+            class="text-danger"
+          >
+            <div *ngIf="submitted && login.controls.password.errors.required">
+              Password is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button
+            id="loginButton"
+            class="btn btn-primary form-control loginButton"
+          >
+            LogIn
+          </button>
+        </div>
+        <div class="form-group" class="noAccount">
+          <label for="noaccount">No account?</label>
+        </div>
+        <div class="form-group">
+          <button
+            id="signUpButton"
+            class="btn btn-primary form-control signUpButton"
+          >
+            SignUp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

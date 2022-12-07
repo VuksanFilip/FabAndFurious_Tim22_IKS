@@ -1,32 +1,55 @@
+form {
+  margin: 30px;
+}
+
 #bg {
-    height: 100vh;
-    background: url("../../../assets/images/carFAB.jpg") no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
+  height: 100vh;
+  background: url("../../../assets/images/carFAB.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  position: relative;
 }
 
-#containter{
-    position: absolute;
-    float: left;
-    width: 50vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.8);
+#containter {
+  position: absolute;
+  float: left;
+  width: 50vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
 }
 
-#login_title{
-    text-align: center;
-    padding: 40px;
+#loginButton {
+  color: white;
+  background-color: #805d84;
+  margin-top: 30px;
+  border: 0;
+  text-decoration: double;
 }
 
-#login_title h1{
-    font-size: 40px;
+#signUpButton {
+  color: #805d84;
+  background-color: white;
+  margin-top: 10px;
+  border: 0;
+  text-decoration: double;
 }
 
-#login_title p{
-    padding: 10px;
-    font-size: 25px;
+.noAccount {
+  margin-top: 30px;
 }
 
-#email, #password{
-    display: flex;
+#login_title {
+  text-align: center;
+  padding: 40px;
+}
+
+#login_title h1 {
+  font-size: 40px;
+}
+
+#login_title p {
+  padding: 10px;
+  font-size: 20px;
 }
