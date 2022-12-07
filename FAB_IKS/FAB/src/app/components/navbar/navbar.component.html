@@ -1,21 +1,26 @@
 <mat-toolbar id="toolbar">
-    <span class="toolbar-content">
-        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
-            <mat-icon id="icon">menu</mat-icon>
+  <span class="toolbar-content">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      (mouseover)="menuTrigger.openMenu()"
+    >
+      <mat-icon id="icon">menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+        <button mat-menu-item [routerLink]="['/login']">
+          <span>LogIn</span>
         </button>
-        <mat-menu #menu="matMenu" [overlapTrigger]="false">
-            <span (mouseleave)="menuTrigger.closeMenu()">
-                <button mat-menu-item [routerLink]="['/login']">
-                    <span>LogIn</span>
-                </button>
-                <button mat-menu-item>
-                    <span>SignUp</span>
-                </button>
-                <button mat-menu-item>
-                    <span>Map</span>
-                </button>
-            </span>
-        </mat-menu>
-    </span>
-    <span class="toolbar-content" id="title">FAB CAR</span>
+        <button mat-menu-item [routerLink]="['/registration']">
+          <span>SignUp</span>
+        </button>
+        <button mat-menu-item>
+          <span>Map</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+  <span class="toolbar-content" id="title">FAB CAR</span>
 </mat-toolbar>
