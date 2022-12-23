@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MapComponent } from './components/map/map.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
+import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PassengerProfileComponent } from './components/passenger-profile/passen
     RegistrationComponent,
     MapComponent,
     PassengerProfileComponent,
+    MapUnregisteredComponent,
   ],
   imports: [
     BrowserModule,
