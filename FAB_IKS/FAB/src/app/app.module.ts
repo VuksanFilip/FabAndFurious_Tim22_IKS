@@ -14,6 +14,7 @@ import { MapComponent } from './components/map/map.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
 import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
 import { BillingComponent } from './components/billing/billing.component';
+import { CurrentDrivePessangerComponent } from './components/current-drive-pessanger/current-drive-pessanger.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BillingComponent } from './components/billing/billing.component';
     PassengerProfileComponent,
     MapUnregisteredComponent,
     BillingComponent,
+    CurrentDrivePessangerComponent,
   ],
   imports: [
     BrowserModule,
