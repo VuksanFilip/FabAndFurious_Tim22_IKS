@@ -1,4 +1,5 @@
 import { MapComponent } from './components/map/map.component';
+import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'map', component: MapComponent },
-  { path:'profile', component: PassengerProfileComponent },
+  { path: 'map-unregistered', component: MapUnregisteredComponent },
+  { path: 'profile', component: PassengerProfileComponent },
 ];
 
 @NgModule({
