@@ -1,5 +1,6 @@
 import { MapComponent } from './components/map/map.component';
 import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
+import { BillingComponent } from './components/billing/billing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'map', component: MapComponent },
   { path: 'map-unregistered', component: MapUnregisteredComponent },
+  { path: 'billing', component: BillingComponent },
   { path: 'profile', component: PassengerProfileComponent },
 ];
 

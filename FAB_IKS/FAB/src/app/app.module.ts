@@ -13,6 +13,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { MapComponent } from './components/map/map.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
 import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
+import { BillingComponent } from './components/billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MapUnregisteredComponent } from './components/map-unregistered/map-unre
     MapComponent,
     PassengerProfileComponent,
     MapUnregisteredComponent,
+    BillingComponent,
   ],
   imports: [
     BrowserModule,
