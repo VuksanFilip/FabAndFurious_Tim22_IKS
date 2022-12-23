@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { CurrentDrivePessangerComponent } from './components/current-drive-pessanger/current-drive-pessanger.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,10 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'map-unregistered', component: MapUnregisteredComponent },
   { path: 'billing', component: BillingComponent },
+  {
+    path: 'current-drive-passenger',
+    component: CurrentDrivePessangerComponent,
+  },
   { path: 'profile', component: PassengerProfileComponent },
 ];
 
