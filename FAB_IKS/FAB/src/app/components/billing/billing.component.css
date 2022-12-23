@@ -13,10 +13,10 @@ form {
 #containter {
   position: absolute;
   float: left;
-  width: 25vw;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.8);
-  border-top-right-radius: 5%;
+  width: 100vw;
+  height: 40vh;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
 }
 
@@ -30,7 +30,7 @@ form {
 
 #cancelButton {
   color: #805d84;
-  background-color: #f6e6f7;
+  background-color: #dad4db;
   margin-top: 30px;
   border: 0;
   text-decoration: double;
@@ -39,6 +39,32 @@ form {
 #registration_title {
   text-align: center;
   padding: 40px;
+}
+
+.colored {
+  border-style: ridge;
+  background-color: #dad4db;
+}
+
+.border2 {
+  width: 50%;
+  color: aliceblue;
+  font-weight: 500;
+  border-style: ridge;
+  border-color: black;
+  border-width: 1px;
+}
+
+.border3 {
+  width: 50%;
+  color: aliceblue;
+  font-weight: 500;
+  background-color: #805d84;
+  margin: 1%;
+}
+
+.bold {
+  font-weight: 600;
 }
 
 #registration_title h1 {
