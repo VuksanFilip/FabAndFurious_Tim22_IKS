@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { CurrentDrivePessangerComponent } from './components/current-drive-pessanger/current-drive-pessanger.component';
+import { CurrentDriveDriverComponent } from './components/current-drive-driver/current-drive-driver.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     component: CurrentDrivePessangerComponent,
   },
   { path: 'profile', component: PassengerProfileComponent },
+  { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
 ];
 
 @NgModule({
