@@ -15,7 +15,7 @@ export class MapRegisteredComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [45.2396, 19.8227],
+      center: [45.264697, 19.829986],
       zoom: 13,
     });
 
@@ -33,16 +33,16 @@ export class MapRegisteredComponent implements AfterViewInit {
     this.search();
     this.addMarker();
     this.registerOnClick();
-    this.route();
+    // this.route();
   }
 
   search(): void {
-    this.mapService.search('Strazilovska 19').subscribe({
+    this.mapService.search('Svetog Nikole 103 Zabalj').subscribe({
       next: (result) => {
         console.log(result);
         L.marker([result[0].lat, result[0].lon])
           .addTo(this.map)
-          .bindPopup('Pozdrav iz Strazilovske 19.')
+          .bindPopup('Pozdrav iz Zabalj.')
           .openPopup();
       },
       error: () => {},
@@ -54,21 +54,33 @@ export class MapRegisteredComponent implements AfterViewInit {
       const coord = e.latlng;
       const lat = coord.lat;
       const lng = coord.lng;
-      this.mapService.reverseSearch(lat, lng).subscribe((res) => {
-        console.log(res.display_name);
-      });
-      console.log(
-        'You clicked the map at latitude: ' + lat + ' and longitude: ' + lng
-      );
+      // this.mapService.reverseSearch(lat, lng).subscribe((res) => {
+      //   console.log(res.display_name);
+      // });
       const mp = new L.Marker([lat, lng]).addTo(this.map);
-      alert(mp.getLatLng());
+      L.Routing.control({
+        waypoints: [L.latLng(lat, lng), L.latLng(57.6792, 11.949)],
+      }).addTo(this.map);
     });
+    
+
+    this.map.on('click', (e: any) => {
+      const coord = e.latlng;
+      const lat = coord.lat;
+      const lng = coord.lng;
+      // this.mapService.reverseSearch(lat, lng).subscribe((res) => {
+      //   console.log(res.display_name);
+      // });
+      const mp = new L.Marker([lat, lng]).addTo(this.map);
+    });
+
   }
 
+
   route(): void {
-    L.Routing.control({
-      waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
-    }).addTo(this.map);
+    // L.Routing.control({
+    //   waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
+    // }).addTo(this.map);
   }
 
   private addMarker(): void {

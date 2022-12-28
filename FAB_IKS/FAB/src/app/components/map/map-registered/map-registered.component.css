@@ -2,15 +2,10 @@ form {
     margin: 30px;
   }
   
-  #bg {
-    height: 100%;
-  }
-  
   #containter {
-    position: absolute;
     float: left;
     width: 25vw;
-    height: 100vh;
+    height: 92vh;
     background: rgba(255, 255, 255, 0.8);
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
@@ -46,7 +41,7 @@ form {
     font-size: 20px;
   }
   
-  select {
+  input {
     outline: 0 !important;
     border-width: 0 0 2px !important;
     border-color: #d1d1cf !important;
@@ -54,7 +49,7 @@ form {
     height: 3vh;
   }
   
-  select:focus {
+  input:focus {
     border-color: #d1d1cf !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -143,15 +138,11 @@ form {
 
   .map-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    float: left;
+    top: 8vh;
+    left: 25vw;
     right: 0;
     bottom: 0;
-  }
-  
-  .map-frame {
-    border: 2px solid black;
-    height: 100%;
   }
   
   #map {
