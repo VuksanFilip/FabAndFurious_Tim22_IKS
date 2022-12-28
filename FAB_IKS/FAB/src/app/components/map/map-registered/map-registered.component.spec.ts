@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { MapRegisteredComponent } from './map-registered.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('MapRegisteredComponent', () => {
+  let component: MapRegisteredComponent;
+  let fixture: ComponentFixture<MapRegisteredComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [ MapRegisteredComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(MapRegisteredComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

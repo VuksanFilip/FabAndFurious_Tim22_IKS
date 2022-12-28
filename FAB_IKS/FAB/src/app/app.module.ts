@@ -10,12 +10,12 @@ import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { MapComponent } from './components/map/map.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
-import { MapUnregisteredComponent } from './components/map-unregistered/map-unregistered.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { CurrentDrivePessangerComponent } from './components/current-drive-pessanger/current-drive-pessanger.component';
 import { CurrentDriveDriverComponent } from './components/current-drive-driver/current-drive-driver.component';
+import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
+import { MapUnregisteredComponent } from './components/map/map-unregistered/map-unregistered.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,12 @@ import { CurrentDriveDriverComponent } from './components/current-drive-driver/c
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    MapComponent,
     PassengerProfileComponent,
-    MapUnregisteredComponent,
     BillingComponent,
     CurrentDrivePessangerComponent,
     CurrentDriveDriverComponent,
+    MapRegisteredComponent,
+    MapUnregisteredComponent,
   ],
   imports: [
     BrowserModule,
