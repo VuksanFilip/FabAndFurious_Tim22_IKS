@@ -3,11 +3,7 @@ form {
   }
   
   #bg {
-    height: 100vh;
-    background: url("../../../../assets/images/map.jpg") no-repeat center center
-      fixed;
-    background-size: cover;
-    position: relative;
+    height: 100%;
   }
   
   #containter {
@@ -144,3 +140,21 @@ form {
   .fa-train {
     color: red;
   }
+
+  .map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+  
