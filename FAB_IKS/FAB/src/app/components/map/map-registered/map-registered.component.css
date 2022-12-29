@@ -11,7 +11,7 @@ form {
     border-bottom-right-radius: 5%;
   }
   
-  #registrationButton {
+  #registrationButton, #showRoute {
     color: white;
     background-color: #805d84;
     margin-top: 30px;

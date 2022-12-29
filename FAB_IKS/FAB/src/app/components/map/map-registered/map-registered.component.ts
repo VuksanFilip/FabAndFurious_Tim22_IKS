@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { MapService } from '../map.service';
@@ -10,12 +11,24 @@ import { MapService } from '../map.service';
 })
 export class MapRegisteredComponent implements AfterViewInit {
   private map: any;
+  // markers: Array<any> = [];
+  fromMarker: any;
+  toMarker: any;
+  // fromMarkerLat: any;
+  // fromMarkerLng: any;
+  // toMarkerLat: any;
+  // toMarkerLng: any;
+  
+  routeForm = new FormGroup({
+    from: new FormControl(),
+    to: new FormControl(),
+  });
 
   constructor(private mapService: MapService) {}
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [45.264697, 19.829986],
+      center: [45.2555317, 19.8264226],
       zoom: 13,
     });
 
@@ -30,67 +43,68 @@ export class MapRegisteredComponent implements AfterViewInit {
     );
     tiles.addTo(this.map);
 
-    this.search();
-    this.addMarker();
+    // this.search();
+    // this.addMarker();
     this.registerOnClick();
     // this.route();
   }
 
-  search(): void {
-    this.mapService.search('Svetog Nikole 103 Zabalj').subscribe({
-      next: (result) => {
-        console.log(result);
-        L.marker([result[0].lat, result[0].lon])
-          .addTo(this.map)
-          .bindPopup('Pozdrav iz Zabalj.')
-          .openPopup();
-      },
-      error: () => {},
-    });
-  }
+  // search(): void {
+  //   this.mapService.search('Svetog Nikole 103 Zabalj').subscribe({
+  //     next: (result) => {
+  //       console.log(result);
+  //       L.marker([result[0].lat, result[0].lon])
+  //         .addTo(this.map)
+  //         .bindPopup('Pozdrav iz Zabalj.')
+  //         .openPopup();
+  //     },
+  //     error: () => {},
+  //   });
+  // }
 
   registerOnClick(): void {
     this.map.on('click', (e: any) => {
       const coord = e.latlng;
       const lat = coord.lat;
       const lng = coord.lng;
-      // this.mapService.reverseSearch(lat, lng).subscribe((res) => {
-      //   console.log(res.display_name);
-      // });
+      this.mapService.reverseSearch(lat, lng).subscribe();
       const mp = new L.Marker([lat, lng]).addTo(this.map);
-      L.Routing.control({
-        waypoints: [L.latLng(lat, lng), L.latLng(57.6792, 11.949)],
-      }).addTo(this.map);
+      // this.markers.push(mp);
     });
-    
-
-    this.map.on('click', (e: any) => {
-      const coord = e.latlng;
-      const lat = coord.lat;
-      const lng = coord.lng;
-      // this.mapService.reverseSearch(lat, lng).subscribe((res) => {
-      //   console.log(res.display_name);
-      // });
-      const mp = new L.Marker([lat, lng]).addTo(this.map);
-    });
-
+  
+    // if(this.markers.length != 0){
+    //   L.Routing.control({
+    //     waypoints: [L.latLng(this.markers[0].getLatLng()), L.latLng(this.markers[1].getLatLng())],
+    //   }).addTo(this.map);
+    // }
   }
 
 
   route(): void {
-    // L.Routing.control({
-    //   waypoints: [L.latLng(57.74, 11.94), L.latLng(57.6792, 11.949)],
-    // }).addTo(this.map);
-  }
+    const routeVal = {
+      from: this.routeForm.value.from,
+      to: this.routeForm.value.to,
+    };
 
-  private addMarker(): void {
-    const lat: number = 45.25;
-    const lon: number = 19.8228;
+    this.mapService.search(routeVal.from).subscribe({
+      next: (result) => {
+        const fromMarker = L.marker([result[0].lat, result[0].lon])
+          .addTo(this.map);
+        this.fromMarker = fromMarker;
+      },
+      error: () => {},
+    });
 
-    L.marker([lat, lon])
-      .addTo(this.map)
-      .bindPopup('Trenutno se nalazite ovde.')
-      .openPopup();
+    this.mapService.search(routeVal.to).subscribe({
+      next: (result) => {
+        const toMarker = L.marker([result[0].lat, result[0].lon])
+          .addTo(this.map);
+        this.toMarker = toMarker;
+      },
+      error: () => {},
+    });
+    
+    
   }
 
   ngAfterViewInit(): void {
@@ -101,4 +115,6 @@ export class MapRegisteredComponent implements AfterViewInit {
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
   }
+  
+
 }

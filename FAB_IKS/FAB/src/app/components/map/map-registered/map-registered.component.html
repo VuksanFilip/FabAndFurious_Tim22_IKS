@@ -4,13 +4,26 @@
       <h1>Route details</h1>
       <form>
         <div class="row">
-          <div class="col-sm-6" style="width: 100%">
+          <form [formGroup]="routeForm" (ngSubmit)="route()">
+            <mat-form-field>
+              <input matInput type="text" name="from" formControlName="from" placeholder="From" id="input">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" name="to" formControlName="to" placeholder="To" id="input">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-between end">
+              <button type="submit" mat-raised-button id="showRoute">Show route</button>
+            </div>
+          </form>
+
+          <!-- <div class="col-sm-6" style="width: 100%">
             <input type="text" class="browser-default custom-select mb-4" id="input" placeholder="From">
           </div>
   
           <div class="col-sm-6" style="width: 100%">
             <input class="browser-default custom-select mb-4" id="input" placeholder="To">
-          </div>
+          </div> -->
+          
         </div>
   
         <div class="row" style="margin-top: 4vh">
