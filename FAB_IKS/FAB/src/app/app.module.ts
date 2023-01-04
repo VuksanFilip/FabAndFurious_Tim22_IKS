@@ -18,6 +18,7 @@ import { CurrentDriveDriverComponent } from './components/current-drive-driver/c
 import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
 import { MapUnregisteredComponent } from './components/map/map-unregistered/map-unregistered.component';
 import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
+import { AddDriverComponent } from './components/add-driver/add-driver.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DriverProfileComponent } from './components/driver-profile/driver-profi
     MapRegisteredComponent,
     MapUnregisteredComponent,
     DriverProfileComponent,
+    AddDriverComponent,
   ],
   imports: [
     BrowserModule,

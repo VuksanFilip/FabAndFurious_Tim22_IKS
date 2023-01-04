@@ -1,3 +1,4 @@
+import { AddDriverComponent } from './components/add-driver/add-driver.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'map-unregistered', component: MapUnregisteredComponent },
   { path: 'passenger-profile', component: PassengerProfileComponent },
   { path: 'driver-profile', component: DriverProfileComponent },
+  { path: 'add-driver', component: AddDriverComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
 ];
 
