@@ -10,6 +10,7 @@ import { CurrentDrivePessangerComponent } from './components/current-drive-pessa
 import { CurrentDriveDriverComponent } from './components/current-drive-driver/current-drive-driver.component';
 import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
 import { MapUnregisteredComponent } from './components/map/map-unregistered/map-unregistered.component';
+import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,11 +25,8 @@ const routes: Routes = [
   { path: 'map', component: MapRegisteredComponent },
   { path: 'map-unregistered', component: MapUnregisteredComponent },
   { path: 'passenger-profile', component: PassengerProfileComponent },
-<<<<<<< Updated upstream
-=======
   { path: 'driver-profile', component: DriverProfileComponent },
   { path: 'add-driver', component: AddDriverComponent },
->>>>>>> Stashed changes
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
 ];
 
