@@ -1,3 +1,4 @@
+import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
 import { AddDriverComponent } from './components/add-driver/add-driver.component';
 import { BillingComponent } from './components/billing/billing.component';
 import { NgModule } from '@angular/core';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'driver-profile', component: DriverProfileComponent },
   { path: 'add-driver', component: AddDriverComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
+  { path: 'map-admin', component: MapAdminComponent },
 ];
 
 @NgModule({
