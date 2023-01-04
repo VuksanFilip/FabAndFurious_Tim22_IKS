@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   { path: 'map', component: MapRegisteredComponent },
   { path: 'map-unregistered', component: MapUnregisteredComponent },
-  { path: 'profile', component: PassengerProfileComponent },
+  { path: 'passenger-profile', component: PassengerProfileComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
 ];
 
