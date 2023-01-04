@@ -17,6 +17,11 @@ import { CurrentDrivePessangerComponent } from './components/current-drive-pessa
 import { CurrentDriveDriverComponent } from './components/current-drive-driver/current-drive-driver.component';
 import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
 import { MapUnregisteredComponent } from './components/map/map-unregistered/map-unregistered.component';
+<<<<<<< Updated upstream
+=======
+import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
+import { AddDriverComponent } from './components/add-driver/add-driver.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -31,6 +36,11 @@ import { MapUnregisteredComponent } from './components/map/map-unregistered/map-
     CurrentDriveDriverComponent,
     MapRegisteredComponent,
     MapUnregisteredComponent,
+<<<<<<< Updated upstream
+=======
+    DriverProfileComponent,
+    AddDriverComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
