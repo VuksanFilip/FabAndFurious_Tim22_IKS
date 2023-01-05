@@ -20,11 +20,8 @@ import { MapUnregisteredComponent } from './components/map/map-unregistered/map-
 import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
 import { AddDriverComponent } from './components/add-driver/add-driver.component';
 import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
-<<<<<<< Updated upstream
-=======
 import { HistoryPassengerComponent } from './components/map/history-passenger/history-passenger.component';
 import { FavoritesPassengerComponent } from './components/map/favorites-passenger/favorites-passenger.component';
->>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -42,11 +39,8 @@ import { FavoritesPassengerComponent } from './components/map/favorites-passenge
     DriverProfileComponent,
     AddDriverComponent,
     MapAdminComponent,
-<<<<<<< Updated upstream
-=======
     HistoryPassengerComponent,
     FavoritesPassengerComponent,
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

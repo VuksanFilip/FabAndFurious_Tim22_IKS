@@ -12,11 +12,8 @@ import { CurrentDriveDriverComponent } from './components/current-drive-driver/c
 import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
 import { MapUnregisteredComponent } from './components/map/map-unregistered/map-unregistered.component';
 import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
-<<<<<<< Updated upstream
-=======
 import { HistoryPassengerComponent } from './components/map/history-passenger/history-passenger.component';
 import { FavoritesPassengerComponent } from './components/map/favorites-passenger/favorites-passenger.component';
->>>>>>> Stashed changes
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,11 +32,8 @@ const routes: Routes = [
   { path: 'add-driver', component: AddDriverComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
   { path: 'map-admin', component: MapAdminComponent },
-<<<<<<< Updated upstream
-=======
   { path: 'history-passenger', component: HistoryPassengerComponent },
   { path: 'favorites-passenger', component: FavoritesPassengerComponent },
->>>>>>> Stashed changes
 ];
 
 @NgModule({
