@@ -20,6 +20,7 @@ import { MapUnregisteredComponent } from './components/map/map-unregistered/map-
 import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
 import { AddDriverComponent } from './components/add-driver/add-driver.component';
 import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
+import { HistoryPassengerComponent } from './components/map/history-passenger/history-passenger.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MapAdminComponent } from './components/map/map-admin/map-admin.componen
     DriverProfileComponent,
     AddDriverComponent,
     MapAdminComponent,
+    HistoryPassengerComponent,
   ],
   imports: [
     BrowserModule,
