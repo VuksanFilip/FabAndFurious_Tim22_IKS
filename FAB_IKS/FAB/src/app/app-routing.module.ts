@@ -14,6 +14,7 @@ import { MapUnregisteredComponent } from './components/map/map-unregistered/map-
 import { DriverProfileComponent } from './components/driver-profile/driver-profile.component';
 import { HistoryPassengerComponent } from './components/map/history-passenger/history-passenger.component';
 import { FavoritesPassengerComponent } from './components/map/favorites-passenger/favorites-passenger.component';
+import { HistoryDriverComponent } from './components/map/history-driver/history-driver.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'map-admin', component: MapAdminComponent },
   { path: 'history-passenger', component: HistoryPassengerComponent },
   { path: 'favorites-passenger', component: FavoritesPassengerComponent },
+  { path: 'history-driver', component: HistoryDriverComponent },
 ];
 
 @NgModule({

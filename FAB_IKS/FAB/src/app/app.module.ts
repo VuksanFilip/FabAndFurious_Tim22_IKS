@@ -22,6 +22,7 @@ import { AddDriverComponent } from './components/add-driver/add-driver.component
 import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
 import { HistoryPassengerComponent } from './components/map/history-passenger/history-passenger.component';
 import { FavoritesPassengerComponent } from './components/map/favorites-passenger/favorites-passenger.component';
+import { HistoryDriverComponent } from './components/map/history-driver/history-driver.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FavoritesPassengerComponent } from './components/map/favorites-passenge
     MapAdminComponent,
     HistoryPassengerComponent,
     FavoritesPassengerComponent,
+    HistoryDriverComponent,
   ],
   imports: [
     BrowserModule,
