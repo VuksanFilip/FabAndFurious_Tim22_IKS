@@ -16,6 +16,7 @@ import { HistoryPassengerComponent } from './components/map/history-passenger/hi
 import { FavoritesPassengerComponent } from './components/map/favorites-passenger/favorites-passenger.component';
 import { HistoryDriverComponent } from './components/map/history-driver/history-driver.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'favorites-passenger', component: FavoritesPassengerComponent },
   { path: 'history-driver', component: HistoryDriverComponent },
   { path: 'reports', component: ReportsComponent },
+  { path: 'admin-profile', component: AdminProfileComponent },
 ];
 
 @NgModule({
