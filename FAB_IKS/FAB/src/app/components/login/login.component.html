@@ -48,8 +48,21 @@
           <button
             id="loginButton"
             class="btn btn-primary form-control loginButton"
+            [routerLink]="['/map']"
           >
-            LogIn
+            LogIn-passenger</button
+          ><button
+            id="loginButton"
+            class="btn btn-primary form-control loginButton"
+            [routerLink]="['/driver-profile']"
+          >
+            LogIn-driver</button
+          ><button
+            id="loginButton"
+            class="btn btn-primary form-control loginButton"
+            [routerLink]="['/map-admin']"
+          >
+            LogIn-admin
           </button>
         </div>
         <div class="form-group" class="noAccount">

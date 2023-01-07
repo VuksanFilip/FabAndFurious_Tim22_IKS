@@ -179,8 +179,18 @@
       </div>
 
       <div class="form-group">
-        <button id="registrationButton" class="btn btn-primary form-control">
-          Register
+        <button
+          id="registrationButton"
+          class="btn btn-primary form-control"
+          [routerLink]="['/map-admin']"
+        >
+          SignUp-admin</button
+        ><button
+          id="registrationButton"
+          class="btn btn-primary form-control"
+          [routerLink]="['map-registered']"
+        >
+          SignUp-passenger
         </button>
       </div>
     </form>

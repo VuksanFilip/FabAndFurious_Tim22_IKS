@@ -2,7 +2,7 @@
   <div id="profile-container">
     <div id="profile-picture"></div>
     <br />
-    <a class="col-sm-6">Change photo</a>
+    <a class="col-sm-6">Add photo</a>
     <h1 style="margin-top: 5vh">New driver</h1>
     <div id="profile-info">
       <form>
@@ -32,8 +32,12 @@
             <input type="password" class="form-control" />
           </div>
           <div class="form-group">
-            <button class="btn" id="save-btn">Save</button>
-            <button class="btn" id="cancel-btn">Cancel</button>
+            <button class="btn" id="save-btn" [routerLink]="['admin-map']">
+              Save
+            </button>
+            <button class="btn" id="cancel-btn" [routerLink]="['admin-map']">
+              Cancel
+            </button>
           </div>
         </fieldset>
       </form>

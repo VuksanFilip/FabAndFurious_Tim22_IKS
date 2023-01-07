@@ -7,10 +7,20 @@
     <div id="registration_title">
       <div class="row">
         <h1 style="width: 50%">Ride history</h1>
-        <button class="btn row" id="cancel-btn" style="width: 25%">
+        <button
+          class="btn row"
+          id="cancel-btn"
+          style="width: 25%"
+          [routerLink]="['/favorites-passenger']"
+        >
           Favorites
         </button>
-        <button class="btn row" id="cancel-btn" style="width: 25%">
+        <button
+          class="btn row"
+          id="cancel-btn"
+          style="width: 25%"
+          [routerLink]="['/reports']"
+        >
           Make report
         </button>
       </div>
