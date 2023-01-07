@@ -6,13 +6,29 @@
         <div class="row">
           <form [formGroup]="routeForm" (ngSubmit)="route()">
             <mat-form-field>
-              <input matInput type="text" name="from" formControlName="from" placeholder="From" id="input">
+              <input
+                matInput
+                type="text"
+                name="from"
+                formControlName="from"
+                placeholder="From"
+                id="input"
+              />
             </mat-form-field>
             <mat-form-field>
-              <input matInput type="text" name="to" formControlName="to" placeholder="To" id="input">
+              <input
+                matInput
+                type="text"
+                name="to"
+                formControlName="to"
+                placeholder="To"
+                id="input"
+              />
             </mat-form-field>
             <div fxLayout="row" fxLayoutAlign="space-between end">
-              <button type="submit" mat-raised-button id="showRoute">Show route</button>
+              <button type="submit" mat-raised-button id="showRoute">
+                Show route
+              </button>
             </div>
           </form>
 
@@ -23,12 +39,11 @@
           <div class="col-sm-6" style="width: 100%">
             <input class="browser-default custom-select mb-4" id="input" placeholder="To">
           </div> -->
-          
         </div>
-  
+
         <div class="row" style="margin-top: 4vh">
           <div class="col-sm-6">Average time</div>
-  
+
           <div class="col-sm-6">Price</div>
           <div class="row">
             <div class="col-sm-6">
@@ -36,7 +51,7 @@
                 Time
               </div>
             </div>
-  
+
             <div class="col-sm-6">
               <div type="text" class="form-control mb-4" style="color: gray">
                 Price
@@ -44,7 +59,7 @@
             </div>
           </div>
         </div>
-  
+
         <div style="margin-top: 4vh">Select</div>
         <div class="row">
           <div class="col-sm-6">
@@ -52,7 +67,7 @@
               ><input type="radio" name="gender" value="male" />Now</label
             >
           </div>
-  
+
           <div class="col-sm-6">
             <label class="radiobtn"
               ><input
@@ -63,7 +78,7 @@
             >
           </div>
         </div>
-  
+
         <div>
           <input
             type="date"
@@ -72,21 +87,22 @@
             style="color: gray"
           />
         </div>
-  
+
         <div class="row" style="margin-top: 4vh">
           <div class="row">
             <div class="col-sm-6">
               <button
                 id="registrationButton"
                 class="btn btn-primary form-control"
+                [routerLink]="['/billing']"
               >
                 Confirm order
               </button>
             </div>
-  
+
             <div class="col-sm-6">
               <button id="cancelButton" class="btn btn-primary form-control">
-                Cancel
+                Restore
               </button>
             </div>
           </div>
@@ -94,10 +110,8 @@
       </form>
     </div>
   </div>
-    
-    
+
   <div class="map-container">
-      <div id="map"></div>
+    <div id="map"></div>
   </div>
 </div>
-  

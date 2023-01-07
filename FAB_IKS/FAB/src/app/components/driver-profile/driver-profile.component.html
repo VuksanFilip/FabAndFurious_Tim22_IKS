@@ -45,8 +45,14 @@
             <input type="password" class="form-control" value="pera123" />
           </div>
           <div class="form-group">
-            <button class="btn" id="save-btn">Save</button>
-            <button class="btn" id="cancel-btn">Cancel</button>
+            <button class="btn" id="save-btn">Send request</button>
+            <button
+              class="btn"
+              id="cancel-btn"
+              [routerLink]="['/driver-profile']"
+            >
+              Cancel
+            </button>
           </div>
         </fieldset>
       </form>
@@ -58,6 +64,7 @@
       <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
         <div style="margin-left: 30%">Image</div>
         <div id="car-picture"></div>
+        <a class="col-sm-6" style="margin-left: 30%">Change photo</a>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
