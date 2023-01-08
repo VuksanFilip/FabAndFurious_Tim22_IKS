@@ -1,5 +1,14 @@
-<mat-toolbar id="toolbar">
-  <span class="toolbar-content">
+<link href="assets/img/favicon.png" rel="icon" />
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+<link href="https://fonts.gstatic.com" rel="preconnect" />
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet"
+/>
+
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
     <button
       mat-icon-button
       [matMenuTriggerFor]="menu"
@@ -8,61 +17,93 @@
     >
       <mat-icon id="icon">menu</mat-icon>
     </button>
-    <mat-menu #menu="matMenu" [overlapTrigger]="false">
-      <span (mouseleave)="menuTrigger.closeMenu()">
-        <button mat-menu-item [routerLink]="['/login']">
-          <span>LogIn</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/registration']">
-          <span>SignUp</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/admin-profile']">
-          <span>Admin profile</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/passenger-profile']">
-          <span>Passenger profile</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/driver-profile']">
-          <span>Driver profile</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/map']">
-          <span>Map for registered</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/map-unregistered']">
-          <span>Map for unregistered</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/billing']">
-          <span>Billing</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/current-drive-passenger']">
-          <span>Current drive-passenger</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/current-drive-driver']">
-          <span>Current drive-driver</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/map-admin']">
-          <span>Map admin</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/add-driver']">
-          <span>Add driver</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/history-passenger']">
-          <span>Passenger history</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/favorites-passenger']">
-          <span>Passenger favorites</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/history-driver']">
-          <span>Driver history</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/reports']">
-          <span>Choosing reports</span>
-        </button>
-        <button mat-menu-item [routerLink]="['/report']">
-          <span>Report</span>
-        </button>
-      </span>
-    </mat-menu>
-  </span>
-  <span class="toolbar-content" id="title">FAB CAR</span>
-</mat-toolbar>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">FAB Car</span>
+    </a>
+  </div>
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+      <li class="nav-item dropdown pe-3">
+        <a
+          class="nav-link nav-profile d-flex align-items-center pe-0"
+          data-bs-toggle="dropdown"
+        >
+          <button
+            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+            [routerLink]="['passenger-profile']"
+          >
+            My profile-passenger
+          </button>
+          <button
+            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+            [routerLink]="['driver-profile']"
+          >
+            My profile-driver
+          </button>
+          <button
+            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+            [routerLink]="['admin-profile']"
+          >
+            My profile-admin
+          </button>
+          <button
+            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+            [routerLink]="['map-unregistered']"
+          >
+            SignOut
+          </button>
+
+          <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <span
+              (mouseleave)="menuTrigger.closeMenu()"
+              id="sidebar"
+              class="sidebar"
+            >
+              <div>PASSENGER</div>
+              <button mat-menu-item [routerLink]="['/current-drive-passenger']">
+                <span>Current drive</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/map']">
+                <span>Find route</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/history-passenger']">
+                <span>Ride history</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/reports']">
+                <span>Reports</span>
+              </button>
+              <div>DRIVER</div>
+              <button mat-menu-item [routerLink]="['/current-drive-driver']">
+                <span>Current drive</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/history-driver']">
+                <span>Ride history</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/reports']">
+                <span>Reports</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/reports']">
+                <span>Statistics</span>
+              </button>
+              <div>ADMINISTRATOR</div>
+              <button mat-menu-item [routerLink]="['/map-admin']">
+                <span>Map</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/add-driver']">
+                <span>Add driver</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/reports']">
+                <span>Requests</span>
+              </button>
+              <button mat-menu-item [routerLink]="['/reports']">
+                <span>Rides and reports</span>
+              </button>
+            </span>
+          </mat-menu>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<!-- End Header -->
