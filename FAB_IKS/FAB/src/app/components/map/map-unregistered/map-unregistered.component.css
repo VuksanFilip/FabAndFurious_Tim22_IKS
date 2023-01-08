@@ -2,15 +2,6 @@ form {
   margin: 30px;
 }
 
-#bg {
-  height: 100vh;
-  background: url("../../../../assets/images/map.jpg") no-repeat center center
-    fixed;
-  background-size: cover;
-  position: relative;
-  margin-top: 50px;
-}
-
 #containter {
   position: absolute;
   float: left;
@@ -19,6 +10,7 @@ form {
   background: rgba(255, 255, 255, 0.8);
   border-top-right-radius: 5%;
   border-bottom-right-radius: 5%;
+  margin-top: 50px;
 }
 
 #registrationButton {
@@ -144,4 +136,17 @@ select:focus {
 
 .fa-train {
   color: red;
+}
+
+.map-container {
+  position: absolute;
+  float: left;
+  top: 0;
+  left: 25vw;
+  right: 0;
+  bottom: 0;
+}
+
+#map {
+  height: 100%;
 }
