@@ -8,6 +8,7 @@ form {
     fixed;
   background-size: cover;
   position: relative;
+  margin-top: 50px;
 }
 
 #containter {

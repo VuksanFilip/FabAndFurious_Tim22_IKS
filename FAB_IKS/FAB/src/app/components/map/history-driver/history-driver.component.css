@@ -9,6 +9,7 @@ form {
   background: rgba(255, 255, 255, 0.8);
   border-top-right-radius: 5%;
   border-bottom-right-radius: 5%;
+  margin-top: 50px;
 }
 
 #row {
@@ -145,7 +146,7 @@ select:focus {
 .map-container {
   position: absolute;
   float: left;
-  top: 8vh;
+  top: 0;
   left: 25vw;
   right: 0;
   bottom: 0;
