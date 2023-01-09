@@ -1,11 +1,11 @@
 <div class="bg">
-  <div id="profile-container">
-    <div id="profile-picture"></div>
-    <br />
-    <a class="col-sm-6">Change photo</a>
-    <h1 style="margin-top: 5vh">My profile</h1>
-    <div id="profile-info">
-      <form>
+  <form action="/action_page.php">
+    <div id="profile-container">
+      <div id="profile-picture"></div>
+      <br />
+      <a class="col-sm-6" style="color: #805d84">Change photo</a>
+      <h1 style="margin-top: 2vh">My profile</h1>
+      <div id="profile-info">
         <fieldset>
           <div class="form-group">
             <label for="firstname">First Name</label>
@@ -45,26 +45,30 @@
             <input type="password" class="form-control" value="pera123" />
           </div>
           <div class="form-group">
+            <label for="password">Confirm password</label>
+            <input type="password" class="form-control" value="pera123" />
+          </div>
+          <div class="form-group">
             <button class="btn" id="save-btn">Send request</button>
             <button class="btn" id="cancel-btn" type="reset" value="reset">
               Cancel
             </button>
           </div>
         </fieldset>
-      </form>
-    </div>
-  </div>
-  <div id="car-info-container">
-    <h1>Car info</h1>
-    <hr />
-    <div class="row">
-      <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
-        <div style="margin-left: 30%">Image</div>
-        <div id="car-picture"></div>
-        <a class="col-sm-6" style="margin-left: 30%">Change photo</a>
       </div>
-      <div class="col-sm-6">
-        <form action="/action_page.php">
+    </div>
+    <div id="car-info-container">
+      <h1>Car info</h1>
+      <hr />
+      <div class="row">
+        <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
+          <div style="margin-left: 30%">Image</div>
+          <div id="car-picture"></div>
+          <a class="col-sm-6" style="margin-left: 30%; color: #805d84"
+            >Change photo</a
+          >
+        </div>
+        <div class="col-sm-6">
           <div class="form-group">
             <label for="cartype">Car type</label>
             <input
@@ -91,23 +95,9 @@
             style="width: 40%"
           />
           <label for="pets" style="width: 40%"> Pets allowed</label><br />
-          <div class="form-group">
-            <button class="btn" id="save-btn" style="width: 40%">
-              Send request
-            </button>
-            <button
-              class="btn"
-              id="cancel-btn"
-              style="width: 40%; margin: 0"
-              type="reset"
-              value="reset"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
+      <hr />
     </div>
-    <hr />
-  </div>
+  </form>
 </div>
