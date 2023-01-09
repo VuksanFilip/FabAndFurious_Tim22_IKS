@@ -4,7 +4,7 @@ form {
 
 #bg {
   height: 100vh;
-  background: url("../../../assets/images/map.jpg") no-repeat center center
+  background: url("../../../assets/images/carFAB.jpg") no-repeat center center
     fixed;
   background-size: cover;
   position: relative;
@@ -13,11 +13,15 @@ form {
 #containter {
   position: absolute;
   float: left;
+  top: 50px;
   width: 100vw;
   height: 40vh;
   background: rgba(255, 255, 255, 0.9);
   border-bottom-left-radius: 5%;
   border-bottom-right-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #registrationButton {

@@ -34,31 +34,23 @@
               <div class="col-sm-6">Average time</div>
 
               <div class="col-sm-6">Price</div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div
-                    type="text"
-                    class="form-control mb-4"
-                    style="color: gray"
-                  >
-                    Time
-                  </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div type="text" class="form-control mb-4" style="color: gray">
+                  Time
                 </div>
+              </div>
 
-                <div class="col-sm-6">
-                  <div
-                    type="text"
-                    class="form-control mb-4"
-                    style="color: gray"
-                  >
-                    Price
-                  </div>
+              <div class="col-sm-6">
+                <div type="text" class="form-control mb-4" style="color: gray">
+                  Price
                 </div>
               </div>
             </div>
 
-            <div style="margin-top: 4vh">Select</div>
-            <div class="row">
+            <div style="margin-top: 4vh">When do you want to take a ride?</div>
+            <div class="row" style="margin-top: 1vh">
               <div class="col-sm-6">
                 <label class="radiobtn"
                   ><input type="radio" name="gender" value="male" />Now</label
@@ -86,27 +78,22 @@
             </div>
 
             <div class="row" style="margin-top: 4vh">
-              <div class="row">
-                <div class="col-sm-6">
-                  <button
-                    id="registrationButton"
-                    class="btn btn-primary form-control"
-                    [routerLink]="['/billing']"
-                  >
-                    Confirm order
-                  </button>
-                </div>
-
-                <div class="col-sm-6">
-                  <button
-                    id="cancelButton"
-                    class="btn btn-primary form-control"
-                    type="reset"
-                    value="reset"
-                  >
-                    Restore
-                  </button>
-                </div>
+              <div class="form-group">
+                <button
+                  id="save-btn"
+                  class="btn form-control"
+                  [routerLink]="['/billing']"
+                >
+                  Confirm
+                </button>
+                <button
+                  id="cancel-btn"
+                  class="btn form-control"
+                  type="reset"
+                  value="reset"
+                >
+                  Restore
+                </button>
               </div>
             </div>
           </form>
