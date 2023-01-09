@@ -3,79 +3,253 @@
     <div id="profile-picture"></div>
     <br />
     <a class="col-sm-6">Add photo</a>
-    <h1 style="margin-top: 5vh">New driver</h1>
+    <h1 style="margin-top: 2vh">New driver</h1>
     <div id="profile-info">
-      <form>
-        <fieldset>
-          <div class="form-group">
-            <label for="firstname">First Name</label>
-            <input type="text" class="form-control" />
+      <form [formGroup]="addDriver" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input
+            formControlName="firstName"
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.firstName.errors
+            }"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.firstName.errors"
+            class="text-danger"
+          >
+            <div
+              *ngIf="submitted && addDriver.controls.firstName.errors.required"
+            >
+              First Name is required
+            </div>
           </div>
-          <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input
+            formControlName="lastName"
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.lastName.errors
+            }"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.lastName.errors"
+            class="text-danger"
+          >
+            <div
+              *ngIf="submitted && addDriver.controls.lastName.errors.required"
+            >
+              Last Name is required
+            </div>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" pattern="[0-9]{10}" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            formControlName="phone"
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.phone.errors
+            }"
+            type="tel"
+            pattern="[0-9]{10}"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.phone.errors"
+            class="text-danger"
+          >
+            <div *ngIf="submitted && addDriver.controls.phone.errors.required">
+              Phone is required
+            </div>
           </div>
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            formControlName="address"
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.address.errors
+            }"
+            type="text"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.address.errors"
+            class="text-danger"
+          >
+            <div
+              *ngIf="submitted && addDriver.controls.address.errors.required"
+            >
+              Address is required
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.email.errors
+            }"
+            formControlName="email"
+            type="email"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.email.errors"
+            class="text-danger"
+          >
+            <div *ngIf="submitted && addDriver.controls.email.errors.required">
+              Email Address is required
+            </div>
+            <div
+              *ngIf="f['email'].getError('email') != null"
+              class="errormessage"
+            >
+              Email Address is not Valid
+            </div>
+            <div
+              *ngIf="f['email'].getError('email') != null"
+              class="errormessage"
+            >
+              Incorrect form
+            </div>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            [ngClass]="{
+              'is-invalid': submitted && addDriver.controls.password.errors
+            }"
+            formControlName="password"
+            type="password"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.password.errors"
+            class="text-danger"
+          >
+            <div
+              *ngIf="submitted && addDriver.controls.password.errors.required"
+            >
+              Password is required
+            </div>
+            <div
+              *ngIf="f['password'].getError('minlength') != null"
+              class="errormessage"
+            >
+              Password should be atleast 8 characters
+            </div>
           </div>
-          <div class="form-group">
-            <button class="btn" id="save-btn" [routerLink]="['admin-map']">
-              Save
-            </button>
-            <button class="btn" id="cancel-btn" type="reset" value="reset">
-              Cancel
-            </button>
+        </div>
+        <div class="form-group">
+          <label for="confirmepassword">Confirme Password</label>
+          <input
+            formControlName="confirmePassword"
+            [ngClass]="{
+              'is-invalid':
+                submitted && addDriver.controls.confirmePassword.errors
+            }"
+            type="password"
+            class="form-control"
+          />
+          <div
+            *ngIf="submitted && addDriver.controls.confirmePassword.errors"
+            class="text-danger"
+          >
+            <div
+              *ngIf="
+                submitted && addDriver.controls.confirmePassword.errors.required
+              "
+            >
+              Confirme password is required
+            </div>
+            <div
+              *ngIf="f['confirmePassword'].getError('mustMatch') != null"
+              class="errormessage"
+            >
+              Confirme password should match
+            </div>
           </div>
-        </fieldset>
+        </div>
+
+        <div class="form-group">
+          <button id="registrationButton" class="btn btn-primary form-control">
+            Save</button
+          ><button
+            id="registrationButton"
+            class="btn btn-primary form-control"
+            type="reset"
+            value="reset"
+          >
+            Restore
+          </button>
+        </div>
       </form>
     </div>
   </div>
   <div id="car-info-container">
-    <h1>Car info</h1>
-    <div class="row">
-      <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
-        <div style="margin-left: 30%">Image</div>
-        <div id="car-picture"></div>
-        <a class="col-sm-6" style="margin-left: 30%">Add photo</a>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="cartype">Car type</label>
-          <input type="text" class="form-control" style="width: 90%" />
+    <form [formGroup]="addDriver" (ngSubmit)="onSubmit()">
+      <h1>Car info</h1>
+      <div class="row">
+        <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
+          <div style="margin-left: 30%">Image</div>
+          <div id="car-picture"></div>
+          <a class="col-sm-6" style="margin-left: 30%">Add photo</a>
         </div>
-        <form action="/action_page.php">
-          <input
-            type="checkbox"
-            id="babies"
-            name="babies"
-            value="Baby"
-            style="width: 40%"
-          />
-          <label for="babies" style="width: 40%"> Babies allowed</label><br />
-          <input
-            type="checkbox"
-            id="pets"
-            name="pets"
-            value="Pet"
-            style="width: 40%"
-          />
-          <label for="pets" style="width: 40%"> Pets allowed</label><br />
-        </form>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="cartype">Car type</label>
+              <input
+                formControlName="cartype"
+                [ngClass]="{
+                  'is-invalid': submitted && addDriver.controls.cartype.errors
+                }"
+                type="text"
+                class="form-control"
+                style="width: 90%"
+              />
+              <div
+                *ngIf="submitted && addDriver.controls.cartype.errors"
+                class="text-danger"
+              >
+                <div
+                  *ngIf="
+                    submitted && addDriver.controls.cartype.errors.required
+                  "
+                >
+                  Car type is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <form action="/action_page.php">
+            <input
+              type="checkbox"
+              id="babies"
+              name="babies"
+              value="Baby"
+              style="width: 40%"
+            />
+            <label for="babies" style="width: 40%"> Babies allowed</label><br />
+            <input
+              type="checkbox"
+              id="pets"
+              name="pets"
+              value="Pet"
+              style="width: 40%"
+            />
+            <label for="pets" style="width: 40%"> Pets allowed</label><br />
+          </form>
+        </div>
       </div>
-    </div>
+    </form>
     <hr />
   </div>
 </div>
