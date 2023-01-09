@@ -1,0 +1,29 @@
+<div class="bg">
+  <div id="profile-container">
+    <h1 style="margin-top: 5vh">Reports</h1>
+    <div style="margin-top: 5vh">
+      <form>
+        <label for="birthday">From:</label>
+        <input type="date" id="from" name="from" />
+        <label for="birthday">To:</label>
+        <input type="date" id="to" name="to" />
+        <div style="padding: 5vh">
+          <div>Choose report type</div>
+          <select class="form-select" aria-label="Choose report type">
+            <option value="1">Spent money per day</option>
+            <option value="2">Kilometres per day</option>
+            <option value="3">Rides per day</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn" id="save-btn" [routerLink]="['/report']">
+            See report
+          </button>
+          <button class="btn" id="cancel-btn" type="reset" value="reset">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
