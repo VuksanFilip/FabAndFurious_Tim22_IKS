@@ -26,6 +26,7 @@ import { HistoryDriverComponent } from './components/map/history-driver/history-
 import { ReportsComponent } from './components/reports/reports.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ReportComponent } from './components/report/report.component';
+import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ReportComponent } from './components/report/report.component';
     ReportsComponent,
     AdminProfileComponent,
     ReportComponent,
+    ReportsPassengerComponent,
   ],
   imports: [
     BrowserModule,
