@@ -12,11 +12,6 @@ form {
   margin-top: 50px;
 }
 
-#row {
-  height: 6px;
-  background-color: red;
-}
-
 #registrationButton,
 #showRoute {
   color: white;
@@ -86,7 +81,6 @@ div.card-body {
 .custom-select {
   width: 100%;
 }
-
 .btn2 {
   margin-left: 10%;
 }
@@ -158,7 +152,6 @@ select:focus {
 
 div.stars {
   width: 50%;
-  display: inline-block;
 }
 
 input.star {
@@ -213,9 +206,11 @@ label.star:before {
 }
 
 .border {
-  border-style: inset;
+  border-style: double;
   border-width: 3px;
   padding: 5%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 #small {

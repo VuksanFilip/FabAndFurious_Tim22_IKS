@@ -6,16 +6,16 @@
   <div id="containter">
     <div id="registration_title">
       <div class="row">
-        <h1 style="width: 50%">Favorites</h1>
-        <button
-          class="btn row"
-          id="cancel-btn"
-          style="width: 50%"
-          [routerLink]="['/history-passenger']"
-        >
-          All rides
-        </button>
+        <h1 style="width: 100%">Favorites</h1>
       </div>
+      <button
+        class="btn row"
+        id="cancel-btn"
+        style="width: 50%"
+        [routerLink]="['/history-passenger']"
+      >
+        All rides
+      </button>
       <form
         style="
           width: 100%;
@@ -25,12 +25,17 @@
           padding: 2px;
         "
       >
-        <div class="row">
+        <div
+          class="row"
+          style="width: 90%; margin-left: 5%; margin-bottom: 15px"
+        >
           <div class="row border">
             <div>
-              <div class="row">
+              <div class="row" style="line-height: 2">
                 <div class="row" style="width: 50%">10.01.2023.</div>
                 <div class="row" style="width: 50%">17min</div>
+
+                <hr />
                 <div class="row" style="width: 50%">From:</div>
                 <div class="row" style="width: 50%">adresa 1</div>
                 <div class="row" style="width: 50%">To:</div>
@@ -41,11 +46,13 @@
                 <div class="row" style="width: 50%">name</div>
                 <div class="row" style="width: 50%">Address:</div>
                 <div class="row" style="width: 50%">Jug Bogdana 16</div>
-                <div class="row" style="width: 50%; margin-top: 10%">
+
+                <hr />
+                <div class="row" style="width: 50%; font-size: small">
                   Give your rate:
                 </div>
                 <div class="row stars">
-                  <form action="">
+                  <form action="" style="margin: 0">
                     <input
                       class="star star-5"
                       id="star-5"
@@ -83,26 +90,33 @@
                     <label class="star star-1" for="star-1"></label>
                   </form>
                 </div>
-                <div class="form-group" style="display: inline-block">
-                  <button class="btn row" id="save-btn" style="width: 50%">
-                    Message driver
+                <div
+                  class="form-group"
+                  style="display: inline-block; padding: 0"
+                >
+                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                    Add to favorites
                   </button>
                   <button class="btn row" id="cancel-btn" style="width: 50%">
-                    Remove from favorites
+                    Details
                   </button>
-                  <button class="btn row" id="cancel-btn">Details</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row" style="margin-top: 4vh">
-          <div class="row border" style="margin-top: 4vh">
+        <div
+          class="row"
+          style="width: 90%; margin-left: 5%; margin-bottom: 15px"
+        >
+          <div class="row border">
             <div>
-              <div class="row">
+              <div class="row" style="line-height: 2">
                 <div class="row" style="width: 50%">10.01.2023.</div>
                 <div class="row" style="width: 50%">17min</div>
+
+                <hr />
                 <div class="row" style="width: 50%">From:</div>
                 <div class="row" style="width: 50%">adresa 1</div>
                 <div class="row" style="width: 50%">To:</div>
@@ -113,11 +127,13 @@
                 <div class="row" style="width: 50%">name</div>
                 <div class="row" style="width: 50%">Address:</div>
                 <div class="row" style="width: 50%">Jug Bogdana 16</div>
-                <div class="row" style="width: 50%; margin-top: 10%">
-                  Very nice driver
+
+                <hr />
+                <div class="row" style="width: 50%; font-size: small">
+                  Very nice car and music!
                 </div>
                 <div class="row stars">
-                  <form action="">
+                  <form action="" style="margin: 0">
                     <input
                       class="star star-5"
                       id="star-5"
@@ -155,14 +171,16 @@
                     <label class="star star-1" for="star-1"></label>
                   </form>
                 </div>
-                <div class="form-group" style="display: inline-block">
-                  <button class="btn row" id="save-btn" style="width: 50%">
-                    Message driver
+                <div
+                  class="form-group"
+                  style="display: inline-block; padding: 0"
+                >
+                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                    Add to favorites
                   </button>
                   <button class="btn row" id="cancel-btn" style="width: 50%">
-                    Remove from favorites
+                    Details
                   </button>
-                  <button class="btn row" id="cancel-btn">Details</button>
                 </div>
               </div>
             </div>
