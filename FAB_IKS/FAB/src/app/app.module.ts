@@ -27,6 +27,9 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
+import { PassengerNavbarComponent } from './components/passenger-navbar/passenger-navbar.component';
+import { DriverNavbarComponent } from './components/driver-navbar/driver-navbar.component';
+import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { ReportsPassengerComponent } from './components/reports-passenger/report
     AdminProfileComponent,
     ReportComponent,
     ReportsPassengerComponent,
+    PassengerNavbarComponent,
+    DriverNavbarComponent,
+    AdminNavbarComponent,
   ],
   imports: [
     BrowserModule,
