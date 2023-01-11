@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,36 +6,42 @@ import {
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-  login!: FormGroup;
-  title = 'angularvalidate';
-  submitted = false;
+export class LoginComponent {
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
+  hasError: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.login = this.formBuilder.group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required],
-    });
-  }
+  login(): void {
+    const loginVal = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    };
 
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.login.invalid) {
-      return;
+    if (this.loginForm.valid) {
+      this.authService.login(loginVal).subscribe({
+        next: (result) => {
+          localStorage.setItem('user', JSON.stringify(result));
+          this.authService.setUser();
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          if (error instanceof HttpErrorResponse) {
+            this.hasError = true;
+          }
+        },
+      });
     }
-    alert('Success');
-  }
-
-  get f() {
-    return this.login.controls;
   }
 }
