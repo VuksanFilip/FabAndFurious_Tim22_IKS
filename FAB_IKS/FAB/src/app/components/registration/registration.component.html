@@ -4,7 +4,7 @@
       <h1>SignUp</h1>
       <p>Hello! Please fill out the form bellow to register</p>
     </div>
-    <form [formGroup]="registration" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registration" (ngSubmit)="register()">
       <div class="form-group">
         <label for="firstname">First Name</label>
         <input
@@ -179,18 +179,18 @@
       </div>
 
       <div class="form-group">
-        <button
+        <!-- <button
           id="registrationButton"
           class="btn btn-primary form-control"
           [routerLink]="['/map-admin']"
         >
           SignUp-admin</button
-        ><button
+        > -->
+        <button
           id="registrationButton"
           class="btn btn-primary form-control"
-          [routerLink]="['map-registered']"
         >
-          SignUp-passenger
+          SignUp
         </button>
       </div>
     </form>
