@@ -32,13 +32,13 @@ export class PassengerService {
     return this.http.post<string>(
       environment.apiHost, 
       {
-        name: passenger.firstName,
-        surname: passenger.lastName,
-        profilePicture: null,
-        telephoneNumber: passenger.phone,
+        name: passenger.name,
+        surname: passenger.surname,
+        profilePicture: passenger.profilePicture,
+        telephoneNumber: passenger.telephoneNumber,
         email: passenger.email,
         address: passenger.address,
-        password: passenger.passenger,
+        password: passenger.password,
       },
       options
     );
@@ -46,11 +46,11 @@ export class PassengerService {
 }
 
 export interface Passenger {
-  _id: number;
-  firstName: string;
-  lastName: string;
-  phone: string;
-  address: string;
+  name: string;
+  surname: string;
+  profilePicture: string;
+  telephoneNumber: string;
   email: string;
+  address: string;
   password: string;
 }

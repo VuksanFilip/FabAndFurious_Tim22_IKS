@@ -4,107 +4,47 @@
       <h1>SignUp</h1>
       <p>Hello! Please fill out the form bellow to register</p>
     </div>
-    <form [formGroup]="registration" (ngSubmit)="register()">
+    <form [formGroup]="registrationForm" (ngSubmit)="register()">
       <div class="form-group">
         <label for="firstname">First Name</label>
         <input
-          formControlName="firstName"
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.firstName.errors
-          }"
+          formControlName="name"
           type="text"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.firstName.errors"
-          class="text-danger"
-        >
-          <div
-            *ngIf="submitted && registration.controls.firstName.errors.required"
-          >
-            First Name is required
-          </div>
-        </div>
       </div>
       <div class="form-group">
         <label for="lastname">Last Name</label>
         <input
-          formControlName="lastName"
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.lastName.errors
-          }"
+          formControlName="surname"
           type="text"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.lastName.errors"
-          class="text-danger"
-        >
-          <div
-            *ngIf="submitted && registration.controls.lastName.errors.required"
-          >
-            Last Name is required
-          </div>
-        </div>
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
         <input
-          formControlName="phone"
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.phone.errors
-          }"
+          formControlName="telephoneNumber"
           type="tel"
           pattern="[0-9]{10}"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.phone.errors"
-          class="text-danger"
-        >
-          <div *ngIf="submitted && registration.controls.phone.errors.required">
-            Phone is required
-          </div>
-        </div>
       </div>
       <div class="form-group">
         <label for="address">Address</label>
         <input
           formControlName="address"
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.address.errors
-          }"
           type="text"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.address.errors"
-          class="text-danger"
-        >
-          <div
-            *ngIf="submitted && registration.controls.address.errors.required"
-          >
-            Address is required
-          </div>
-        </div>
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
         <input
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.email.errors
-          }"
           formControlName="email"
           type="email"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.email.errors"
-          class="text-danger"
-        >
-          <div *ngIf="submitted && registration.controls.email.errors.required">
-            Email Address is required
-          </div>
           <div
             *ngIf="f['email'].getError('email') != null"
             class="errormessage"
@@ -118,26 +58,13 @@
             Incorrect form
           </div>
         </div>
-      </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input
-          [ngClass]="{
-            'is-invalid': submitted && registration.controls.password.errors
-          }"
           formControlName="password"
           type="password"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.password.errors"
-          class="text-danger"
-        >
-          <div
-            *ngIf="submitted && registration.controls.password.errors.required"
-          >
-            Password is required
-          </div>
           <div
             *ngIf="f['password'].getError('minlength') != null"
             class="errormessage"
@@ -145,39 +72,20 @@
             Password should be atleast 8 characters
           </div>
         </div>
-      </div>
       <div class="form-group">
-        <label for="confirmepassword">Confirme Password</label>
+        <label for="confirmepassword">Confirm Password</label>
         <input
           formControlName="confirmePassword"
-          [ngClass]="{
-            'is-invalid':
-              submitted && registration.controls.confirmePassword.errors
-          }"
           type="password"
           class="form-control"
         />
-        <div
-          *ngIf="submitted && registration.controls.confirmePassword.errors"
-          class="text-danger"
-        >
-          <div
-            *ngIf="
-              submitted &&
-              registration.controls.confirmePassword.errors.required
-            "
-          >
-            Confirme password is required
-          </div>
           <div
             *ngIf="f['confirmePassword'].getError('mustMatch') != null"
             class="errormessage"
           >
-            Confirme password should match
+            Confirm password should match
           </div>
         </div>
-      </div>
-
       <div class="form-group">
         <!-- <button
           id="registrationButton"
