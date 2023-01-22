@@ -14,6 +14,8 @@ export class MapRegisteredComponent implements AfterViewInit {
   // markers: Array<any> = [];
   fromMarker: any;
   toMarker: any;
+  departureMarker: any;
+  destinationMarker: any;
   // fromMarkerLat: any;
   // fromMarkerLng: any;
   // toMarkerLat: any;
@@ -45,22 +47,39 @@ export class MapRegisteredComponent implements AfterViewInit {
 
     // this.search();
     // this.addMarker();
-    this.registerOnClick();
+    // this.registerOnClick();
     // this.route();
+    // this.currentRide();
+    // L.Marker([result[0].lat, result[0].lng]).addTo(this.map)
   }
 
-  // search(): void {
-  //   this.mapService.search('Svetog Nikole 103 Zabalj').subscribe({
-  //     next: (result) => {
-  //       console.log(result);
-  //       L.marker([result[0].lat, result[0].lon])
-  //         .addTo(this.map)
-  //         .bindPopup('Pozdrav iz Zabalj.')
-  //         .openPopup();
-  //     },
-  //     error: () => {},
-  //   });
-  // }
+  currentRide() : void {
+    this.search("Kosovska 12, Novi Sad");
+    this.search("Jug Bogdana 10, Novi Sad");
+    // this.mapService.search('Kosovska 12, Novi Sad').subscribe({
+    //   next: (result) => {
+    //     this.departureMarker = new L.Marker([result[0].lat, result[0].lng]).addTo(this.map);
+    //   }
+    // })
+    // this.mapService.search('Jug Bogdana 10, Novi Sad').subscribe({
+    //   next: (result) => {
+    //     this.destinationMarker = new L.Marker([result[0].lat, result[0].lng]).addTo(this.map);
+    //   }
+    // })
+    // L.Routing.control({
+    //       waypoints: [L.latLng(this.departureMarker.getLatLng())],
+    //     }).addTo(this.map);
+  }
+
+  search(address: any){
+    this.mapService.search(address).subscribe({
+      next: (result) => {
+        L.marker([result[0].lat, result[0].lon])
+          .addTo(this.map);
+      },
+      error: () => {},
+    });
+  }
 
   registerOnClick(): void {
     this.map.on('click', (e: any) => {
