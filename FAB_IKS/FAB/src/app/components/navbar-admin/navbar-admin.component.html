@@ -10,10 +10,7 @@
 
     <nav class="header-nav ms-auto">
         <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
-            <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0">
-                Go Offline
-            </button>
-            <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['driver-profile']">
+            <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['admin-profile']">
                 MyProfile
             </button>
             <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['map-unregistered']">
@@ -22,17 +19,14 @@
 
             <mat-menu #menu="matMenu" [overlapTrigger]="false">
                 <span (mouseleave)="menuTrigger.closeMenu()" id="sidebar" class="sidebar">
-                    <button mat-menu-item [routerLink]="['current-drive-driver']">
+                    <button mat-menu-item>
                         <span>Map</span>
                     </button>
-                    <button mat-menu-item [routerLink]="['history-driver']">
-                        <span>History</span>
-                    </button>
-                    <button mat-menu-item [routerLink]="['reports-passenger']">
-                        <span>Reports</span>
+                    <button mat-menu-item>
+                        <span>Manage user accounts</span>
                     </button>
                     <button mat-menu-item>
-                        <span>Notifications</span>
+                        <span>Reports</span>
                     </button>
                     <button mat-menu-item>
                         <span>Live support</span>
@@ -42,7 +36,3 @@
         </a>
     </nav>
 </header>
-
-
-
-
