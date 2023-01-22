@@ -1,0 +1,45 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+            <mat-icon id="icon">menu</mat-icon>
+        </button>
+        <a href="index.html" class="logo d-flex align-items-center">
+            <span class="d-none d-lg-block">FAB Car</span>
+        </a>
+    </div>
+
+    <nav class="header-nav ms-auto">
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
+            <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['passenger-profile']">
+                MyProfile
+            </button>
+            <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['map-unregistered']">
+                LogOut
+            </button>
+
+            <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                <span (mouseleave)="menuTrigger.closeMenu()" id="sidebar" class="sidebar">
+                    <button mat-menu-item [routerLink]="['current-drive-passenger']">
+                        <span>Map</span>
+                    </button>
+                    <button mat-menu-item [routerLink]="['history-passenger']">
+                        <span>History</span>
+                    </button>
+                    <button mat-menu-item [routerLink]="['reports-passenger']">
+                        <span>Reports</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>Notifications</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>Live support</span>
+                    </button>
+                </span>
+            </mat-menu>
+        </a>
+    </nav>
+</header>
+
+
+
+
