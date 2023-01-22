@@ -28,6 +28,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
+import { NavbarUnregisteredUserComponent } from './components/navbar-unregistered-user/navbar-unregistered-user.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ReportsPassengerComponent } from './components/reports-passenger/report
     AdminProfileComponent,
     ReportComponent,
     ReportsPassengerComponent,
+    NavbarUnregisteredUserComponent,
   ],
   imports: [
     BrowserModule,
