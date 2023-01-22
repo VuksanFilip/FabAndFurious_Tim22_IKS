@@ -5,21 +5,19 @@
 <div id="bg">
   <div id="containter">
     <div id="registration_title">
-      <div class="row">
+      <div>
         <h1 style="width: 100%">Ride history</h1>
       </div>
       <button
         class="btn row"
-        id="cancel-btn"
-        style="width: 50%"
+        id="favorites"
         [routerLink]="['/favorites-passenger']"
       >
         Favorites
       </button>
       <button
         class="btn row"
-        id="cancel-btn"
-        style="width: 50%"
+        id="report"
         [routerLink]="['/reports']"
       >
         Make report
@@ -102,10 +100,10 @@
                   class="form-group"
                   style="display: inline-block; padding: 0"
                 >
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Add to favorites
                   </button>
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Details
                   </button>
                 </div>
@@ -183,10 +181,10 @@
                   class="form-group"
                   style="display: inline-block; padding: 0"
                 >
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Add to favorites
                   </button>
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Details
                   </button>
                 </div>
@@ -260,10 +258,10 @@
                   class="form-group"
                   style="display: inline-block; padding: 0"
                 >
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Add to favorites
                   </button>
-                  <button class="btn row" id="cancel-btn" style="width: 50%">
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
                     Details
                   </button>
                 </div>
@@ -273,9 +271,5 @@
         </div>
       </form>
     </div>
-  </div>
-
-  <div class="map-container">
-    <div id="map"></div>
   </div>
 </div>
