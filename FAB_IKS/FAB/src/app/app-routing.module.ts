@@ -20,6 +20,8 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
+import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
+import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,6 +48,14 @@ const routes: Routes = [
   { path: 'report', component: ReportComponent },
   { path: 'reports-passenger', component: ReportsPassengerComponent },
   { path: 'ride-details', component: RideDetailsComponent },
+  {
+    path: 'incoming-rides-passenger',
+    component: IncomingRidesPassengerComponent,
+  },
+  {
+    path: 'incoming-rides-driver',
+    component: IncomingRidesDriverComponent,
+  },
 ];
 
 @NgModule({
