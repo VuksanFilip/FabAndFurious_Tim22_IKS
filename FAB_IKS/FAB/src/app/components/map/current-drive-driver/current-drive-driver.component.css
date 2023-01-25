@@ -13,6 +13,23 @@ form {
   margin-top: 50px;
 }
 
+.btn {
+  margin: 20px;
+  margin-left: 25%;
+  width: 50%;
+}
+
+#save-btn {
+  background-color: #805d84;
+  color: white;
+}
+
+#cancel-btn {
+  background-color: white;
+  color: #805d84;
+  outline-color: #805d84;
+}
+
 #registrationButton {
   color: white;
   background-color: #805d84;
