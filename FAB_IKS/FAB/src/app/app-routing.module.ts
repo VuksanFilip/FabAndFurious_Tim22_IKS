@@ -19,6 +19,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
+import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'report', component: ReportComponent },
   { path: 'reports-passenger', component: ReportsPassengerComponent },
+  { path: 'ride-details', component: RideDetailsComponent },
 ];
 
 @NgModule({
