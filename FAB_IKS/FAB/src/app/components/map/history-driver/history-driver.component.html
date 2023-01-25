@@ -5,13 +5,17 @@
 <div id="bg">
   <div id="containter">
     <div id="registration_title">
-      <div class="row">
+      <div>
         <h1 style="width: 100%">Ride history</h1>
       </div>
-      <button class="btn row" id="cancel-btn" style="width: 50%">
+      <button
+        class="btn row"
+        id="favorites"
+        [routerLink]="['/favorites-passenger']"
+      >
         Statistics
       </button>
-      <button class="btn row" id="cancel-btn" style="width: 50%">
+      <button class="btn row" id="report" [routerLink]="['/reports']">
         Make report
       </button>
       <form
@@ -32,6 +36,7 @@
               <div class="row" style="line-height: 2">
                 <div class="row" style="width: 50%">10.01.2023.</div>
                 <div class="row" style="width: 50%">17min</div>
+
                 <hr />
                 <div class="row" style="width: 50%">From:</div>
                 <div class="row" style="width: 50%">adresa 1</div>
@@ -39,21 +44,14 @@
                 <div class="row" style="width: 50%">adresa 2</div>
                 <div class="row" style="width: 50%">Passenger:</div>
                 <div class="row" style="width: 50%">name</div>
+                <div class="row" style="width: 50%">Driver:</div>
+                <div class="row" style="width: 50%">name</div>
                 <div class="row" style="width: 50%">Address:</div>
                 <div class="row" style="width: 50%">Jug Bogdana 16</div>
-                <hr />
-                <div class="row" style="color: #805d84">
-                  <div class="row" style="width: 50%">Price:</div>
-                  <div class="row" style="width: 50%">2000</div>
-                  <div class="row" style="width: 50%">Duration:</div>
-                  <div class="row" style="width: 50%">20min</div>
-                  <div class="row" style="width: 50%">Distance:</div>
-                  <div class="row" style="width: 50%">9km</div>
-                </div>
-                <hr />
 
+                <hr />
                 <div class="row" style="width: 50%; font-size: small">
-                  Nice car and music
+                  Give your rate:
                 </div>
                 <div class="row stars">
                   <form action="" style="margin: 0">
@@ -94,8 +92,21 @@
                     <label class="star star-1" for="star-1"></label>
                   </form>
                 </div>
-                <div class="form-group" style="display: inline-block">
-                  <button class="btn row" id="cancel-btn">Details</button>
+                <div
+                  class="form-group"
+                  style="display: inline-block; padding: 0"
+                >
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
+                    Add to favorites
+                  </button>
+                  <button
+                    class="btn row"
+                    id="cancel-btn"
+                    style="width: 30%"
+                    [routerLink]="['/ride-details']"
+                  >
+                    Details
+                  </button>
                 </div>
               </div>
             </div>
@@ -111,6 +122,7 @@
               <div class="row" style="line-height: 2">
                 <div class="row" style="width: 50%">10.01.2023.</div>
                 <div class="row" style="width: 50%">17min</div>
+
                 <hr />
                 <div class="row" style="width: 50%">From:</div>
                 <div class="row" style="width: 50%">adresa 1</div>
@@ -118,21 +130,14 @@
                 <div class="row" style="width: 50%">adresa 2</div>
                 <div class="row" style="width: 50%">Passenger:</div>
                 <div class="row" style="width: 50%">name</div>
+                <div class="row" style="width: 50%">Driver:</div>
+                <div class="row" style="width: 50%">name</div>
                 <div class="row" style="width: 50%">Address:</div>
                 <div class="row" style="width: 50%">Jug Bogdana 16</div>
-                <hr />
-                <div class="row" style="color: #805d84">
-                  <div class="row" style="width: 50%">Price:</div>
-                  <div class="row" style="width: 50%">2000</div>
-                  <div class="row" style="width: 50%">Duration:</div>
-                  <div class="row" style="width: 50%">20min</div>
-                  <div class="row" style="width: 50%">Distance:</div>
-                  <div class="row" style="width: 50%">9km</div>
-                </div>
-                <hr />
 
+                <hr />
                 <div class="row" style="width: 50%; font-size: small">
-                  Nice car and music
+                  Very nice car and music!
                 </div>
                 <div class="row stars">
                   <form action="" style="margin: 0">
@@ -173,8 +178,21 @@
                     <label class="star star-1" for="star-1"></label>
                   </form>
                 </div>
-                <div class="form-group" style="display: inline-block">
-                  <button class="btn row" id="cancel-btn">Details</button>
+                <div
+                  class="form-group"
+                  style="display: inline-block; padding: 0"
+                >
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
+                    Add to favorites
+                  </button>
+                  <button
+                    class="btn row"
+                    id="cancel-btn"
+                    style="width: 30%"
+                    [routerLink]="['/ride-details']"
+                  >
+                    Details
+                  </button>
                 </div>
               </div>
             </div>
@@ -189,6 +207,7 @@
               <div class="row" style="line-height: 2">
                 <div class="row" style="width: 50%">10.01.2023.</div>
                 <div class="row" style="width: 50%">17min</div>
+
                 <hr />
                 <div class="row" style="width: 50%">From:</div>
                 <div class="row" style="width: 50%">adresa 1</div>
@@ -196,22 +215,12 @@
                 <div class="row" style="width: 50%">adresa 2</div>
                 <div class="row" style="width: 50%">Passenger:</div>
                 <div class="row" style="width: 50%">name</div>
+                <div class="row" style="width: 50%">Driver:</div>
+                <div class="row" style="width: 50%">name</div>
                 <div class="row" style="width: 50%">Address:</div>
                 <div class="row" style="width: 50%">Jug Bogdana 16</div>
-                <hr />
-                <div class="row" style="color: #805d84">
-                  <div class="row" style="width: 50%">Price:</div>
-                  <div class="row" style="width: 50%">2000</div>
-                  <div class="row" style="width: 50%">Duration:</div>
-                  <div class="row" style="width: 50%">20min</div>
-                  <div class="row" style="width: 50%">Distance:</div>
-                  <div class="row" style="width: 50%">9km</div>
-                </div>
-                <hr />
 
-                <div class="row" style="width: 50%; font-size: small">
-                  Nice car and music
-                </div>
+                <hr />
                 <div class="row stars">
                   <form action="" style="margin: 0">
                     <input
@@ -251,8 +260,21 @@
                     <label class="star star-1" for="star-1"></label>
                   </form>
                 </div>
-                <div class="form-group" style="display: inline-block">
-                  <button class="btn row" id="cancel-btn">Details</button>
+                <div
+                  class="form-group"
+                  style="display: inline-block; padding: 0"
+                >
+                  <button class="btn row" id="cancel-btn" style="width: 30%">
+                    Add to favorites
+                  </button>
+                  <button
+                    class="btn row"
+                    id="cancel-btn"
+                    style="width: 30%"
+                    [routerLink]="['/ride-details']"
+                  >
+                    Details
+                  </button>
                 </div>
               </div>
             </div>
@@ -260,9 +282,5 @@
         </div>
       </form>
     </div>
-  </div>
-
-  <div class="map-container">
-    <div id="map"></div>
   </div>
 </div>
