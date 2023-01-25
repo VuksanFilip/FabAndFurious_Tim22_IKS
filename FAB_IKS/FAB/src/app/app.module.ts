@@ -40,6 +40,7 @@ import { ReportsAdminComponent } from './components/reports-admin/reports-admin.
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
 import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
+import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { NotificationsDriverComponent } from './components/notifications-driver/
     ChangeDriversInfoComponent,
     NotificationsPassengerComponent,
     NotificationsDriverComponent,
+    NotificationsAdminComponent,
   ],
   imports: [
     BrowserModule,
