@@ -32,6 +32,7 @@ import { NavbarUnregisteredUserComponent } from './components/navbar-unregistere
 import { NavbarPassengerComponent } from './components/navbar-passenger/navbar-passenger.component';
 import { NavbarDriverComponent } from './components/navbar-driver/navbar-driver.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
+import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.com
     NavbarPassengerComponent,
     NavbarDriverComponent,
     NavbarAdminComponent,
+    RideDetailsComponent,
   ],
   imports: [
     BrowserModule,
