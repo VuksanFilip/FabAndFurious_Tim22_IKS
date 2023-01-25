@@ -25,6 +25,8 @@ import { IncomingRidesDriverComponent } from './components/incoming-rides-driver
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
+import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
+import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -54,6 +56,14 @@ const routes: Routes = [
   { path: 'report-admin', component: ReportsAdminComponent },
   { path: 'reports-passenger', component: ReportsPassengerComponent },
   { path: 'ride-details', component: RideDetailsComponent },
+  {
+    path: 'notifications-passenger',
+    component: NotificationsPassengerComponent,
+  },
+  {
+    path: 'notifications-driver',
+    component: NotificationsDriverComponent,
+  },
   {
     path: 'incoming-rides-passenger',
     component: IncomingRidesPassengerComponent,

@@ -38,6 +38,8 @@ import { IncomingRidesDriverComponent } from './components/incoming-rides-driver
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
+import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
+import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { ChangeDriversInfoComponent } from './components/change-drivers-info/cha
     StatisticsComponent,
     ReportsAdminComponent,
     ChangeDriversInfoComponent,
+    NotificationsPassengerComponent,
+    NotificationsDriverComponent,
   ],
   imports: [
     BrowserModule,
