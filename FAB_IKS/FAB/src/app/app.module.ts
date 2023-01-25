@@ -37,6 +37,7 @@ import { IncomingRidesPassengerComponent } from './components/incoming-rides-pas
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
+import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ReportsAdminComponent } from './components/reports-admin/reports-admin.
     IncomingRidesDriverComponent,
     StatisticsComponent,
     ReportsAdminComponent,
+    ChangeDriversInfoComponent,
   ],
   imports: [
     BrowserModule,
