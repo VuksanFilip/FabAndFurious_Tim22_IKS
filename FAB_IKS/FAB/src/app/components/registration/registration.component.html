@@ -7,19 +7,11 @@
     <form [formGroup]="registrationForm" (ngSubmit)="register()">
       <div class="form-group">
         <label for="firstname">First Name</label>
-        <input
-          formControlName="name"
-          type="text"
-          class="form-control"
-        />
+        <input formControlName="name" type="text" class="form-control" />
       </div>
       <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input
-          formControlName="surname"
-          type="text"
-          class="form-control"
-        />
+        <input formControlName="surname" type="text" class="form-control" />
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
@@ -32,32 +24,18 @@
       </div>
       <div class="form-group">
         <label for="address">Address</label>
-        <input
-          formControlName="address"
-          type="text"
-          class="form-control"
-        />
+        <input formControlName="address" type="text" class="form-control" />
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input
-          formControlName="email"
-          type="email"
-          class="form-control"
-        />
-          <div
-            *ngIf="f['email'].getError('email') != null"
-            class="errormessage"
-          >
-            Email Address is not Valid
-          </div>
-          <div
-            *ngIf="f['email'].getError('email') != null"
-            class="errormessage"
-          >
-            Incorrect form
-          </div>
+        <input formControlName="email" type="email" class="form-control" />
+        <div *ngIf="f['email'].getError('email') != null" class="errormessage">
+          Email Address is not Valid
         </div>
+        <div *ngIf="f['email'].getError('email') != null" class="errormessage">
+          Incorrect form
+        </div>
+      </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input
@@ -65,13 +43,13 @@
           type="password"
           class="form-control"
         />
-          <div
-            *ngIf="f['password'].getError('minlength') != null"
-            class="errormessage"
-          >
-            Password should be atleast 8 characters
-          </div>
+        <div
+          *ngIf="f['password'].getError('minlength') != null"
+          class="errormessage"
+        >
+          Password should be atleast 8 characters
         </div>
+      </div>
       <div class="form-group">
         <label for="confirmepassword">Confirm Password</label>
         <input
@@ -79,13 +57,13 @@
           type="password"
           class="form-control"
         />
-          <div
-            *ngIf="f['confirmePassword'].getError('mustMatch') != null"
-            class="errormessage"
-          >
-            Confirm password should match
-          </div>
+        <div
+          *ngIf="f['confirmePassword'].getError('mustMatch') != null"
+          class="errormessage"
+        >
+          Confirm password should match
         </div>
+      </div>
       <div class="form-group">
         <!-- <button
           id="registrationButton"
@@ -94,11 +72,20 @@
         >
           SignUp-admin</button
         > -->
-        <button
-          id="registrationButton"
-          class="btn btn-primary form-control"
+        <button id="registrationButton" class="btn btn-primary form-control">
+          SignUp</button
+        ><button
+          id="signUpButton"
+          class="btn btn-primary form-control signUpButton"
+          [routerLink]="['/login']"
         >
-          SignUp
+          Back to LogIn</button
+        ><button
+          id="signUpButton"
+          class="btn btn-primary form-control signUpButton"
+          [routerLink]="['/map-unregistered']"
+        >
+          Map view
         </button>
       </div>
     </form>
