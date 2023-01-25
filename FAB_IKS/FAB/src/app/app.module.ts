@@ -35,6 +35,7 @@ import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.com
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { IncomingRidesDriverComponent } from './components/incoming-rides-driver
     RideDetailsComponent,
     IncomingRidesPassengerComponent,
     IncomingRidesDriverComponent,
+    StatisticsComponent,
   ],
   imports: [
     BrowserModule,

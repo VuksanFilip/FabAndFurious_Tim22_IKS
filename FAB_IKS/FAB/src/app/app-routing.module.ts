@@ -22,6 +22,7 @@ import { ReportsPassengerComponent } from './components/reports-passenger/report
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'favorites-passenger', component: FavoritesPassengerComponent },
   { path: 'history-driver', component: HistoryDriverComponent },
   { path: 'reports', component: ReportsComponent },
+  { path: 'statistics', component: StatisticsComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'report', component: ReportComponent },
   { path: 'reports-passenger', component: ReportsPassengerComponent },
