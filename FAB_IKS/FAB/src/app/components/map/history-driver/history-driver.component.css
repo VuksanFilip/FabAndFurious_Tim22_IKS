@@ -2,28 +2,33 @@ form {
   margin: 30px;
 }
 
-#containter {
-  float: left;
-  width: 25vw;
+.bg {
   height: 92vh;
-  background: rgba(255, 255, 255, 0.8);
-  border-top-right-radius: 5%;
-  border-bottom-right-radius: 5%;
+  background: url("../../../../assets/images/carFAB.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+#containter {
+  /* float: left; */
+  /* width: 25vw; */
+  /* height: 92vh; */
+
   margin-top: 50px;
+  /* height: 92vh; */
+  background: url("../../../../assets/images/carFAB.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
+}
+
+.row {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 #registrationButton,
 #showRoute {
   color: white;
   background-color: #805d84;
-  margin-top: 30px;
-  border: 0;
-  text-decoration: double;
-}
-
-#cancelButton {
-  color: #805d84;
-  background-color: #f6e6f7;
   margin-top: 30px;
   border: 0;
   text-decoration: double;
@@ -81,6 +86,7 @@ div.card-body {
 .custom-select {
   width: 100%;
 }
+
 .btn2 {
   margin-left: 10%;
 }
@@ -191,7 +197,14 @@ label.star:before {
 }
 
 .btn {
-  margin: 0;
+  margin: 5px;
+}
+
+#favorites,
+#report {
+  background-color: #805d84;
+  color: white;
+  width: 20%;
 }
 
 #save-btn {
@@ -206,15 +219,9 @@ label.star:before {
 }
 
 .border {
-  border-style: double;
+  border-style: inset;
   border-width: 3px;
   padding: 5%;
   box-shadow: rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-#small {
-  width: 50%;
-  font-size: small;
-  line-height: 15px;
 }
