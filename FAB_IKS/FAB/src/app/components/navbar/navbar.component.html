@@ -73,6 +73,12 @@
               <button mat-menu-item [routerLink]="['/reports-passenger']">
                 <span>Reports</span>
               </button>
+              <button
+                mat-menu-item
+                [routerLink]="['/incoming-rides-passenger']"
+              >
+                <span>Incoming rides</span>
+              </button>
               <div>DRIVER</div>
               <button mat-menu-item [routerLink]="['/current-drive-driver']">
                 <span>Current drive</span>
@@ -85,6 +91,9 @@
               </button>
               <button mat-menu-item [routerLink]="['/reports']">
                 <span>Statistics</span>
+              </button>
+              <button mat-menu-item [routerLink]="['incoming-rides-driver']">
+                <span>Incoming rides</span>
               </button>
               <div>ADMINISTRATOR</div>
               <button mat-menu-item [routerLink]="['/map-admin']">
