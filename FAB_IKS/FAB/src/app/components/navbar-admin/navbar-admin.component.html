@@ -37,17 +37,23 @@
           id="sidebar"
           class="sidebar"
         >
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/map-admin']">
             <span>Map</span>
           </button>
           <button mat-menu-item>
             <span>Manage user accounts</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/add-driver']">
+            <span>Add new driver</span>
           </button>
           <button mat-menu-item [routerLink]="['/reports-admin']">
             <span>Reports</span>
           </button>
           <button mat-menu-item>
             <span>Live support</span>
+          </button>
+          <button mat-menu-item>
+            <span>Notifications</span>
           </button>
         </span>
       </mat-menu>
