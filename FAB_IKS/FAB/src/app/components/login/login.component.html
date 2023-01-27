@@ -4,22 +4,22 @@
       <h1>LogIn</h1>
       <p>Hello! Please fill out the form bellow to get started</p>
     </div>
-    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="form-group">
         <label for="email">Email</label>
         <input
           formControlName="email"
           [ngClass]="{
-            'is-invalid': submitted && login.controls.email.errors
+            'is-invalid': submitted && loginForm.controls.email.errors
           }"
           type="text"
           class="form-control"
         />
         <div
-          *ngIf="submitted && login.controls.firstName.errors"
+          *ngIf="submitted && loginForm.controls.email.errors"
           class="text-danger"
         >
-          <div *ngIf="submitted && login.controls.firstName.errors.required">
+          <div *ngIf="submitted && loginForm.controls.email.errors.required">
             Email is required
           </div>
         </div>
@@ -28,17 +28,17 @@
         <label for="password">Password</label>
         <input
           [ngClass]="{
-            'is-invalid': submitted && login.controls.password.errors
+            'is-invalid': submitted && loginForm.controls.password.errors
           }"
           formControlName="password"
           type="password"
           class="form-control"
         />
         <div
-          *ngIf="submitted && login.controls.password.errors"
+          *ngIf="submitted && loginForm.controls.password.errors"
           class="text-danger"
         >
-          <div *ngIf="submitted && login.controls.password.errors.required">
+          <div *ngIf="submitted && loginForm.controls.password.errors.required">
             Password is required
           </div>
         </div>
@@ -47,7 +47,7 @@
         <button
           id="loginButton"
           class="btn btn-primary form-control loginButton"
-          [routerLink]="['/map']"
+          type="submit"
         >
           LogIn-passenger</button
         ><button
