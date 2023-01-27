@@ -30,7 +30,7 @@ export class PassengerService {
     };
 
     return this.http.post<string>(
-      environment.apiHost, 
+      environment.apiHost + "api/passenger", 
       {
         name: passenger.name,
         surname: passenger.surname,
