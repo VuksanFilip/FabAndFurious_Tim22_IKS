@@ -27,11 +27,11 @@ export class AuthService {
     });
   }
 
-//   logout(): Observable<string> {
-//     return this.http.get(environment.apiHost + 'logOut', {
-//       responseType: 'text',
-//     });
-//   }
+  // logout(): Observable<string> {
+  //   return this.http.get(environment.apiHost + 'logOut', {
+  //     responseType: 'text',
+  //   });
+  // }
 
   getRole(): any {
     if (this.isLoggedIn()) {

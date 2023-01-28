@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
   Validators,
   FormControl,
   FormGroup,
@@ -33,8 +32,9 @@ export class LoginComponent {
 
     if (this.loginForm.valid) {
       this.authService.login(loginVal).subscribe({
-        next: (result) => {
-          localStorage.setItem('user', JSON.stringify(result));
+        next: (result : any) => {
+          localStorage.setItem('user', JSON.stringify(result["accessToken"]));
+          localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();
           this.router.navigate(['/']);
         },

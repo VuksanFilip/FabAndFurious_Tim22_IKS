@@ -24,7 +24,7 @@ export class LoginGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['wine']);
+      this.router.navigate(['home']);
       return false;
     }
     return true;
