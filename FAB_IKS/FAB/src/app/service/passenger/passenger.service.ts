@@ -21,7 +21,7 @@ export class PassengerService {
   }
 
   getPassenger(passengerId: number) {
-    return this.http.get<Passenger>(environment.apiHost + passengerId);
+    return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
   }
 
   registerNewPassenger(passenger: any): Observable<any> {
@@ -30,7 +30,7 @@ export class PassengerService {
     };
 
     return this.http.post<string>(
-      environment.apiHost, 
+      environment.apiHost + "api/passenger", 
       {
         name: passenger.name,
         surname: passenger.surname,

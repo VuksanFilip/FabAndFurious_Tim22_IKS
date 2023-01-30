@@ -9,11 +9,11 @@
         <fieldset>
           <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" class="form-control" value="Pera" />
+            <input type="text" class="form-control" value="{{passenger.name}}" />
           </div>
           <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" value="Peric" />
+            <input type="text" class="form-control" value="{{passenger.surname}}" />
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
@@ -21,7 +21,7 @@
               type="tel"
               pattern="[0-9]{10}"
               class="form-control"
-              value="0651452658"
+              value="{{passenger.telephoneNumber}}"
             />
           </div>
           <div class="form-group">
@@ -29,7 +29,7 @@
             <input
               type="text"
               class="form-control"
-              value="Maksima Gorkog 45, Novi Sad"
+              value="{{passenger.address}}"
             />
           </div>
           <div class="form-group">
@@ -37,16 +37,16 @@
             <input
               type="email"
               class="form-control"
-              value="pera.peric@gmail.com"
+              value="{{passenger.email}}"
             />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" value="pera123" />
+            <input type="password" class="form-control" value="{{passenger.password}}" />
           </div>
           <div class="form-group">
             <label for="password">Confirm password</label>
-            <input type="password" class="form-control" value="pera123" />
+            <input type="password" class="form-control" value="{{passenger.password}}" />
           </div>
           <div class="form-group">
             <button class="btn" id="save-btn">Save</button>

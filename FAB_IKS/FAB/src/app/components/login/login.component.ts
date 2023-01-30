@@ -1,40 +1,53 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
   Validators,
   FormControl,
   FormGroup,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-  login!: FormGroup;
+export class LoginComponent {
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  })
   title = 'angularvalidate';
   submitted = false;
+  hasError: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    this.login = this.formBuilder.group({
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required],
-    });
-  }
+  login(): void {
+    const loginVal = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    };
 
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.login.invalid) {
-      return;
+    if (this.loginForm.valid) {
+      this.authService.login(loginVal).subscribe({
+        next: (result : any) => {
+          localStorage.setItem('user', JSON.stringify(result["accessToken"]));
+          localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
+          this.authService.setUser();
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          if (error instanceof HttpErrorResponse) {
+            this.hasError = true;
+          }
+        },
+      });
     }
-    alert('Success');
   }
 
   get f() {
-    return this.login.controls;
+    return this.loginForm.controls;
   }
 }
