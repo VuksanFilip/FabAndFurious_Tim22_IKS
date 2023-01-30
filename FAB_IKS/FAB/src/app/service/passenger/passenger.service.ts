@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PassengerService {
   private value$ = new BehaviorSubject<any>({});
   selectedValue$ = this.value$.asObservable();
@@ -24,6 +25,14 @@ export class PassengerService {
     return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
   }
 
+  activatePassenger(id: number): Observable<Passenger> {
+    return this.http.get<any>(environment.apiHost + "api/passenger/activate/" + id);
+  }
+
+  updatePassenger (passenger: Passenger, id:number): Observable<Passenger> {
+    return this.http.put<Passenger>(environment.apiHost + "api/passenger/" + id, passenger)
+  }
+  
   registerNewPassenger(passenger: any): Observable<any> {
     const options: any = {
       responseType: 'text',
