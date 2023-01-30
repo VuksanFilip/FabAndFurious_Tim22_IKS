@@ -21,7 +21,7 @@ export class PassengerService {
   }
 
   getPassenger(passengerId: number) {
-    return this.http.get<Passenger>(environment.apiHost + passengerId);
+    return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
   }
 
   registerNewPassenger(passenger: any): Observable<any> {
