@@ -29,9 +29,10 @@ export class PassengerService {
     return this.http.get<any>(environment.apiHost + "api/passenger/activate/" + id);
   }
 
-  updatePassenger (passenger: Passenger, id:number): Observable<Passenger> {
+  updatePassenger(passenger: Passenger, id:number): Observable<Passenger>{
     return this.http.put<Passenger>(environment.apiHost + "api/passenger/" + id, passenger)
   }
+
   
   registerNewPassenger(passenger: any): Observable<any> {
     const options: any = {
