@@ -32,6 +32,15 @@ export interface UserWithNoId{
     password: string; 
 }
 
+export interface UserPanicResponse{
+    name: string;
+    surname: string;
+    profilePicture: string;
+    telephoneNumber: string;
+    email: string;
+    address: string;
+}
+
 export interface PageUsers{
     totalCount: number;
     results: User[];
@@ -45,16 +54,6 @@ export interface NewOldPassword{
 export interface NewPasswordCode{
     newPassword: string;
     code: string;
-}
-
-export interface Login{
-    email: string;
-    password: string;
-}
-
-export interface Token{
-    accessToken: string;
-    refreshToken: string;
 }
 
 export interface IdEmail{

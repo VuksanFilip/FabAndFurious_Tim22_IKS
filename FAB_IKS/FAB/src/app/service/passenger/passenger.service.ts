@@ -16,52 +16,31 @@ export class PassengerService {
   setValue(test: any) {
     this.value$.next(test);
   }
+  
+  registerNewPassenger(passenger: any): Observable<any> {
+    return this.http.post<any>(environment.apiHost + "api/passenger", passenger);
+  }
 
-  getAll(): Observable<Passenger[]> {
-    return this.http.get<Passenger[]>(environment.apiHost);
+  getAllPassengers(): Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/passenger");
   }
 
   getPassenger(passengerId: number) {
     return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
   }
 
-  activatePassenger(id: number): Observable<Passenger> {
+  activatePassenger(id: number): Observable<any> {
     return this.http.get<any>(environment.apiHost + "api/passenger/activate/" + id);
   }
 
-  updatePassenger(id: string, passenger: any): Observable<any>{
-    return this.http.put<string>(environment.apiHost + "api/passenger/" + id, 
-    {
-      name: passenger.name,
-      surname: passenger.surname,
-      profilePicture: passenger.profilePicture,
-      telephoneNumber: passenger.telephoneNumber,
-      email: passenger.email,
-      address: passenger.address,
-      password: passenger.password,
-    })
+  updatePassenger (id:number, passenger: any): Observable<any> {
+    return this.http.put<any>(environment.apiHost + "api/passenger/" + id, passenger);
   }
 
-  
-  registerNewPassenger(passenger: any): Observable<any> {
-    const options: any = {
-      responseType: 'text',
-    };
-
-    return this.http.post<string>(
-      environment.apiHost + "api/passenger", 
-      {
-        name: passenger.name,
-        surname: passenger.surname,
-        profilePicture: passenger.profilePicture,
-        telephoneNumber: passenger.telephoneNumber,
-        email: passenger.email,
-        address: passenger.address,
-        password: passenger.password,
-      },
-      options
-    );
+  getPassengerRides(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/passenger/" + id + "/ride");
   }
+
 }
 
 export interface Passenger {
