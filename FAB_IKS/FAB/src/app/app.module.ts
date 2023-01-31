@@ -43,6 +43,7 @@ import { NotificationsDriverComponent } from './components/notifications-driver/
 import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
 import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { MatSelectModule } from '@angular/material/select';
     NotificationsDriverComponent,
     NotificationsAdminComponent,
     DriverProfileEditComponent,
+    PassengerProfileEditComponent,
   ],
   imports: [
     BrowserModule,
