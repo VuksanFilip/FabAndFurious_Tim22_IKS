@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DriverService } from 'src/app/service/driver/driver.service';
-import { VehicleService } from 'src/app/service/vehicle/vehicle.service'
+import { VehicleService } from 'src/app/service/vehicle/vehicle.service';
 import { DriverForUpdate } from 'src/app/model/Driver';
+import { RequestDriverVehicle } from 'src/app/model/Vehicle';
+import { Location } from 'src/app/model/Location';
 
 @Component({
   selector: 'app-driver-profile-edit',
@@ -12,11 +14,21 @@ import { DriverForUpdate } from 'src/app/model/Driver';
 export class DriverProfileEditComponent {
   driverForm = new FormGroup(
     {
-      name: new FormControl('', [Validators.required]),
-      surname: new FormControl('', [Validators.required]),
-      telephoneNumber: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      name: new FormControl(''),
+      surname: new FormControl(''),
+      telephoneNumber: new FormControl(''),
+      address: new FormControl(''),
+      email: new FormControl('', [Validators.email]),
+    }
+  )
+  vehicleForm = new FormGroup(
+    {
+      model: new FormControl(''),
+      type: new FormControl(''),
+      licenseNumber: new FormControl(''),
+      seats: new FormControl(0),
+      babies: new FormControl(false),
+      pets: new FormControl(false),
     }
   )
 
@@ -37,8 +49,24 @@ export class DriverProfileEditComponent {
     });
   }
 
-  // updateVehicle() {
-  //   const vehicle: 
-  // }
+  changeVehicle() {
+    const location: Location = {
+      address: '',
+      latitude: 0,
+      longitude: 0,
+    }
+    const vehicle: RequestDriverVehicle = {
+      vehicleType: this.vehicleForm.value.type!,
+      model: this.vehicleForm.value.model!,
+      licenseNumber: this.vehicleForm.value.licenseNumber!,
+      currentLocation: location,
+      passengerSeats: this.vehicleForm.value.seats!,
+      babyTransport: this.vehicleForm.value.babies!,
+      petTransport: this.vehicleForm.value.pets!
+    }
+    this.driverService.changeDriverVehicle(5, vehicle).subscribe((res) => {
+      console.log(res);
+    })
+  }
 
 }
