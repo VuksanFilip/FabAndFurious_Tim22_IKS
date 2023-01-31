@@ -16,22 +16,6 @@ export class PassengerService {
   setValue(test: any) {
     this.value$.next(test);
   }
-
-  getAll(): Observable<Passenger[]> {
-    return this.http.get<Passenger[]>(environment.apiHost);
-  }
-
-  getPassenger(passengerId: number) {
-    return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
-  }
-
-  activatePassenger(id: number): Observable<Passenger> {
-    return this.http.get<any>(environment.apiHost + "api/passenger/activate/" + id);
-  }
-
-  updatePassenger (passenger: Passenger, id:number): Observable<Passenger> {
-    return this.http.put<Passenger>(environment.apiHost + "api/passenger/" + id, passenger)
-  }
   
   registerNewPassenger(passenger: any): Observable<any> {
     const options: any = {
@@ -52,6 +36,27 @@ export class PassengerService {
       options
     );
   }
+
+  getAllPassengers(): Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/passenger");
+  }
+
+  getPassenger(passengerId: number) {
+    return this.http.get<Passenger>(environment.apiHost + "api/passenger/" + passengerId);
+  }
+
+  activatePassenger(id: number): Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/passenger/activate/" + id);
+  }
+
+  updatePassenger (id:number, passenger: any): Observable<any> {
+    return this.http.put<any>(environment.apiHost + "api/passenger/" + id, passenger);
+  }
+
+  getPassengerRides(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/passenger/" + id + "/ride");
+  }
+
 }
 
 export interface Passenger {

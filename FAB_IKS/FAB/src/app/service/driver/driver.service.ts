@@ -16,32 +16,65 @@ export class DriverService {
     this.value$.next(test);
   }
 
-  getAll(): Observable<Driver[]> {
-    return this.http.get<Driver[]>(environment.apiHost);
+  
+  createNewDriver(requestNewDriver: any): Observable<any> {
+    return this.http.post<any>(environment.apiHost + "api/driver", requestNewDriver);
   }
 
-  getDriver(driverId: number) {
-    return this.http.get<Driver>(environment.apiHost + "api/driver/" + driverId);
+  getAllDrivers() : Observable<any>{
+    return this.http.get<any>(environment.apiHost + "api/driver");
   }
 
-  registerNewDriver(driver: any): Observable<any> {
-    const options: any = {
-      responseType: 'text',
-    };
+  getDriver(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driver/" + id);
+  }
 
-    return this.http.post<string>(
-      environment.apiHost + "api/driver", 
-      {
-        name: driver.name,
-        surname: driver.surname,
-        profilePicture: driver.profilePicture,
-        telephoneNumber: driver.telephoneNumber,
-        email: driver.email,
-        address: driver.address,
-        password: driver.password,
-      },
-      options
-    );
+  updateDriver(id: number, requestDriverUpdate: any) : Observable<any> {
+    return this.http.put<any>(environment.apiHost + "api/driver/" + id, requestDriverUpdate);
+  }
+
+  getDriverDocuments(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driver/" + id + "/documents");
+  }
+
+  addDriverDocument(id: number, requestDocument: any) : Observable<any>{
+    return this.http.post<any>(environment.apiHost + "api/driver/" + id + "/documents", requestDocument);
+  }
+
+  deleteDriverDocument(id: number) : Observable<any> {
+    return this.http.delete<any>(environment.apiHost + "api/driver/document/" + id);
+  }
+
+  getDriverVehicle(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driver/" + id + "/vehicle");
+  }
+
+  addDriverVehicle(id: number, requestVehicle: any) : Observable<any> {
+    return this.http.post<any>(environment.apiHost + "api/driver/" + id + "/vehicle", requestVehicle);
+  }
+
+  changeDriverVehicle(id: number, requestVehicle: any) : Observable<any> {
+    return this.http.put<any>(environment.apiHost + "api/driver/" + id + "/vehicle", requestVehicle);
+  }
+
+  getDriverWorkingHours(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driber/" + id + "/working-hour");
+  }
+
+  createDriverWorkingHour(id: number, requestWorkingHour: any) : Observable<any> {
+    return this.http.post<any>(environment.apiHost + "api/driver/" + id + "/working-hour", requestWorkingHour);
+  }
+
+  getDriverRides(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driver/" + id + "/ride");
+  }
+
+  getWorkingHour(id: number) : Observable<any> {
+    return this.http.get<any>(environment.apiHost + "api/driver/working-hour/" + id);
+  }
+
+  updateWorkingHour(id: number, requestWorkingHour : any) : Observable<any> {
+    return this.http.put<any>(environment.apiHost + "api/driver/working-hour/" + id, requestWorkingHour);
   }
 }
 
