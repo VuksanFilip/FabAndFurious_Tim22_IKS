@@ -41,6 +41,8 @@ import { ChangeDriversInfoComponent } from './components/change-drivers-info/cha
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
 import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
 import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
+import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { NotificationsAdminComponent } from './components/notifications-admin/no
     NotificationsPassengerComponent,
     NotificationsDriverComponent,
     NotificationsAdminComponent,
+    DriverProfileEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,6 +91,7 @@ import { NotificationsAdminComponent } from './components/notifications-admin/no
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

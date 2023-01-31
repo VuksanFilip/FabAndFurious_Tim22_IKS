@@ -1,0 +1,122 @@
+<div class="bg">
+    <form action="/action_page.php">
+      <div id="profile-container">
+        <div id="profile-picture"></div>
+        <br />
+        <a class="col-sm-6" style="color: #805d84">Change photo</a>
+        <h1 style="margin-top: 2vh">Edit my profile</h1>
+        <div id="profile-info">
+          <form [formGroup]="driverForm" (ngSubmit)="updateDriver()">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <input formControlName="name" type="text" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input formControlName="surname" type="text" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                formControlName="telephoneNumber"
+                type="tel"
+                pattern="[0-9]{10}"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input
+                formControlName="address"
+                type="text"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                formControlName="email"
+                type="email"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <button class="btn" id="save-btn" type="submit">Send request</button>
+              <button class="btn" id="save-btn" type="button" [routerLink]="['/driver-profile']">Back</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="car-info-container">
+        <h1>Edit car info</h1>
+        <hr />
+        <form>
+        <div class="row">
+          <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
+            <div id="car-picture"></div>
+            <a class="col-sm-6" style="margin-left: 30%; color: #805d84"
+              >Change photo</a
+            >
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="vehicleModel">Vehicle model</label>
+              <input
+                formControlName=""
+                type="text"
+                class="form-control"
+                style="width: 90%"
+              />
+            </div>
+            <div class="form-group">
+              <label for="vehicleType">Vehicle type</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 90%"
+              />
+            </div>
+            <div class="form-group">
+              <label for="licenseNumber">License number</label>
+              <input
+                type="text"
+                class="form-control"
+                style="width: 90%"
+              />
+            </div>
+            <div class="form-group">
+              <label for="seats">Number of seats</label>
+              <input
+                type="number"
+                class="form-control"
+                style="width: 90%"
+              />
+            </div>
+  
+            <input
+              type="checkbox"
+              id="babies"
+              name="babies"
+              value="Baby"
+              style="width: 40%"
+            />
+            <label for="babies" style="width: 40%"> Babies allowed</label><br />
+            <input
+              type="checkbox"
+              id="pets"
+              name="pets"
+              value="Pet"
+              style="width: 40%"
+            />
+            <label for="pets" style="width: 40%"> Pets allowed</label><br />
+            <div class="form-group">
+              <button class="btn" id="save-btn" type="submit">Send request</button>
+            </div>
+          </div>
+        </div>
+        </form>
+        <hr />
+      </div>
+    </form>
+  </div>
+  

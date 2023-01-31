@@ -1,3 +1,20 @@
+export interface DriverProfile{
+    name: string;
+    surname: string;
+    telephoneNumber: string;
+    email: string;
+    address: string;
+}
+
+export interface DriverForUpdate{
+    name: string;
+    surname: string;
+    profilePicture: string;
+    telephoneNumber: string;
+    email: string;
+    address: string;
+}
+
 export interface DriverWithNoId{
     name: string;
     surname: string;
