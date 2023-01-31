@@ -18,23 +18,7 @@ export class PassengerService {
   }
   
   registerNewPassenger(passenger: any): Observable<any> {
-    const options: any = {
-      responseType: 'text',
-    };
-
-    return this.http.post<string>(
-      environment.apiHost + "api/passenger", 
-      {
-        name: passenger.name,
-        surname: passenger.surname,
-        profilePicture: passenger.profilePicture,
-        telephoneNumber: passenger.telephoneNumber,
-        email: passenger.email,
-        address: passenger.address,
-        password: passenger.password,
-      },
-      options
-    );
+    return this.http.post<any>(environment.apiHost + "api/passenger", passenger);
   }
 
   getAllPassengers(): Observable<any> {
