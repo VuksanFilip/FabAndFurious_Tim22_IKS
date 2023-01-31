@@ -1,7 +1,11 @@
-// private List<RequestLocationAssumptionDTO> locations;
-// private VehicleName vehicleType;
-// private boolean babyTransport;
-// private boolean petTransport;
+import { Path } from "./Location";
+
+export interface Assumption{
+    locations: Path[];
+    vehicleType: string;
+    babyTransport: boolean;
+    petTransport: boolean;
+}
 
 export interface EstimatedValues{
     estimatedTimeInMinutes: number;

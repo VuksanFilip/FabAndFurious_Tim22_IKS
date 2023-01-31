@@ -32,6 +32,15 @@ export interface UserWithNoId{
     password: string; 
 }
 
+export interface UserWithNoIdNoPassword{
+    name: string;
+    surname: string;
+    profilePicture: string;
+    telephoneNumber: string;
+    email: string;
+    address: string;
+}
+
 export interface PageUsers{
     totalCount: number;
     results: User[];

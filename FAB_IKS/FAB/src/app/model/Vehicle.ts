@@ -1,9 +1,16 @@
 import { Location } from "./Location";
 
+
+export interface Vehicle{
+    id: number;
+    vehicleName: string;
+    pricePerKm: number;
+}
+
 export interface RequestDriverVehicle{
     id: number;
     driverId: number;
-    // vehicleVehicleName: ?;
+    vehicleVehicleName: string;
     model: string;
     licenseNumber: string;
     currentLocation: Location;
@@ -13,7 +20,7 @@ export interface RequestDriverVehicle{
 }
 
 export interface RequestDriverVehicle{
-    // vehicleVehicleName: ?;
+    vehicleVehicleName: string;
     model: string;
     licenseNumber: string;
     currentLocation: Location;
