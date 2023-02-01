@@ -1,6 +1,5 @@
 import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
 import { AddDriverComponent } from './components/add-driver/add-driver.component';
-import { BillingComponent } from './components/billing/billing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -22,7 +21,6 @@ import { ReportsPassengerComponent } from './components/reports-passenger/report
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
@@ -36,7 +34,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'billing', component: BillingComponent },
   {
     path: 'current-drive-passenger',
     component: CurrentDrivePessangerComponent,
@@ -53,7 +50,6 @@ const routes: Routes = [
   { path: 'history-driver', component: HistoryDriverComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'change-drivers-info', component: ChangeDriversInfoComponent },
-  { path: 'statistics', component: StatisticsComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'report', component: ReportComponent },
   { path: 'report-admin', component: ReportsAdminComponent },

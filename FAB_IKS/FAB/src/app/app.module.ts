@@ -13,7 +13,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { PassengerProfileComponent } from './components/passenger-profile/passenger-profile.component';
-import { BillingComponent } from './components/billing/billing.component';
 import { CurrentDrivePessangerComponent } from './components/map/current-drive-pessanger/current-drive-pessanger.component';
 import { CurrentDriveDriverComponent } from './components/map/current-drive-driver/current-drive-driver.component';
 import { MapRegisteredComponent } from './components/map/map-registered/map-registered.component';
@@ -35,7 +34,6 @@ import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.com
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
@@ -53,7 +51,6 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     LoginComponent,
     RegistrationComponent,
     PassengerProfileComponent,
-    BillingComponent,
     CurrentDrivePessangerComponent,
     CurrentDriveDriverComponent,
     MapRegisteredComponent,
@@ -75,7 +72,6 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     RideDetailsComponent,
     IncomingRidesPassengerComponent,
     IncomingRidesDriverComponent,
-    StatisticsComponent,
     ReportsAdminComponent,
     ChangeDriversInfoComponent,
     NotificationsPassengerComponent,
