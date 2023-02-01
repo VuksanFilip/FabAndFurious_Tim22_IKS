@@ -21,77 +21,104 @@
           class="row"
           style="width: 90%; margin-left: 5%; margin-bottom: 15px"
         >
-          <div class="row border">
-            <div>
-              <div class="row" style="line-height: 2">
-                <div class="row" style="width: 50%">10.01.2023.</div>
-                <div class="row" style="width: 50%">17min</div>
-                <hr />
-                <div class="row" style="width: 50%">From:</div>
-                <div class="row" style="width: 50%">adresa 1</div>
-                <div class="row" style="width: 50%">To:</div>
-                <div class="row" style="width: 50%">adresa 2</div>
-                <div class="row" style="width: 50%">Passenger:</div>
-                <div class="row" style="width: 50%">name</div>
-                <div class="row" style="width: 50%">Driver:</div>
-                <div class="row" style="width: 50%">name</div>
-                <hr />
-                <div class="row" style="color: #805d84">
-                  <div class="row" style="width: 50%">Price:</div>
-                  <div class="row" style="width: 50%">2000</div>
-                  <div class="row" style="width: 50%">Duration:</div>
-                  <div class="row" style="width: 50%">20min</div>
-                  <div class="row" style="width: 50%">Distance:</div>
-                  <div class="row" style="width: 50%">9km</div>
-                </div>
-                <hr />
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="row border">
+                    <div>
+                      <div class="row" style="line-height: 2">
+                        <hr />
+                        <div class="row" style="width: 20%">Start:</div>
+                        <div class="row" style="width: 20%">
+                          {{ ride.startTime }}
+                        </div>
+                        <div class="row" style="width: 20%">End:</div>
+                        <div class="row" style="width: 20%">
+                          {{ ride.endTime }}
+                        </div>
 
-                <div class="row" style="width: 50%; font-size: small">
-                  Nice car and music
-                </div>
-                <div class="row stars">
-                  <form action="" style="margin: 0">
-                    <input
-                      class="star star-5"
-                      id="star-5"
-                      type="radio"
-                      name="star"
-                    />
-                    <label class="star star-5" for="star-5"></label>
-                    <input
-                      class="star star-4"
-                      id="star-4"
-                      type="radio"
-                      name="star"
-                    />
-                    <label class="star star-4" for="star-4"></label>
-                    <input
-                      class="star star-3"
-                      id="star-3"
-                      type="radio"
-                      name="star"
-                    />
-                    <label class="star star-3" for="star-3"></label>
-                    <input
-                      class="star star-2"
-                      id="star-2"
-                      type="radio"
-                      name="star"
-                    />
-                    <label class="star star-2" for="star-2"></label>
-                    <input
-                      class="star star-1"
-                      id="star-1"
-                      type="radio"
-                      name="star"
-                    />
-                    <label class="star star-1" for="star-1"></label>
-                  </form>
-                </div>
-                <div class="form-group" style="display: inline-block"></div>
-              </div>
-            </div>
-          </div>
+                        <hr />
+                        <div class="row" style="width: 50%">From:</div>
+                        <div class="row" style="width: 50%">
+                          <!-- {{ rides.column1.locations[0].departure.address }} -->
+                        </div>
+                        <div class="row" style="width: 50%">To:</div>
+                        <div class="row" style="width: 50%">
+                          <!-- {{ rides.column1.locations[0].destination.address }} -->
+                        </div>
+                        <div class="row" style="width: 50%">Passenger:</div>
+                        <div class="row" style="width: 50%">
+                          <!-- {{ ride.passengers[0].email }} -->
+                        </div>
+                        <div class="row" style="width: 50%">Driver:</div>
+                        <div class="row" style="width: 50%">
+                          <!-- {{ ride.driver.email }} -->
+                        </div>
+                        <hr />
+                        <div class="row" style="color: #805d84">
+                          <div class="row" style="width: 50%">Price:</div>
+                          <div class="row" style="width: 50%">2000</div>
+                          <div class="row" style="width: 50%">Duration:</div>
+                          <div class="row" style="width: 50%">20min</div>
+                          <div class="row" style="width: 50%">Distance:</div>
+                          <div class="row" style="width: 50%">9km</div>
+                        </div>
+                        <hr />
+
+                        <div class="row" style="width: 50%; font-size: small">
+                          Nice car and music
+                        </div>
+                        <div class="row stars">
+                          <form action="" style="margin: 0">
+                            <input
+                              class="star star-5"
+                              id="star-5"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-5" for="star-5"></label>
+                            <input
+                              class="star star-4"
+                              id="star-4"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-4" for="star-4"></label>
+                            <input
+                              class="star star-3"
+                              id="star-3"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-3" for="star-3"></label>
+                            <input
+                              class="star star-2"
+                              id="star-2"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-2" for="star-2"></label>
+                            <input
+                              class="star star-1"
+                              id="star-1"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-1" for="star-1"></label>
+                          </form>
+                        </div>
+                        <div
+                          class="form-group"
+                          style="display: inline-block"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </form>
     </div>

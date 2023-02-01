@@ -1,8 +1,15 @@
+import { RidesContent } from './../favorites-passenger/favorites-passenger.component';
 import { Component, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { MapService } from '../map.service';
+import { RideService } from 'src/app/service/ride/ride.service';
+import { Ride, RideWithNoStatus } from 'src/app/model/Ride';
+import { IdEmail } from 'src/app/model/User';
+import { Location } from 'src/app/model/Location';
+import { Path } from 'src/app/model/Location';
+import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 
 @Component({
   selector: 'app-ride-details',
@@ -20,7 +27,63 @@ export class RideDetailsComponent implements AfterViewInit {
     to: new FormControl(),
   });
 
-  constructor(private mapService: MapService) {}
+  constructor(
+    private mapService: MapService,
+    private rideService: RideService
+  ) {}
+
+  driver: IdEmail = {
+    id: 0,
+    email: '',
+  };
+
+  passenger: IdEmail = {
+    id: 0,
+    email: '',
+  };
+
+  passengers: IdEmail[] = [];
+
+  rejection: ReasonAndTimeOfRejection = {
+    reason: '',
+    timeOfRejection: '',
+  };
+
+  departure: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  };
+
+  destination: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  };
+
+  path: Path = {
+    departure: this.departure,
+    destination: this.destination,
+  };
+
+  locations: Path[] = [];
+
+  ride: Ride = {
+    id: 0,
+    startTime: '',
+    endTime: '',
+    totalCost: 0,
+    driver: this.driver,
+    passengers: this.passengers,
+    estimatedTimeInMinutes: 0,
+    vehicleVehicleName: '',
+    babyTransport: false,
+    petTransport: false,
+    rejection: this.rejection,
+    locations: this.locations,
+    status: '',
+    sheduledTime: '',
+  };
 
   ngAfterViewInit(): void {
     let DefaultIcon = L.icon({
@@ -29,6 +92,7 @@ export class RideDetailsComponent implements AfterViewInit {
 
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
+    this.rideService.getRide(1).subscribe((ride2) => (this.ride = ride2));
   }
 
   private initMap(): void {
