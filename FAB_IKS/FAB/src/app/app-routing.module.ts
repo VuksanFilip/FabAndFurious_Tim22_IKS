@@ -28,6 +28,7 @@ import { NotificationsDriverComponent } from './components/notifications-driver/
 import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
 import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
 import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
+import { DriverDocumentsComponent } from './components/driver-documents/driver-documents.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -76,8 +77,8 @@ const routes: Routes = [
     path: 'incoming-rides-driver',
     component: IncomingRidesDriverComponent,
   },
-  {path: 'driver-profile-edit', component: DriverProfileEditComponent},
-  {path: 'passenger-profile-edit', component: PassengerProfileEditComponent}
+  { path: 'driver-profile-edit', component: DriverProfileEditComponent },
+  { path: 'passenger-profile-edit', component: PassengerProfileEditComponent },
 ];
 
 @NgModule({
