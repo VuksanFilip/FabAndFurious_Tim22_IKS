@@ -28,6 +28,7 @@ import { ChangeDriversInfoComponent } from './components/change-drivers-info/cha
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
 import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
 import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
+import { DriverDocumentsComponent } from './components/driver-documents/driver-documents.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'map-unregistered', component: MapUnregisteredComponent },
   { path: 'passenger-profile', component: PassengerProfileComponent },
   { path: 'driver-profile', component: DriverProfileComponent },
+  { path: 'driver-documents', component: DriverDocumentsComponent },
   { path: 'add-driver', component: AddDriverComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
   { path: 'map-admin', component: MapAdminComponent },
