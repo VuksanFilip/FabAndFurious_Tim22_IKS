@@ -5,6 +5,12 @@
   background-size: cover;
 }
 
+#div-chart {
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+
 #profile-container {
   margin-top: 10vh;
   margin-bottom: 10vh;
