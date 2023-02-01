@@ -1,9 +1,9 @@
+import { RideWithNoStatus } from './../../../model/Ride';
 import { Location } from './../../../model/Location';
 import { Component, OnInit } from '@angular/core';
 import 'leaflet-routing-machine';
 import { DriverService } from 'src/app/service/driver/driver.service';
 import { DriverRides } from 'src/app/model/Driver';
-import { RideWithNoStatus } from 'src/app/model/Ride';
 
 @Component({
   selector: 'app-history-driver',
@@ -19,7 +19,12 @@ export class HistoryDriverComponent implements OnInit {
 
   constructor(private driverService: DriverService) {}
 
-  rides!: DriverRides;
+  rides: DriverRides;
+
+  // rides: DriverRides = {
+  //   totalCount: 0,
+  //   results: RideWithNoStatus[]
+  // };
 
   ngOnInit(): void {
     this.driverService.getDriverRides(5).subscribe((res: DriverRides) => {
