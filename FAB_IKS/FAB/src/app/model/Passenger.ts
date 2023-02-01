@@ -1,4 +1,4 @@
-import { Ride, RideWithNoStatus } from './Ride';
+import { Ride, RideFavorite, RideWithNoStatus } from './Ride';
 
 export interface PassengerWithNoId {
   name: string;
@@ -23,6 +23,11 @@ export interface PassengerWithNoPassword {
 export interface PassengerRides {
   totalCount: number;
   results: RideWithNoStatus[];
+}
+
+export interface PassengerFavorites {
+  totalCount: number;
+  results: RideFavorite[];
 }
 
 export interface PassengerUpdate {
