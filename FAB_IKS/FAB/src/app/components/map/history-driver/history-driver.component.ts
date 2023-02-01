@@ -5,7 +5,7 @@ import 'leaflet-routing-machine';
 import { DriverService } from 'src/app/service/driver/driver.service';
 import { DriverRides } from 'src/app/model/Driver';
 import { IdEmail } from 'src/app/model/User';
-import { Path } from 'src/app/model/Location';
+import { Route } from 'src/app/model/Location';
 import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 
 @Component({
@@ -51,12 +51,12 @@ export class HistoryDriverComponent implements OnInit {
     longitude: 0,
   };
 
-  path: Path = {
+  path: Route = {
     departure: this.departure,
     destination: this.destination,
   };
 
-  locations: Path[] = [];
+  locations: Route[] = [];
 
   ride: RideWithNoStatus = {
     id: 0,

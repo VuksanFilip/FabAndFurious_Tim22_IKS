@@ -6,7 +6,7 @@ import { MapService } from '../map.service';
 import { RideService } from 'src/app/service/ride/ride.service';
 import { RequestRide } from 'src/app/model/Ride';
 import { Location } from 'src/app/model/Location';
-import { Path } from 'src/app/model/Location';
+import { Route } from 'src/app/model/Location';
 import { IdEmail } from 'src/app/model/User';
 
 @Component({
@@ -170,7 +170,7 @@ export class MapRegisteredComponent implements AfterViewInit {
         longitude: 234.456
       }
 
-      const path : Path = {
+      const path : Route = {
         departure: location1,
         destination: location2
       }
@@ -179,7 +179,7 @@ export class MapRegisteredComponent implements AfterViewInit {
         id: 1,
         email: 'pera.peric@email.com'
       }
-      let paths: Array<Path> = [path];
+      let paths: Array<Route> = [path];
       let idEmails: Array<IdEmail> = [idEmail];
 
       const ride: RequestRide = {
