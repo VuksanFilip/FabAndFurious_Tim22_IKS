@@ -32,8 +32,6 @@ import { NavbarPassengerComponent } from './components/navbar-passenger/navbar-p
 import { NavbarDriverComponent } from './components/navbar-driver/navbar-driver.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
-import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
-import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
@@ -42,7 +40,6 @@ import { NotificationsAdminComponent } from './components/notifications-admin/no
 import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
-
 
 @NgModule({
   declarations: [
@@ -71,8 +68,6 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     NavbarDriverComponent,
     NavbarAdminComponent,
     RideDetailsComponent,
-    IncomingRidesPassengerComponent,
-    IncomingRidesDriverComponent,
     ReportsAdminComponent,
     ChangeDriversInfoComponent,
     NotificationsPassengerComponent,
@@ -80,7 +75,6 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     NotificationsAdminComponent,
     DriverProfileEditComponent,
     PassengerProfileEditComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -91,7 +85,7 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

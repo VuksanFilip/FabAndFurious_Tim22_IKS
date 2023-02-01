@@ -19,8 +19,6 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
-import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
-import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
@@ -68,14 +66,6 @@ const routes: Routes = [
   {
     path: 'notifications-driver',
     component: NotificationsDriverComponent,
-  },
-  {
-    path: 'incoming-rides-passenger',
-    component: IncomingRidesPassengerComponent,
-  },
-  {
-    path: 'incoming-rides-driver',
-    component: IncomingRidesDriverComponent,
   },
   { path: 'driver-profile-edit', component: DriverProfileEditComponent },
   { path: 'passenger-profile-edit', component: PassengerProfileEditComponent },
