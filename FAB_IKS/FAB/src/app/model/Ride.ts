@@ -1,4 +1,4 @@
-import { Path } from './Location';
+import { Route } from './Location';
 import { IdEmail } from './User';
 import { ReasonAndTimeOfRejection } from './Rejection';
 
@@ -30,7 +30,7 @@ export interface RideWithNoStatus {
   babyTransport: boolean;
   petTransport: boolean;
   rejection: ReasonAndTimeOfRejection;
-  locations: Path[];
+  locations: Route[];
   status: string;
 }
 
@@ -46,7 +46,7 @@ export interface Ride {
   babyTransport: boolean;
   petTransport: boolean;
   rejection: ReasonAndTimeOfRejection;
-  locations: Path[];
+  locations: Route[];
   status: string;
   sheduledTime: string;
 }
@@ -64,12 +64,12 @@ export interface RideFavorite {
   babyTransport: boolean;
   petTransport: boolean;
   rejection: ReasonAndTimeOfRejection;
-  locations: Path[];
+  locations: Route[];
   status: string;
 }
 
 export interface RequestRide {
-  locations: Path[];
+  locations: Route[];
   passengers: IdEmail[];
   // vehicleVehicleName: ?;
   babyTransport: boolean;

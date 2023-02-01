@@ -8,7 +8,7 @@ import { RideService } from 'src/app/service/ride/ride.service';
 import { Ride, RideWithNoStatus } from 'src/app/model/Ride';
 import { IdEmail } from 'src/app/model/User';
 import { Location } from 'src/app/model/Location';
-import { Path } from 'src/app/model/Location';
+import { Route } from 'src/app/model/Location';
 import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 
 @Component({
@@ -61,12 +61,12 @@ export class RideDetailsComponent implements AfterViewInit {
     longitude: 0,
   };
 
-  path: Path = {
+  path: Route = {
     departure: this.departure,
     destination: this.destination,
   };
 
-  locations: Path[] = [];
+  locations: Route[] = [];
 
   ride: Ride = {
     id: 0,
