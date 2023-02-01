@@ -45,9 +45,9 @@ export class PassengerProfileComponent implements OnInit {
         email: this.updateForm.value.email!,
         password: 'sifra',
       };
-      this.passengerService.updatePassenger("2", passenger).subscribe((res: any) => {
-        console.log(res);
-      })
+      //this.passengerService.updatePassenger("2", passenger).subscribe((res: any) => {
+        //console.log(res);
+      //})
     }
   }
 

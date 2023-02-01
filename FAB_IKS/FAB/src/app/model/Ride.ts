@@ -18,6 +18,8 @@ export interface Ride{
     status: String;
 }
 
+
+
 export interface RideWithNoStatus{
     id: number;
     startTime: string;
@@ -26,12 +28,11 @@ export interface RideWithNoStatus{
     driver: IdEmail
     passengers: IdEmail[];
     estimatedTimeInMinutes: number;
-    // vehicleVehicleName: ?;
+    vehicleVehicleName: string;
     babyTransport: boolean;
     petTransport: boolean;
     rejection: ReasonAndTimeOfRejection;
     locations: Path[];
-    status: String;
 }
 
 export interface RequestRide{

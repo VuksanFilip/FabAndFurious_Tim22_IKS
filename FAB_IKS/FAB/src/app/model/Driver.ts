@@ -1,3 +1,5 @@
+import { RideWithNoStatus } from "./Ride";
+
 export interface DriverWithNoId{
     name: string;
     surname: string;
@@ -30,5 +32,10 @@ export interface StartingWorkingHour{
 
 export interface EndingWorkingHour{
     end: string;
+}
+
+export interface DriverRides{
+    totalCount: number;
+    results: RideWithNoStatus[];
 }
 

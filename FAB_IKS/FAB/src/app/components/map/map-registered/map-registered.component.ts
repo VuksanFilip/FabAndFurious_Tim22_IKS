@@ -3,6 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
 import { MapService } from '../map.service';
+import { RideService } from 'src/app/service/ride/ride.service';
+import { RequestRide } from 'src/app/model/Ride';
+import { Location } from 'src/app/model/Location';
+import { Path } from 'src/app/model/Location';
+import { IdEmail } from 'src/app/model/User';
 
 @Component({
   selector: 'app-map',
@@ -26,7 +31,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     to: new FormControl(),
   });
 
-  constructor(private mapService: MapService) {}
+  constructor(private mapService: MapService,private rideService: RideService) {}
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -133,6 +138,62 @@ export class MapRegisteredComponent implements AfterViewInit {
 
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
+  }
+
+  rideForm = new FormGroup(
+    {
+      from: new FormControl(''),
+      to: new FormControl(''),
+      // from: new FormControl('', Validators.required),
+      // to: new FormControl('', Validators.required),
+      // babies: new FormControl(''),
+      // pets: new FormControl(''),
+      // carType: new FormControl('')
+      }
+  );
+
+
+
+  createRide() : void {
+    if(this.rideForm.valid){
+      alert("USPEH");
+
+      const location1 : Location = {
+        address: 'asd',
+        latitude: 123.34,
+        longitude: 234.456
+      }
+
+      const location2 : Location = {
+        address: 'fgh',
+        latitude: 123.34,
+        longitude: 234.456
+      }
+
+      const path : Path = {
+        departure: location1,
+        destination: location2
+      }
+
+      const idEmail : IdEmail = {
+        id: '1',
+        email: 'pera.peric@email.com'
+      }
+      let paths: Array<Path> = [path];
+      let idEmails: Array<IdEmail> = [idEmail];
+
+      const ride: RequestRide = {
+        locations: paths,
+        passengers: idEmails,
+        // vehicleVehicleName: ?;
+        babyTransport: true,
+        petTransport: true,
+        scheduledTime: 'time',
+      };
+      this.rideService.createNewRide(ride).subscribe((res: any) => {
+        console.log(res);
+      })
+    }
   }
   
 
