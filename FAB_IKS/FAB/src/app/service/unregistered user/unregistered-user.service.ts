@@ -17,6 +17,6 @@ export class UnregisteredUserService {
   }
 
   getAssumption(requestAssumption: any) : Observable<any> {
-    return this.http.post<any>(environment.apiHost + "/api/unregisteredUser/", requestAssumption);
+    return this.http.post<any>(environment.apiHost + "api/unregisteredUser/", requestAssumption);
   }
 }
