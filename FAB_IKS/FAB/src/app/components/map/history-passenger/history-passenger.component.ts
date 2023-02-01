@@ -6,6 +6,7 @@ import { RideWithNoStatus } from 'src/app/model/Ride';
 import { IdEmail } from 'src/app/model/User';
 import { Location } from 'src/app/model/Location';
 import { Path } from 'src/app/model/Location';
+import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 
 @Component({
   selector: 'app-history-passenger',
@@ -16,17 +17,71 @@ export class HistoryPassengerComponent implements OnInit {
 
   constructor(private passengerService: PassengerService) {}
 
-  rides: PassengerRides = {
-    totalCount: 0,
-    results: [],
+  driver: IdEmail = {
+    id: 0,
+    email: '',
   }
 
-  ride2 : RideWithNoStatus = this.rides.results[0];
-  ride2depature : String = this.rides.results[0].locations[0].departure.address;
+  passenger: IdEmail = {
+    id: 0,
+    email: '',
+  }
+
+  passengers: IdEmail[] = [];
+
+  rejection: ReasonAndTimeOfRejection = {
+    reason: '',
+    timeOfRejection: '',
+  }
+
+  departure: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+
+  destination: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+
+  path: Path = {
+    departure: this.departure,
+    destination: this.destination,
+  }
+
+  locations: Path[] = [];
+
+  ride: RideWithNoStatus = {
+    id: 0,
+    startTime: '',
+    endTime: '',
+    totalCost: 0,
+    driver: this.driver,
+    passengers: this.passengers,
+    estimatedTimeInMinutes: 0,
+    vehicleVehicleName: '',
+    babyTransport: false,
+    petTransport: false,
+    rejection: this.rejection,
+    locations: this.locations,
+    status: '',
+  }
+
+  rides: RideWithNoStatus[] = [];
+
+  allRides: PassengerRides = {
+    totalCount: 0,
+    results: this.rides,
+  }
 
   ngOnInit(): void {
-    this.passengerService.getPassengerRides(2).subscribe((rides2) => (this.rides = rides2));
-    
+    this.passengerService.getPassengerRides(2).subscribe((rides2) => (this.allRides = rides2));
+    this.driver = this.allRides.results[0].driver;
+    this.passenger = this.allRides.results[0].passengers[0];
+    this.departure = this.allRides.results[0].locations[0].departure
+    this.destination = this.allRides.results[0].locations[0].destination
   //   const idEmailDriver: IdEmail = {
   //     id: this.rides.results[0].driver.id,
   //     email: this.rides.results[0].driver.email,

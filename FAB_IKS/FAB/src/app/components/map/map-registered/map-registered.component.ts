@@ -176,7 +176,7 @@ export class MapRegisteredComponent implements AfterViewInit {
       }
 
       const idEmail : IdEmail = {
-        id: '1',
+        id: 1,
         email: 'pera.peric@email.com'
       }
       let paths: Array<Path> = [path];

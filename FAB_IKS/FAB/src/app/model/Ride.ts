@@ -33,6 +33,7 @@ export interface RideWithNoStatus{
     petTransport: boolean;
     rejection: ReasonAndTimeOfRejection;
     locations: Path[];
+    status: string;
 }
 
 export interface RequestRide{
