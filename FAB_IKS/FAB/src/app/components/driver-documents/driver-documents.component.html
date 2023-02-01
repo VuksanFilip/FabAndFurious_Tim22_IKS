@@ -1,0 +1,68 @@
+<link
+  rel="stylesheet"
+  href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+/>
+<div id="bg">
+  <div id="containter">
+    <div id="registration_title">
+      <div>
+        <h1 style="width: 100%">Driver documents</h1>
+      </div>
+
+      <form (ngSubmit)="show()">
+        <button class="btn row" id="btn" type="submit">Add new document</button>
+      </form>
+
+      <form [formGroup]="addDocumentForm" id="form" style="display: none">
+        <input type="text" formControlName="name" />
+        <input type="text" formControlName="image" />
+        <form (ngSubmit)="addDocument()">
+          <button class="btn row" id="save-btn" type="submit">Add</button>
+        </form>
+      </form>
+      <form
+        style="
+          width: 100%;
+          height: 80vh;
+          line-height: 3em;
+          overflow: scroll;
+          padding: 2px;
+        "
+      >
+        <div
+          class="row"
+          style="width: 90%; margin-left: 5%; margin-bottom: 15px"
+        >
+          <table>
+            <tbody *ngFor="let documents of this.taskArray">
+              <tr>
+                <td>
+                  <div class="row border">
+                    <div>
+                      <div class="row" style="line-height: 2">
+                        <p class="row" style="width: 30%" type="text">
+                          {{ documents.column1.id }}
+                        </p>
+                        <p class="row" style="width: 30%" type="text">
+                          {{ documents.column1.name }}
+                        </p>
+                        <p class="row" style="width: 30%" type="text">
+                          {{ documents.column1.documentImage }}
+                        </p>
+                      </div>
+                      <form (ngSubmit)="deleteDocument()">
+                        <button class="btn row" id="save-btn" type="submit">
+                          Delete document
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
