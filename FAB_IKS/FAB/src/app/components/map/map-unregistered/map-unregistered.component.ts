@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
+import { Route, Location } from 'src/app/model/Location';
 import { MapService } from '../map.service';
 
 @Component({
@@ -11,13 +12,21 @@ import { MapService } from '../map.service';
 })
 export class MapUnregisteredComponent implements AfterViewInit {
   private map: any;
-  // markers: Array<any> = [];
-  fromMarker: any;
-  toMarker: any;
-  // fromMarkerLat: any;
-  // fromMarkerLng: any;
-  // toMarkerLat: any;
-  // toMarkerLng: any;
+  departure: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+  destination: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+  route: Route = {
+    departure: this.departure,
+    destination: this.destination,
+  }
+  markers = new Array();
 
   routeForm = new FormGroup({
     from: new FormControl(),
@@ -63,47 +72,35 @@ export class MapUnregisteredComponent implements AfterViewInit {
   // }
 
   registerOnClick(): void {
+
     this.map.on('click', (e: any) => {
-      const coord = e.latlng;
-      const lat = coord.lat;
-      const lng = coord.lng;
-      this.mapService.reverseSearch(lat, lng).subscribe();
-      const mp = new L.Marker([lat, lng]).addTo(this.map);
-      // this.markers.push(mp);
+      if (this.markers.length != 2) {
+        const coord = e.latlng;
+        const lat = coord.lat;
+        const lng = coord.lng;
+        const mp = new L.Marker([lat, lng]).addTo(this.map);
+        this.markers.push(mp);
+        this.mapService.reverseSearch(lat, lng).subscribe();
+      }
+
     });
 
-    // if(this.markers.length != 0){
-    //   L.Routing.control({
-    //     waypoints: [L.latLng(this.markers[0].getLatLng()), L.latLng(this.markers[1].getLatLng())],
-    //   }).addTo(this.map);
-    // }
   }
 
-  route(): void {
-    const routeVal = {
-      from: this.routeForm.value.from,
-      to: this.routeForm.value.to,
-    };
-
-    this.mapService.search(routeVal.from).subscribe({
-      next: (result) => {
-        const fromMarker = L.marker([result[0].lat, result[0].lon]).addTo(
-          this.map
-        );
-        this.fromMarker = fromMarker;
-      },
-      error: () => {},
-    });
-
-    this.mapService.search(routeVal.to).subscribe({
-      next: (result) => {
-        const toMarker = L.marker([result[0].lat, result[0].lon]).addTo(
-          this.map
-        );
-        this.toMarker = toMarker;
-      },
-      error: () => {},
-    });
+  getAssumptionByClick(){
+    if(this.markers.length == 0){
+      alert("Choose departure and destination by clicking on the map!");
+    }
+    if(this.markers.length == 1){
+      alert("Missing destination! Click on the map.");
+    }
+    if(this.markers.length == 2){
+      this.departure.address = this.map.reverseSearch(this.markers[0].getLatLng());
+      console.log(this.departure.address);
+      // this.destination = this.markers[1];
+      // this.route.departure = this.departure;
+      // this.route.destination = this.destination;
+    }
   }
 
   ngAfterViewInit(): void {

@@ -4,7 +4,7 @@
       <h1>Find route</h1>
       <form>
         <div class="row">
-          <form [formGroup]="routeForm" (ngSubmit)="route()">
+          <form [formGroup]="routeForm" (ngSubmit)="getAssumptionByClick()">
             <mat-form-field>
               <input
                 matInput
@@ -25,11 +25,11 @@
                 id="input"
               />
             </mat-form-field>
-            <div fxLayout="row" fxLayoutAlign="space-between end">
+            <!-- <div fxLayout="row" fxLayoutAlign="space-between end">
               <button type="submit" mat-raised-button id="showRoute">
                 Show route
               </button>
-            </div>
+            </div> -->
             <div class="row" style="margin-top: 4vh">
               <div class="col-sm-6">Average time</div>
 
@@ -54,7 +54,7 @@
                 <button
                   id="save-btn"
                   class="btn form-control"
-                  [routerLink]="['/login']"
+                  type="submit"
                 >
                   Confirm
                 </button>

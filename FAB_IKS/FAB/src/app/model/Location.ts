@@ -4,7 +4,7 @@ export interface Location{
     longitude: number;
 }
 
-export interface Path{
+export interface Route{
     departure: Location;
     destination: Location;
 }
