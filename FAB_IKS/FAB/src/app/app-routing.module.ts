@@ -1,6 +1,5 @@
 import { MapAdminComponent } from './components/map/map-admin/map-admin.component';
 import { AddDriverComponent } from './components/add-driver/add-driver.component';
-import { BillingComponent } from './components/billing/billing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -22,20 +21,19 @@ import { ReportsPassengerComponent } from './components/reports-passenger/report
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { IncomingRidesPassengerComponent } from './components/incoming-rides-passenger/incoming-rides-passenger.component';
 import { IncomingRidesDriverComponent } from './components/incoming-rides-driver/incoming-rides-driver.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
 import { NotificationsPassengerComponent } from './components/notifications-passenger/notifications-passenger.component';
 import { NotificationsDriverComponent } from './components/notifications-driver/notifications-driver.component';
 import { NotificationsAdminComponent } from './components/notifications-admin/notifications-admin.component';
-import { DriverDocumentsComponent } from './components/driver-documents/driver-documents.component';
+import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
+import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'billing', component: BillingComponent },
   {
     path: 'current-drive-passenger',
     component: CurrentDrivePessangerComponent,
@@ -53,7 +51,6 @@ const routes: Routes = [
   { path: 'history-driver', component: HistoryDriverComponent },
   { path: 'reports', component: ReportsComponent },
   { path: 'change-drivers-info', component: ChangeDriversInfoComponent },
-  { path: 'statistics', component: StatisticsComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'report', component: ReportComponent },
   { path: 'report-admin', component: ReportsAdminComponent },
@@ -79,6 +76,8 @@ const routes: Routes = [
     path: 'incoming-rides-driver',
     component: IncomingRidesDriverComponent,
   },
+  {path: 'driver-profile-edit', component: DriverProfileEditComponent},
+  {path: 'passenger-profile-edit', component: PassengerProfileEditComponent}
 ];
 
 @NgModule({

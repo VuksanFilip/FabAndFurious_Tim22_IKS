@@ -20,7 +20,17 @@ export interface PassengerWithNoPassword{
     address: string;
 }
 
+
 export interface PassengerRides{
     totalCount: number;
     results: RideWithNoStatus[];
+
+export interface PassengerUpdate{
+    name: string;
+    surname: string;
+    profilePicture: string;
+    telephoneNumber: string;
+    email: string;
+    address: string;
+
 }

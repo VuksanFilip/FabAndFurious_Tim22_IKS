@@ -1,9 +1,7 @@
 import { Location } from "./Location";
 
 export interface RequestDriverVehicle{
-    id: number;
-    driverId: number;
-    // vehicleVehicleName: ?;
+    vehicleType: string;
     model: string;
     licenseNumber: string;
     currentLocation: Location;
@@ -12,8 +10,10 @@ export interface RequestDriverVehicle{
     petTransport: boolean;
 }
 
-export interface RequestDriverVehicle{
-    // vehicleVehicleName: ?;
+export interface VehicleDriverProfile{
+    id: number;
+    driverId: number;
+    vehicleType: string;
     model: string;
     licenseNumber: string;
     currentLocation: Location;

@@ -1,103 +1,70 @@
 <div class="bg">
-  <form action="/action_page.php">
     <div id="profile-container">
       <div id="profile-picture"></div>
       <br />
-      <a class="col-sm-6" style="color: #805d84">Change photo</a>
       <h1 style="margin-top: 2vh">My profile</h1>
       <div id="profile-info">
         <fieldset>
           <div class="form-group">
             <label for="firstname">First Name</label>
-            <input type="text" class="form-control" value="Pera" />
+            <p>{{driver.name}}</p>
           </div>
           <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input type="text" class="form-control" value="Peric" />
+            <p>{{driver.surname}}</p>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input
-              type="tel"
-              pattern="[0-9]{10}"
-              class="form-control"
-              value="0651452658"
-            />
+            <p>{{driver.telephoneNumber}}</p>
           </div>
           <div class="form-group">
             <label for="address">Address</label>
-            <input
-              type="text"
-              class="form-control"
-              value="Maksima Gorkog 45, Novi Sad"
-            />
+            <p>{{driver.address}}</p>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input
-              type="email"
-              class="form-control"
-              value="pera.peric@gmail.com"
-            />
+            <p>{{driver.email}}</p>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" value="pera123" />
-          </div>
-          <div class="form-group">
-            <label for="password">Confirm password</label>
-            <input type="password" class="form-control" value="pera123" />
-          </div>
-          <div class="form-group">
-            <button class="btn" id="save-btn">Send request</button>
-            <button class="btn" id="cancel-btn" type="reset" value="reset">
-              Cancel
-            </button>
+            <button class="btn" id="save-btn" [routerLink]="['/driver-profile-edit']">Edit</button>
           </div>
         </fieldset>
       </div>
     </div>
     <div id="car-info-container">
-      <h1>Car info</h1>
+      <h1>Vehicle info</h1>
       <hr />
       <div class="row">
         <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
-          <div style="margin-left: 30%">Image</div>
           <div id="car-picture"></div>
-          <a class="col-sm-6" style="margin-left: 30%; color: #805d84"
-            >Change photo</a
-          >
         </div>
         <div class="col-sm-6">
-          <div class="form-group">
-            <label for="cartype">Car type</label>
-            <input
-              type="text"
-              class="form-control"
-              value="BMWx6"
-              style="width: 90%"
-            />
+          <div>
+            <label>Vehicle model</label>
+            <p>{{vehicle.model}}</p>
+          </div>
+          <div>
+            <label>Vehicle type</label>
+            <p>{{vehicle.vehicleType}}</p>
+          </div>
+          <div>
+            <label>License number</label>
+            <p>{{vehicle.licenseNumber}}</p>
+          </div>
+          <div>
+            <label>Number of seats</label>
+            <p>{{vehicle.passengerSeats}}</p>
           </div>
 
-          <input
-            type="checkbox"
-            id="babies"
-            name="babies"
-            value="Baby"
-            style="width: 40%"
-          />
-          <label for="babies" style="width: 40%"> Babies allowed</label><br />
-          <input
-            type="checkbox"
-            id="pets"
-            name="pets"
-            value="Pet"
-            style="width: 40%"
-          />
-          <label for="pets" style="width: 40%"> Pets allowed</label><br />
+          <label for="babies" style="width: 40%"> Babies</label><br />
+          <p>{{vehicle.babyTransport}}</p>
+          <label for="pets" style="width: 40%"> Pets </label><br />
+          <p>{{vehicle.petTransport}}</p>
+          <div class="form-group">
+            <button class="btn" id="save-btn" [routerLink]="['/driver-profile-edit']">Edit</button>
+          </div>
         </div>
       </div>
       <hr />
     </div>
-  </form>
 </div>

@@ -21,12 +21,35 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+#car-info-container {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  float: left;
+  width: 40vw;
+  height: 50vh;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
 #profile-picture {
   margin-top: 3vh;
   height: 200px;
   width: 200px;
   display: inline-block;
   background: url("../../../assets/images/profile-picture.png");
+}
+
+#car-picture {
+  margin-top: 2vh;
+  height: 220px;
+  width: 280px;
+  display: inline-block;
+  background: url("../../../assets/images/car-image.jpeg");
 }
 
 #profile-container h1 {
@@ -92,13 +115,13 @@ input {
   outline-color: #805d84;
 }
 
-#billing-acounts-container h1 {
+#car-info-container h1 {
   text-align: left;
   font-size: 35px;
   padding: 20px;
   padding-bottom: 0%;
 }
 
-#billing-acounts-container hr {
+#car-info-container hr {
   margin: none;
 }
