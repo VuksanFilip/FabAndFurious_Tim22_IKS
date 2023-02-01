@@ -57,7 +57,7 @@ export interface NewPasswordCode{
 }
 
 export interface IdEmail{
-    id: string;
+    id: number;
     email: string;
 }
 

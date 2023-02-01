@@ -9,3 +9,9 @@ export interface Path{
     destination: Location;
 }
 
+export interface Route {
+    id?:number,
+    departure:Location,
+    destination:Location
+  }
+

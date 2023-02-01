@@ -2,9 +2,10 @@
   <div id="containter">
     <div id="registration_title">
       <h1>Find route</h1>
-      <form>
-        <div class="row">
-          <form [formGroup]="routeForm" (ngSubmit)="route()">
+      <form [formGroup]="rideForm" (ngSubmit)="createRide()">
+       <div class="row">
+          <!-- <form [formGroup]="routeForm" > -->
+            <!-- (ngSubmit)="route()" -->
             <mat-form-field>
               <input
                 matInput
@@ -26,9 +27,9 @@
               />
             </mat-form-field>
             <div fxLayout="row" fxLayoutAlign="space-between end">
-              <button type="submit" mat-raised-button id="showRoute">
+              <!-- <button type="submit" mat-raised-button id="showRoute">
                 Show route
-              </button>
+              </button> -->
             </div>
             <div class="row" style="margin-top: 4vh">
               <div class="col-sm-6">Average time</div>
@@ -100,11 +101,13 @@
               <div class="form-group">
                 <button
                   id="save-btn"
+                  type="submit"
                   class="btn form-control"
-                  [routerLink]="['/billing']"
                 >
                   Confirm
                 </button>
+
+                <!--[routerLink]="['/billing']" -->
                 <button
                   id="cancel-btn"
                   class="btn form-control"
@@ -115,7 +118,7 @@
                 </button>
               </div>
             </div>
-          </form>
+          <!-- </form> -->
         </div>
       </form>
 

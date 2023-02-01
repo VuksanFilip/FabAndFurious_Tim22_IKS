@@ -25,4 +25,3 @@ export class PassengerProfileComponent implements OnInit {
     this.passengerService.getPassenger(2).subscribe((passenger2) => (this.passenger = passenger2));
   }
 
-}

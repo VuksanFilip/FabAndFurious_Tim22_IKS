@@ -43,6 +43,7 @@ import { DriverProfileEditComponent } from './components/driver-profile-edit/dri
 import { MatSelectModule } from '@angular/material/select';
 import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     NotificationsAdminComponent,
     DriverProfileEditComponent,
     PassengerProfileEditComponent,
+
   ],
   imports: [
     BrowserModule,

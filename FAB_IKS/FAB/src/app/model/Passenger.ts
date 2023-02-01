@@ -1,3 +1,5 @@
+import { Ride, RideWithNoStatus } from "./Ride";
+
 export interface PassengerWithNoId{
     name: string;
     surname: string;
@@ -18,6 +20,11 @@ export interface PassengerWithNoPassword{
     address: string;
 }
 
+
+export interface PassengerRides{
+    totalCount: number;
+    results: RideWithNoStatus[];
+
 export interface PassengerUpdate{
     name: string;
     surname: string;
@@ -25,4 +32,5 @@ export interface PassengerUpdate{
     telephoneNumber: string;
     email: string;
     address: string;
+
 }

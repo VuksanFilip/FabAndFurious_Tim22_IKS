@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'map-unregistered', component: MapUnregisteredComponent },
   { path: 'passenger-profile', component: PassengerProfileComponent },
   { path: 'driver-profile', component: DriverProfileComponent },
+  { path: 'driver-documents', component: DriverDocumentsComponent },
   { path: 'add-driver', component: AddDriverComponent },
   { path: 'current-drive-driver', component: CurrentDriveDriverComponent },
   { path: 'map-admin', component: MapAdminComponent },
