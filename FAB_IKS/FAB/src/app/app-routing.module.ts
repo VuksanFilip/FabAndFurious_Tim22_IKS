@@ -52,7 +52,7 @@ const routes: Routes = [
   { path: 'change-drivers-info', component: ChangeDriversInfoComponent },
   { path: 'admin-profile', component: AdminProfileComponent },
   { path: 'report', component: ReportComponent },
-  { path: 'report-admin', component: ReportsAdminComponent },
+  { path: 'reports-admin', component: ReportsAdminComponent },
   { path: 'reports-passenger', component: ReportsPassengerComponent },
   { path: 'ride-details', component: RideDetailsComponent },
   {
