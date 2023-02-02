@@ -3,7 +3,7 @@ export interface ReportRequest {
   to: '';
 }
 
-export interface ReportOneDay {
+export interface Reportday {
   date: '';
   count: 0;
 }
@@ -11,5 +11,27 @@ export interface ReportOneDay {
 export interface ReportDay {
   sum: 0;
   average: 0;
-  results: ReportOneDay[];
+  results: Reportday[];
+}
+
+export interface Reportkm {
+  date: '';
+  count: 0;
+}
+
+export interface ReportKm {
+  sum: 0;
+  average: 0;
+  results: Reportkm[];
+}
+
+export interface Reportmoney {
+  date: '';
+  count: 0;
+}
+
+export interface ReportMoney {
+  sum: 0;
+  average: 0;
+  results: Reportmoney[];
 }
