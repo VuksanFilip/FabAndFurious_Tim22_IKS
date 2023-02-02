@@ -30,26 +30,28 @@
                       <div class="row" style="line-height: 2">
                         <hr />
                         <div class="row" style="width: 20%">Start:</div>
-                        <div class="row" style="width: 20%">
-                          {{ ride.startTime }}
-                        </div>
+                        <p class="row" style="width: 20%">
+                          {{ ride.startTime.split("T")[0] }}
+                          {{ ride.startTime.split("T")[1].split(".")[0] }}
+                        </p>
                         <div class="row" style="width: 20%">End:</div>
                         <div class="row" style="width: 20%">
-                          {{ ride.endTime }}
+                          {{ ride.endTime.split("T")[0] }}
+                          {{ ride.endTime.split("T")[1].split(".")[0] }}
                         </div>
 
                         <hr />
                         <div class="row" style="width: 50%">From:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].departure.address }} -->
+                          {{ ride.locations[0].departure.address }}
                         </div>
                         <div class="row" style="width: 50%">To:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].destination.address }} -->
+                          {{ ride.locations[0].destination.address }}
                         </div>
                         <div class="row" style="width: 50%">Passenger:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ ride.passengers[0].email }} -->
+                          {{ ride.passengers[0].email }}
                         </div>
                         <div class="row" style="width: 50%">Driver:</div>
                         <div class="row" style="width: 50%">
@@ -63,6 +65,25 @@
                           <div class="row" style="width: 50%">20min</div>
                           <div class="row" style="width: 50%">Distance:</div>
                           <div class="row" style="width: 50%">9km</div>
+                        </div>
+                        <hr />
+                        <div class="row" style="color: #805d84">
+                          <div class="row" style="width: 50%">Car type:</div>
+                          <div class="row" style="width: 50%">
+                            {{ ride.status }}
+                          </div>
+                          <div class="row" style="width: 50%">
+                            Babies allowed:
+                          </div>
+                          <div class="row" style="width: 50%">
+                            {{ ride.babyTransport }}
+                          </div>
+                          <div class="row" style="width: 50%">
+                            Pets allowed:
+                          </div>
+                          <div class="row" style="width: 50%">
+                            {{ ride.petTransport }}
+                          </div>
                         </div>
                         <hr />
 
