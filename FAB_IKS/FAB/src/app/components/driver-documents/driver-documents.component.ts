@@ -13,11 +13,6 @@ export class DriverDocumentsComponent implements OnInit {
 
   taskArray: DocumentsContent[] = [];
 
-  addDocumentForm = new FormGroup({
-    name: new FormControl(''),
-    image: new FormControl(''),
-  });
-
   fillTable(task: DocumentsContent) {
     this.taskArray.push(task);
   }
@@ -30,6 +25,11 @@ export class DriverDocumentsComponent implements OnInit {
       this.generateSmartTable();
     });
   }
+
+  addDocumentForm = new FormGroup({
+    name: new FormControl(''),
+    image: new FormControl(''),
+  });
 
   generateSmartTable() {
     for (let i = 0; i < this.documents.length; i += 1) {
