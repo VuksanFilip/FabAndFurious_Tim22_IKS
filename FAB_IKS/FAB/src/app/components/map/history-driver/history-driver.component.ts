@@ -1,3 +1,4 @@
+import { Ride } from 'src/app/model/Ride';
 import { RideWithNoStatus } from './../../../model/Ride';
 import { Location } from './../../../model/Location';
 import { Component, OnInit } from '@angular/core';
@@ -71,7 +72,6 @@ export class HistoryDriverComponent implements OnInit {
     petTransport: false,
     rejection: this.rejection,
     locations: this.locations,
-    status: '',
   };
 
   rides: RideWithNoStatus[] = [];
