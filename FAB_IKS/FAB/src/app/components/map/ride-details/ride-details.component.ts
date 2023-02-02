@@ -1,5 +1,5 @@
 import { RidesContent } from './../favorites-passenger/favorites-passenger.component';
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
@@ -16,7 +16,7 @@ import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
   templateUrl: './ride-details.component.html',
   styleUrls: ['./ride-details.component.css'],
 })
-export class RideDetailsComponent implements AfterViewInit {
+export class RideDetailsComponent implements OnInit {
   private map: any;
   // markers: Array<any> = [];
   fromMarker: any;
@@ -85,7 +85,7 @@ export class RideDetailsComponent implements AfterViewInit {
     sheduledTime: '',
   };
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     let DefaultIcon = L.icon({
       iconUrl: 'https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png',
     });
