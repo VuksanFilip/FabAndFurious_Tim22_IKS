@@ -2,7 +2,6 @@ import { Route, Location } from './Location';
 import { IdEmail } from './User';
 import { ReasonAndTimeOfRejection } from './Rejection';
 
-
 // export interface Ride {
 //   id: number;
 //   startTime: string;
@@ -32,7 +31,6 @@ export interface RideWithNoStatus {
   petTransport: boolean;
   rejection: ReasonAndTimeOfRejection;
   locations: Route[];
-  status: string;
 }
 
 export interface Ride {
@@ -93,7 +91,7 @@ export interface CurrentRidePassenger {
   pets: boolean;
   departure: Location;
   destination: Location;
-  scheduledTime: string
+  scheduledTime: string;
 }
 
 export interface CurrentRideDriver {
@@ -106,5 +104,5 @@ export interface CurrentRideDriver {
   pets: boolean;
   departure: Location;
   destination: Location;
-  scheduledTime: string
+  scheduledTime: string;
 }
