@@ -71,7 +71,7 @@ export interface RideFavorite {
 export interface RequestRide {
   locations: Route[];
   passengers: IdEmail[];
-  // vehicleVehicleName: ?;
+  vehicleType: string;
   babyTransport: boolean;
   petTransport: boolean;
   scheduledTime: string;

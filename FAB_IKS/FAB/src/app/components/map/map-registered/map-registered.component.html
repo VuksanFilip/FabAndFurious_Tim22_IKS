@@ -4,8 +4,6 @@
       <h1>Find route</h1>
       <form [formGroup]="rideForm" (ngSubmit)="createRide()">
        <div class="row">
-          <!-- <form [formGroup]="routeForm" > -->
-            <!-- (ngSubmit)="route()" -->
             <mat-form-field>
               <input
                 matInput
@@ -14,6 +12,7 @@
                 formControlName="from"
                 placeholder="From"
                 id="input"
+                value="{{departure.address}}"
               />
             </mat-form-field>
             <mat-form-field>
@@ -24,13 +23,29 @@
                 formControlName="to"
                 placeholder="To"
                 id="input"
+                value="{{destination.address}}"
               />
             </mat-form-field>
-            <div fxLayout="row" fxLayoutAlign="space-between end">
-              <!-- <button type="submit" mat-raised-button id="showRoute">
-                Show route
-              </button> -->
-            </div>
+            <input
+            formControlName="babies"
+            type="checkbox"
+            id="babies"
+            style="width: 40%"
+            />
+            <label for="babies" style="width: 40%"> Babies allowed</label><br />
+            <input
+            formControlName="pets"
+            type="checkbox"
+            id="pets"
+            style="width: 40%"
+            />
+            <label for="pets" style="width: 40%"> Pets allowed</label><br />
+            <label for="vehicleType">Vehicle type</label>
+              <select formControlName="type" name="type" class="form-control">
+                <option value="VAN">Van</option>
+                <option value="STANDARD">Standard</option>
+                <option value="LUXURY">Luxury</option>
+              </select>
             <div class="row" style="margin-top: 4vh">
               <div class="col-sm-6">Average time</div>
 
@@ -38,63 +53,45 @@
             </div>
             <div class="row">
               <div class="col-sm-6">
-                <div type="text" class="form-control mb-4" style="color: gray">
-                  Time
+                <div type="text" class="form-control" style="color: gray">
+                  {{estimatedValues.estimatedTimeInMinutes}}
                 </div>
               </div>
 
               <div class="col-sm-6">
-                <div type="text" class="form-control mb-4" style="color: gray">
-                  Price
+                <div type="text" class="form-control" style="color: gray">
+                  {{estimatedValues.estimatedCost}}
                 </div>
               </div>
             </div>
-            <div>
-              <div class="text-left checkbox-wrapper">
-                <input type="checkbox" id="babies" class="checkbox" />
-                <label class="checkbox-label" for="babies"
-                  >Babies allowed</label
-                >
-              </div>
-              <div class="text-left checkbox-wrapper">
-                <input type="checkbox" id="pets" class="checkbox" />
-                <label class="checkbox-label" for="pets">Pets allowed</label>
-              </div>
-              <div>
-                <select class="form-select">
-                  <option>Standard</option>
-                  <option>Luxury</option>
-                  <option>Van</option>
-                </select>
-              </div>
+            <div fxLayout="row" fxLayoutAlign="space-between end">
+              <button type="button" mat-raised-button id="showRoute" (click)="getAssumption()">
+                Calculate
+              </button>
             </div>
 
             <div style="margin-top: 4vh">When do you want to take a ride?</div>
             <div class="row" style="margin-top: 1vh">
               <div class="col-sm-6">
                 <label class="radiobtn"
-                  ><input type="radio" name="gender" value="male" />Now</label
+                  ><input formControlName="time" type="radio" name="time" value="Now" />Now</label
                 >
               </div>
 
               <div class="col-sm-6">
                 <label class="radiobtn"
                   ><input
+                    formControlName="time"
                     type="radio"
-                    name="gender"
-                    value="male"
+                    name="time"
+                    value="Reservation"
                   />Reservation</label
                 >
               </div>
             </div>
 
             <div>
-              <input
-                type="date"
-                class="form-control datepicker mb-4"
-                style="width: 100%"
-                style="color: gray"
-              />
+              <input formControlName="reservation" type="time">
             </div>
 
             <div class="row" style="margin-top: 4vh">
@@ -107,7 +104,6 @@
                   Confirm
                 </button>
 
-                <!--[routerLink]="['/billing']" -->
                 <button
                   id="cancel-btn"
                   class="btn form-control"
@@ -118,50 +114,8 @@
                 </button>
               </div>
             </div>
-          <!-- </form> -->
         </div>
       </form>
-
-      <!-- <h1>Route details</h1>
-      <form style="margin-left: 0; margin-right: 0">
-        <div class="row">
-          <div class="row">
-            <div class="bold" style="width: 30%">From:</div>
-            <div style="width: 70%">Kosovska 12, Novi Sad</div>
-          </div>
-          <div class="row">
-            <div class="bold" style="width: 30%">To:</div>
-            <div style="width: 70%">Jug Bogdana 10, Novi Sad</div>
-          </div>
-        </div>
-
-        <div class="row border2" style="margin-top: 4vh">
-          <h2>Driver's information</h2>
-
-          <div>
-            <div class="row" style="padding-left: 5%">
-              <div class="row" style="width: 50%">Name:</div>
-              <div class="row" style="width: 50%">name</div>
-              <div class="row" style="width: 50%">Last name:</div>
-              <div class="row" style="width: 50%">last name</div>
-              <div class="row" style="width: 50%">Phone:</div>
-              <div class="row" style="width: 50%">0652780029</div>
-              <div class="row" style="width: 50%">Email:</div>
-              <div class="row" style="width: 50%">name@gmail.com</div>
-              <div class="row" style="width: 50%">Car type:</div>
-              <div class="row" style="width: 50%">BMWX6</div>
-              <div class="row" style="width: 50%">Pets allowed:</div>
-              <div class="row" style="width: 50%">no</div>
-              <div class="row" style="width: 50%">Babies allowed:</div>
-              <div class="row" style="width: 50%">yes</div>
-            </div>
-          </div>
-        </div>
-      </form>
-
-
-      <button id="panic">PANIC</button>
-      <button class="btn" id="cancel-btn">Leave note to support</button> -->
     </div>
 
     <div class="map-container">
