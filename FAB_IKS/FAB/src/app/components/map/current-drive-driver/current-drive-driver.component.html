@@ -1,51 +1,51 @@
 <div id="bg">
   <div id="containter">
     <div id="registration_title">
-      <h1>Route details</h1>
-      <form style="margin-left: 0; margin-right: 0">
-        <div class="row">
-          <div class="row">
-            <div class="bold" style="width: 30%">From:</div>
-            <div style="width: 70%">Kosovska 12, Novi Sad</div>
-          </div>
-          <div class="row">
-            <div class="bold" style="width: 30%">To:</div>
-            <div style="width: 70%">Jug Bogdana 10, Novi Sad</div>
-          </div>
-        </div>
 
         <div class="row border2" style="margin-top: 4vh">
-          <h2>Pessanger's information</h2>
+          <h1>Current ride info</h1>
 
           <div>
             <div class="row" style="padding-left: 5%">
-              <div class="row" style="width: 50%">Name:</div>
-              <div class="row" style="width: 50%">name</div>
-              <div class="row" style="width: 50%">Last name:</div>
-              <div class="row" style="width: 50%">last name</div>
-              <div class="row" style="width: 50%">Phone:</div>
-              <div class="row" style="width: 50%">0652780029</div>
-              <div class="row" style="width: 50%">Email:</div>
-              <div class="row" style="width: 50%">name@gmail.com</div>
-              <div class="row" style="width: 50%">Address:</div>
-              <div class="row" style="width: 50%">Jug Bogdana 16</div>
+              <div class="row" style="width: 50%">From:</div>
+              <div class="row" style="width: 50%">{{activeRide.departure.address}}</div>
+              <div class="row" style="width: 50%">To:</div>
+              <div class="row" style="width: 50%">{{activeRide.destination.address}}</div>
+              <div class="row" style="width: 50%">Scheduled time:</div>
+              <div class="row" style="width: 50%">{{activeRide.scheduledTime}}</div>
+              <div class="row" style="width: 50%">Estimated time:</div>
+              <div class="row" style="width: 50%">{{activeRide.estimatedTimeInMinutes}} minutes</div>
+              <div class="row" style="width: 50%">Passenger:</div>
+              <div class="row" style="width: 50%">{{activeRide.passengerEmail}}</div>
+              <div class="row" style="width: 50%">Babies allowed:</div>
+              <div class="row" style="width: 50%">{{activeRide.babies}}</div>
+              <div class="row" style="width: 50%">Pets allowed:</div>
+              <div class="row" style="width: 50%">{{activeRide.pets}}</div>
+              <div class="row" style="width: 50%">Vehicle type:</div>
+              <div class="row" style="width: 50%">{{activeRide.vehicleType}}</div>
             </div>
           </div>
         </div>
-        <div class="row" style="margin-top: 6vh">
-          <div style="width: 30%; font-size: larger">Time:</div>
-          <div style="width: 70%; font-size: larger">10:35</div>
-        </div>
-      </form>
     </div>
-    <button
-      style="width: 70%; margin: 15%; background-color: red; color: white"
+    <form [formGroup]="panicForm" (ngSubmit)="panic()">
+      <input type="text" formControlName="reason" placeholder="Panic reason"
+      style="
+        width: 70%;
+        margin: 15%;
+        margin-top: 5vh;
+      ">
+      <button
+      style="
+        width: 70%;
+        margin: 15%;
+        background-color: red;
+        color: white;
+      "
+      type="submit"
     >
       PANIC
     </button>
-
-    <button class="btn" id="save-btn">Ride is finished</button>
-    <!-- <div>prikaz pinova voznji/vozaca</div> -->
+    </form>
   </div>
   <div class="map-container">
     <div id="map"></div>

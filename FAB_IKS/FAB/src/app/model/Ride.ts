@@ -1,6 +1,7 @@
-import { Route } from './Location';
+import { Route, Location } from './Location';
 import { IdEmail } from './User';
 import { ReasonAndTimeOfRejection } from './Rejection';
+
 
 // export interface Ride {
 //   id: number;
@@ -80,4 +81,30 @@ export interface RequestRide {
 export interface PageRides {
   totalCount: number;
   results: Ride[];
+}
+
+export interface CurrentRidePassenger {
+  startTime: string;
+  endTime: string;
+  driverEmail: string;
+  estimatedTimeInMinutes: number;
+  vehicleType: string;
+  babies: boolean;
+  pets: boolean;
+  departure: Location;
+  destination: Location;
+  scheduledTime: string
+}
+
+export interface CurrentRideDriver {
+  startTime: string;
+  endTime: string;
+  passengerEmail: string;
+  estimatedTimeInMinutes: number;
+  vehicleType: string;
+  babies: boolean;
+  pets: boolean;
+  departure: Location;
+  destination: Location;
+  scheduledTime: string
 }

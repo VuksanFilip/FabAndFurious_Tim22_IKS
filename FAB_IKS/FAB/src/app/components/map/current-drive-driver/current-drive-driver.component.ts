@@ -2,7 +2,12 @@ import { Component, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';
+import { CurrentRideDriver, CurrentRidePassenger } from 'src/app/model/Ride';
+import { PassengerService } from 'src/app/service/passenger/passenger.service';
+import { RideService } from 'src/app/service/ride/ride.service';
 import { MapService } from '../map.service';
+import { Location } from 'src/app/model/Location';
+import { PanicReason } from 'src/app/model/Panic';
 
 @Component({
   selector: 'app-current-drive-driver',
@@ -11,16 +16,39 @@ import { MapService } from '../map.service';
 })
 export class CurrentDriveDriverComponent implements AfterViewInit {
   private map: any;
-  // markers: Array<any> = [];
-  fromMarker: any;
-  toMarker: any;
 
-  routeForm = new FormGroup({
-    from: new FormControl(),
-    to: new FormControl(),
-  });
+  panicForm = new FormGroup(
+    {
+      reason: new FormControl('', [Validators.required])
+    }
+  )
 
-  constructor(private mapService: MapService) {}
+  departure: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+
+  destination: Location = {
+    address: '',
+    latitude: 0,
+    longitude: 0,
+  }
+
+  activeRide: CurrentRideDriver = {
+    startTime: '',
+    endTime: '',
+    passengerEmail: '',
+    estimatedTimeInMinutes: 0,
+    vehicleType: '',
+    babies: false,
+    pets: false,
+    departure: this.departure,
+    destination: this.destination,
+    scheduledTime: '',
+  }
+
+  constructor(private mapService: MapService, private passengerService: PassengerService, private rideService: RideService) {}
 
   ngAfterViewInit(): void {
     let DefaultIcon = L.icon({
@@ -48,9 +76,33 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
     );
     tiles.addTo(this.map);
 
-    // this.search();
-    // this.addMarker();
-    //this.registerOnClick();
-    // this.route();
+  }
+
+  ngOnInit(){
+    this.rideService.getActiveRideForDriver(5).subscribe((res) => {
+      this.departure = res.locations[0].departure;
+      this.destination = res.locations[0].destination;
+      this.activeRide.startTime = res.startTime;
+      this.activeRide.endTime = res.endTime;
+      this.activeRide.passengerEmail = res.passengers[0].email;
+      this.activeRide.estimatedTimeInMinutes = res.estimatedTimeInMinutes;
+      this.activeRide.vehicleType = res.vehicleType;
+      this.activeRide.babies = res.babyTransport;
+      this.activeRide.pets = res.petTransport;
+      this.activeRide.departure = this.departure;
+      this.activeRide.destination = this.destination;
+      this.activeRide.scheduledTime = res.scheduledTime;
+    })
+    L.marker([this.activeRide.departure.latitude, this.activeRide.departure.longitude]).addTo(this.map);
+    L.marker([this.activeRide.destination.latitude, this.activeRide.destination.longitude]).addTo(this.map);
+  }
+
+  panic(){
+    const panic: PanicReason = {
+      reason: this.panicForm.value.reason!,
+    }
+    this.rideService.setPanicReason(1, panic).subscribe((res) => {
+      console.log(res);
+    });
   }
 }
