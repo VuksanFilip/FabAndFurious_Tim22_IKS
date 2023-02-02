@@ -8,13 +8,6 @@
       <div>
         <h1 style="width: 100%">Ride history</h1>
       </div>
-      <button
-        class="btn row"
-        id="favorites"
-        [routerLink]="['/favorites-passenger']"
-      >
-        Statistics
-      </button>
       <button class="btn row" id="report" [routerLink]="['/report']">
         Make report
       </button>
@@ -40,21 +33,27 @@
                       <div class="row" style="line-height: 2">
                         <div class="row" style="width: 20%">Start:</div>
                         <div class="row" style="width: 20%">
-                          {{ rides.column1.startTime }}
+                          {{ rides.column1.startTime.split("T")[0] }}
+                          {{
+                            rides.column1.startTime.split("T")[1].split(".")[0]
+                          }}
                         </div>
                         <div class="row" style="width: 20%">End:</div>
                         <div class="row" style="width: 20%">
-                          {{ rides.column1.endTime }}
+                          {{ rides.column1.endTime.split("T")[0] }}
+                          {{
+                            rides.column1.endTime.split("T")[1].split(".")[0]
+                          }}
                         </div>
 
                         <hr />
                         <div class="row" style="width: 50%">From:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].departure.address }} -->
+                          {{ rides.column1.locations[0].departure.address }}
                         </div>
                         <div class="row" style="width: 50%">To:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].destination.address }} -->
+                          {{ rides.column1.locations[0].destination.address }}
                         </div>
                         <div class="row" style="width: 50%">Passenger:</div>
                         <div class="row" style="width: 50%">

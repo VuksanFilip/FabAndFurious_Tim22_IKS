@@ -81,60 +81,10 @@ export class HistoryPassengerComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.passengerService.getPassengerRides(2).subscribe((rides2) => {
+    this.passengerService.getPassengerRides(1).subscribe((rides2) => {
       this.allRides = rides2;
       this.generateSmartTable();
     });
-    // this.driver = this.allRides.results[0].driver;
-    // this.passenger = this.allRides.results[0].passengers[0];
-    // this.departure = this.allRides.results[0].locations[0].departure;
-    // this.destination = this.allRides.results[0].locations[0].destination;
-    //   const idEmailDriver: IdEmail = {
-    //     id: this.rides.results[0].driver.id,
-    //     email: this.rides.results[0].driver.email,
-    //   }
-
-    //   const idEmailPassenger1: IdEmail = {
-    //     id: this.rides.results[0].passengers[0].id,
-    //     email: this.rides.results[0].passengers[0].email,
-    //   }
-
-    //   let idEmailPassengers: Array<IdEmail> = [idEmailPassenger1];
-
-    //   const location1 : Location = {
-    //     address: this.rides.results[0].locations[0].departure.address,
-    //     latitude: this.rides.results[0].locations[0].departure.longitude,
-    //     longitude: this.rides.results[0].locations[0].departure.latitude
-    //   }
-
-    //   const location2 : Location = {
-
-    //     address: this.rides.results[0].locations[1].departure.address,
-    //     latitude: this.rides.results[0].locations[1].departure.longitude,
-    //     longitude: this.rides.results[0].locations[1].departure.latitude
-    //   }
-
-    //   const path : Path = {
-    //     departure: location1,
-    //     destination: location2
-    //   }
-
-    //   let paths : Array<Path> = [path]
-
-    // const ride1 : RideWithNoStatus = {
-    //   id: this.rides.results[0].id,
-    //   startTime: this.rides.results[0].startTime,
-    //   endTime: this.rides.results[0].endTime,
-    //   totalCost: this.rides.results[0].totalCost,
-    //   driver: idEmailDriver,
-    //   passengers: idEmailPassengers,
-    //   estimatedTimeInMinutes: this.rides.results[0].estimatedTimeInMinutes,
-    //   vehicleVehicleName: this.rides.results[0].vehicleVehicleName,
-    //   babyTransport: this.rides.results[0].babyTransport,
-    //   petTransport: this.rides.results[0].petTransport,
-    //   rejection: this.rides.results[0].rejection,
-    //   locations: paths,
-    // }
   }
 
   generateSmartTable() {
