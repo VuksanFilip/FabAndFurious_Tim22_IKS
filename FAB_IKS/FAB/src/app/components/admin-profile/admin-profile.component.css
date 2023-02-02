@@ -21,17 +21,6 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#car-info-container {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  float: left;
-  width: 40vw;
-  height: 50vh;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 2%;
-}
 
 #profile-picture {
   margin-top: 3vh;
@@ -41,28 +30,10 @@
   background: url("../../../assets/images/profile-picture.png");
 }
 
-#car-picture {
-  margin-top: 2vh;
-  height: 220px;
-  width: 280px;
-  display: inline-block;
-  background: url("../../../assets/images/car-image.jpeg");
-}
-
 #profile-container h1 {
   font-size: 40px;
 }
 
-/* .form-control {
-      border: 0;
-      outline: 0;
-      background: transparent;
-      border-bottom: 2px solid black;
-  }
-  
-  label{
-      float: left;
-  } */
 
 #profile-info {
   margin-right: auto;
@@ -85,40 +56,4 @@ label {
   margin-right: 15px;
   float: left;
 }
-input {
-  height: 35px;
-  width: 400px;
-  border: 1px solid #000;
-  margin-top: 10px;
-  border: 0;
-  outline: 0;
-  border-bottom: 2px solid black;
-  background: transparent;
-}
 
-.btn {
-  margin: 20px;
-  width: 150px;
-}
-
-#save-btn {
-  background-color: #805d84;
-  color: white;
-}
-
-#cancel-btn {
-  background-color: white;
-  color: #805d84;
-  outline-color: #805d84;
-}
-
-#car-info-container h1 {
-  text-align: left;
-  font-size: 35px;
-  padding: 20px;
-  padding-bottom: 0%;
-}
-
-#car-info-container hr {
-  margin: none;
-}
