@@ -71,7 +71,6 @@ export class HistoryPassengerComponent implements OnInit {
     petTransport: false,
     rejection: this.rejection,
     locations: this.locations,
-    status: '',
   };
 
   rides: RideWithNoStatus[] = [];
