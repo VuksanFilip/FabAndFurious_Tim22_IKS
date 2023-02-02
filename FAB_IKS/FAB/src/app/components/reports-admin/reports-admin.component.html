@@ -1,1 +1,58 @@
-<p>reports-admin works!</p>
+<div class="bg">
+  <div id="profile-container">
+    <h1 style="margin-top: 5vh">Reports</h1>
+    <div class="form-group">
+      <form [formGroup]="requestForm">
+        <div>From:</div>
+        <input formControlName="from_date" type="date" id="from" name="from" />
+        <div>To:</div>
+        <input formControlName="to_date" type="date" id="to" name="to" />
+
+        <div style="margin-top: 2vh">Choose report type</div>
+        <select
+          formControlName="type"
+          class="form-select"
+          aria-label="Choose report type"
+        >
+          <option value="1">Earned money per day</option>
+          <option value="2">Kilometres per day</option>
+          <option value="3">Rides per day</option>
+        </select>
+        <div style="margin-top: 2vh">User's id:</div>
+        <input style="width: 30%" formControlName="type" type="number" />
+      </form>
+      <form (ngSubmit)="show()">
+        <button class="btn row" id="save-btn" type="submit">
+          Show reports
+        </button>
+      </form>
+
+      <form id="form" style="display: none">
+        <div class="row">
+          <div class="col-lg-6" id="div-chart">
+            <canvas id="chart1"></canvas>
+            <div>Kumulativna suma</div>
+            <p></p>
+            <div>Prosek</div>
+            <p></p>
+          </div>
+          <div class="col-lg-6" id="div-chart">
+            <canvas id="chart2"></canvas>
+            <div>Kumulativna suma</div>
+            <p></p>
+            <div>Prosek</div>
+            <p></p>
+          </div>
+          <div class="col-lg-6" id="div-chart">
+            <canvas id="chart3"></canvas>
+            <div>Kumulativna suma</div>
+            <p></p>
+            <div>Prosek</div>
+            <p></p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <hr />
+  </div>
+</div>
