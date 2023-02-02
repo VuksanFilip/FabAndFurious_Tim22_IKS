@@ -71,20 +71,9 @@ export class MapUnregisteredComponent implements AfterViewInit {
       }
     );
     tiles.addTo(this.map);
+    this.registerOnClick();
   }
 
-  search(): void {
-    this.mapService.search('Svetog Nikole 103 Zabalj').subscribe({
-      next: (result) => {
-        console.log(result);
-        L.marker([result[0].lat, result[0].lon])
-          .addTo(this.map)
-          .bindPopup('Pozdrav iz Zabalj.')
-          .openPopup();
-      },
-      error: () => {},
-    });
-  }
 
   registerOnClick(): void {
 
