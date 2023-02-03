@@ -1,37 +1,37 @@
 export interface ReportRequest {
-  from: '';
-  to: '';
+  from: string;
+  to: string;
 }
 
 export interface Reportday {
-  date: '';
-  count: 0;
+  date: string;
+  count: number;
 }
 
 export interface ReportDay {
-  sum: 0;
-  average: 0;
+  sum: number;
+  average: number;
   results: Reportday[];
 }
 
 export interface Reportkm {
-  date: '';
-  count: 0;
+  date: string;
+  count: number;
 }
 
 export interface ReportKm {
-  sum: 0;
-  average: 0;
+  sum: number;
+  average: number;
   results: Reportkm[];
 }
 
 export interface Reportmoney {
-  date: '';
-  count: 0;
+  date: string;
+  count: number;
 }
 
 export interface ReportMoney {
-  sum: 0;
-  average: 0;
+  sum: number;
+  average: number;
   results: Reportmoney[];
 }
