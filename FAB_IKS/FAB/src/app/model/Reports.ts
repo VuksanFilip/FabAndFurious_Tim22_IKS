@@ -4,7 +4,7 @@ export interface ReportRequest {
 }
 
 export interface Reportday {
-  date: string;
+  date: Date;
   count: number;
 }
 
@@ -15,7 +15,7 @@ export interface ReportDay {
 }
 
 export interface Reportkm {
-  date: string;
+  date: Date;
   count: number;
 }
 
@@ -26,7 +26,7 @@ export interface ReportKm {
 }
 
 export interface Reportmoney {
-  date: string;
+  date: Date;
   count: number;
 }
 
