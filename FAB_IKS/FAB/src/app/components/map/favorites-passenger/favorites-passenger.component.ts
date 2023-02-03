@@ -1,14 +1,8 @@
-import { PassengerFavorites } from './../../../model/Passenger';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import * as L from 'leaflet';
 import 'leaflet-routing-machine';
-import { MapService } from '../map.service';
-import { RideFavorite, RideWithNoStatus } from 'src/app/model/Ride';
-import { IdEmail } from 'src/app/model/User';
+import { RideFavorite, RideFavorites } from 'src/app/model/Ride';
 import { Location } from 'src/app/model/Location';
 import { Route } from 'src/app/model/Location';
-import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 import { RideService } from 'src/app/service/ride/ride.service';
 
 @Component({
@@ -24,23 +18,6 @@ export class FavoritesPassengerComponent implements OnInit {
   }
 
   constructor(private rideService: RideService) {}
-
-  driver: IdEmail = {
-    id: 0,
-    email: '',
-  };
-
-  passenger: IdEmail = {
-    id: 0,
-    email: '',
-  };
-
-  passengers: IdEmail[] = [];
-
-  rejection: ReasonAndTimeOfRejection = {
-    reason: '',
-    timeOfRejection: '',
-  };
 
   departure: Location = {
     address: '',
@@ -63,24 +40,16 @@ export class FavoritesPassengerComponent implements OnInit {
 
   ride: RideFavorite = {
     id: 0,
-    name: '',
-    startTime: '',
-    endTime: '',
-    totalCost: 0,
-    driver: this.driver,
-    passengers: this.passengers,
-    estimatedTimeInMinutes: 0,
+    favoriteName: '',
     vehicleVehicleName: '',
     babyTransport: false,
     petTransport: false,
-    rejection: this.rejection,
     locations: this.locations,
-    status: '',
   };
 
   rides: RideFavorite[] = [];
 
-  allRides: PassengerFavorites = {
+  allRides: RideFavorites = {
     totalCount: 0,
     results: this.rides,
   };
@@ -99,6 +68,13 @@ export class FavoritesPassengerComponent implements OnInit {
         column2: this.allRides.results[i + 1],
       });
     }
+  }
+
+  removeFavorite(): void {
+    this.rideService.deleteFavoriteRoute('1').subscribe((rides2) => {
+      this.allRides = rides2;
+      this.generateSmartTable();
+    });
   }
 }
 

@@ -38,95 +38,37 @@
                   <div class="row border">
                     <div>
                       <div class="row" style="line-height: 2">
-                        <div class="row" style="width: 20%">Start:</div>
-                        <div class="row" style="width: 20%">
-                          {{ rides.column1.startTime }}
-                        </div>
-                        <div class="row" style="width: 20%">End:</div>
-                        <div class="row" style="width: 20%">
-                          {{ rides.column1.endTime }}
-                        </div>
-
                         <hr />
+                        <div class="row" style="width: 50%">Name:</div>
+                        <div class="row" style="width: 50%">
+                          {{ rides.column1.favoriteName }}
+                        </div>
                         <div class="row" style="width: 50%">From:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].departure.address }} -->
+                          {{ rides.column1.locations[0].departure.address }}
                         </div>
                         <div class="row" style="width: 50%">To:</div>
                         <div class="row" style="width: 50%">
-                          <!-- {{ rides.column1.locations[0].destination.address }} -->
+                          {{ rides.column1.locations[0].destination.address }}
                         </div>
-                        <div class="row" style="width: 50%">Passenger:</div>
-                        <div class="row" style="width: 50%">
-                          {{ rides.column1.passengers[0].email }}
-                        </div>
-                        <div class="row" style="width: 50%">Driver:</div>
-                        <div class="row" style="width: 50%">
-                          {{ rides.column1.driver.email }}
-                        </div>
-
                         <hr />
-                        <!-- <div class="row" style="width: 50%; font-size: small">
-                        Very nice car and music!
-                      </div> -->
-                        <div class="row stars">
-                          <form action="" style="margin: 0">
-                            <input
-                              class="star star-5"
-                              id="star-5"
-                              type="radio"
-                              name="star"
-                            />
-                            <label class="star star-5" for="star-5"></label>
-                            <input
-                              class="star star-4"
-                              id="star-4"
-                              type="radio"
-                              name="star"
-                            />
-                            <label class="star star-4" for="star-4"></label>
-                            <input
-                              class="star star-3"
-                              id="star-3"
-                              type="radio"
-                              name="star"
-                            />
-                            <label class="star star-3" for="star-3"></label>
-                            <input
-                              class="star star-2"
-                              id="star-2"
-                              type="radio"
-                              name="star"
-                            />
-                            <label class="star star-2" for="star-2"></label>
-                            <input
-                              class="star star-1"
-                              id="star-1"
-                              type="radio"
-                              name="star"
-                            />
-                            <label class="star star-1" for="star-1"></label>
-                          </form>
-                        </div>
+
                         <div
                           class="form-group"
                           style="display: inline-block; padding: 0"
                         >
-                          <button
-                            class="btn row"
-                            id="cancel-btn"
+                          <form
+                            (ngSubmit)="removeFavorite()"
                             style="width: 30%"
                           >
-                            Remove from favorites
-                          </button>
-                          <button
-                            class="btn row"
-                            id="cancel-btn"
-                            style="width: 30%"
-                            [routerLink]="['/ride-details']"
-                          >
-                            Details
-                          </button>
+                            <button
+                              class="btn row"
+                              id="cancel-btn"
+                              type="submit"
+                            >
+                              Remove from favorites
+                            </button>
+                          </form>
 
                           <button
                             class="btn row"

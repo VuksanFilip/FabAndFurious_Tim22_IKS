@@ -50,21 +50,27 @@ export interface Ride {
   sheduledTime: string;
 }
 
+export interface RideFavorites {
+  totalCount: number;
+  results: RideFavorite[];
+}
+
 export interface RideFavorite {
   id: number;
-  name: string;
-  startTime: string;
-  endTime: string;
-  totalCost: number;
-  driver: IdEmail;
-  passengers: IdEmail[];
-  estimatedTimeInMinutes: number;
+  favoriteName: string;
+  locations: Route[];
   vehicleVehicleName: string;
   babyTransport: boolean;
   petTransport: boolean;
-  rejection: ReasonAndTimeOfRejection;
+}
+
+export interface RequestFavorite {
+  favoriteName: string;
   locations: Route[];
-  status: string;
+  passengers: IdEmail[];
+  vehicleVehicleName: string;
+  babyTransport: boolean;
+  petTransport: boolean;
 }
 
 export interface RequestRide {

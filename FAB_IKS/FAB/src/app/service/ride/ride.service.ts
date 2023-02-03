@@ -89,12 +89,10 @@ export class RideService {
   }
 
   getFavoriteRoutes(id: number): Observable<any> {
-    return this.http.get<any>(
-      environment.apiHost + 'api/ride/' + id + '/favorites'
-    );
+    return this.http.get<any>(environment.apiHost + 'api/ride/favorites/' + id);
   }
 
-  deleteFavoriteRoute(id: number): Observable<any> {
+  deleteFavoriteRoute(id: string): Observable<any> {
     return this.http.delete<any>(
       environment.apiHost + 'api/ride/favorites/' + id
     );

@@ -32,7 +32,24 @@ export class ReportsService {
     );
   }
 
-  // updatePassenger (id:number, passenger: any): Observable<any> {
-  //   return this.http.put<any>(environment.apiHost + "api/passenger/" + id, passenger);
-  // }
+  getAdminReportDays(dates: any): Observable<any> {
+    return this.http.get<any>(
+      environment.apiHost + 'api/ride/admin-report/days',
+      dates
+    );
+  }
+
+  getAdminReportKms(dates: any): Observable<any> {
+    return this.http.get<any>(
+      environment.apiHost + 'api/ride/admin-report/kms',
+      dates
+    );
+  }
+
+  getAdminReportMoney(dates: any): Observable<any> {
+    return this.http.get<any>(
+      environment.apiHost + 'api/ride/admin-report/money',
+      dates
+    );
+  }
 }

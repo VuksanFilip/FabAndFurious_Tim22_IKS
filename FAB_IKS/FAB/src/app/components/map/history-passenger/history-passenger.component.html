@@ -70,6 +70,46 @@
                         <div class="row" style="width: 50%">
                           {{ rides.column1.driver.email }}
                         </div>
+                        <hr />
+                        <div class="row stars">
+                          <form action="" style="margin: 0">
+                            <input
+                              class="star star-5"
+                              id="star-5"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-5" for="star-5"></label>
+                            <input
+                              class="star star-4"
+                              id="star-4"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-4" for="star-4"></label>
+                            <input
+                              class="star star-3"
+                              id="star-3"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-3" for="star-3"></label>
+                            <input
+                              class="star star-2"
+                              id="star-2"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-2" for="star-2"></label>
+                            <input
+                              class="star star-1"
+                              id="star-1"
+                              type="radio"
+                              name="star"
+                            />
+                            <label class="star star-1" for="star-1"></label>
+                          </form>
+                        </div>
 
                         <hr />
 
@@ -77,22 +117,40 @@
                           class="form-group"
                           style="display: inline-block; padding: 0"
                         >
-                          <button
-                            class="btn row"
-                            id="cancel-btn"
-                            style="width: 30%"
-                          >
-                            Add to favorites
-                          </button>
-                          <button
-                            class="btn row"
-                            id="cancel-btn"
-                            style="width: 30%"
-                            [routerLink]="['/ride-details']"
-                          >
-                            Details
-                          </button>
+                          <form (ngSubmit)="show()">
+                            <button
+                              style="width: 30%"
+                              class="btn row cancel-btn"
+                              id="change"
+                              type="submit"
+                            >
+                              Add to favorites
+                            </button>
+                          </form>
                         </div>
+                        <form
+                          [formGroup]="favName"
+                          id="form"
+                          style="display: none"
+                        >
+                          <input
+                            formControlName="favname"
+                            value="Favoute route name"
+                          />
+                          <form (ngSubmit)="createFavoriteRoute()">
+                            <button class="btn row" id="save-btn" type="submit">
+                              Done
+                            </button>
+                          </form>
+                        </form>
+                        <button
+                          class="btn row"
+                          id="cancel-btn"
+                          style="width: 30%"
+                          [routerLink]="['/ride-details']"
+                        >
+                          Details
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PassengerService } from 'src/app/service/passenger/passenger.service';
-import { Chart } from 'node_modules/chart.js';
+import { Chart, registerables } from 'node_modules/chart.js';
 import { DriverService } from 'src/app/service/driver/driver.service';
 import { DriverRides } from 'src/app/model/Driver';
 import { IdEmail } from 'src/app/model/User';
@@ -9,8 +9,19 @@ import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 import { RideWithNoStatus } from './../../model/Ride';
 import { Location } from './../../model/Location';
 import { parse } from 'date-fns';
+import { ReportsService } from 'src/app/service/reports/reports.service';
+import {
+  Reportday,
+  ReportDay,
+  ReportKm,
+  Reportkm,
+  ReportMoney,
+  Reportmoney,
+  ReportRequest,
+} from 'src/app/model/Reports';
 import { _countGroupLabelsBeforeOption } from '@angular/material/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-reports-admin',
@@ -18,185 +29,48 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./reports-admin.component.css'],
 })
 export class ReportsAdminComponent implements OnInit {
-  constructor(private passengerService: PassengerService) {}
+  constructor(private reportService: ReportsService) {}
 
-  driver: IdEmail = {
-    id: 0,
-    email: '',
+  reportday: Reportday = {
+    date: new Date(),
+    count: 0,
   };
 
-  passenger: IdEmail = {
-    id: 0,
-    email: '',
+  reportdays: Reportday[] = [];
+
+  reportDays: ReportDay = {
+    sum: 0,
+    average: 0,
+    results: this.reportdays,
   };
 
-  passengers: IdEmail[] = [];
-
-  rejection: ReasonAndTimeOfRejection = {
-    reason: '',
-    timeOfRejection: '',
+  reportkm: Reportkm = {
+    date: new Date(),
+    count: 0,
   };
 
-  departure: Location = {
-    address: '',
-    latitude: 0,
-    longitude: 0,
+  reportkms: Reportkm[] = [];
+
+  reportKms: ReportKm = {
+    sum: 0,
+    average: 0,
+    results: this.reportkms,
   };
 
-  destination: Location = {
-    address: '',
-    latitude: 0,
-    longitude: 0,
+  reportmoney: Reportmoney = {
+    date: new Date(),
+    count: 0,
   };
 
-  path: Route = {
-    departure: this.departure,
-    destination: this.destination,
+  reportmoneyy: Reportmoney[] = [];
+
+  reportMoney: ReportMoney = {
+    sum: 0,
+    average: 0,
+    results: this.reportmoneyy,
   };
 
-  locations: Route[] = [];
-
-  ride: RideWithNoStatus = {
-    id: 0,
-    startTime: '',
-    endTime: '',
-    totalCost: 0,
-    driver: this.driver,
-    passengers: this.passengers,
-    estimatedTimeInMinutes: 0,
-    vehicleVehicleName: '',
-    babyTransport: false,
-    petTransport: false,
-    rejection: this.rejection,
-    locations: this.locations,
-  };
-
-  rides: RideWithNoStatus[] = [];
-
-  allRides: DriverRides = {
-    totalCount: 0,
-    results: this.rides,
-  };
-
-  from = new Date();
-  to = new Date();
-
-  ngOnInit(): void {
-    this.passengerService.getPassengerRides(2).subscribe((rides2) => {
-      this.allRides = rides2; //ili od vozaca
-    });
-
-    const data = {
-      value1: '2023-01-25 16:00:00',
-      value2: '2023-02-02 16:00:00',
-    };
-
-    this.from = parse(data.value1, 'yyyy-MM-dd HH:mm:ss', new Date());
-    this.to = parse(data.value2, 'yyyy-MM-dd HH:mm:ss', new Date());
-
-    let j = 0;
-    let n = 0;
-    let labels1: string[] = [];
-    let data1 = [];
-    let data2 = [];
-    let data3 = [];
-
-    for (let i = 0; i < this.allRides.results.length; i += 1) {
-      if (
-        parse(
-          this.allRides.results[i].startTime,
-          'yyyy-MM-dd HH:mm:ss',
-          new Date()
-        ) >= this.from &&
-        parse(
-          this.allRides.results[i].startTime,
-          'yyyy-MM-dd HH:mm:ss',
-          new Date()
-        ) <= this.to
-      ) {
-        n = 0;
-        for (let m = 0; m < labels1.length; m += 1) {
-          if (labels1[m] == this.allRides.results[i].startTime) {
-            data1[m] += 1;
-            data2[m] += 20; //predjeni km
-            data3[m] += this.allRides.results[i].totalCost;
-            n = 1;
-          }
-        }
-
-        if (n == 0) {
-          labels1[j] = this.allRides.results[i].startTime;
-          data1[j] = 1;
-          data2[j] = 20; //predjeni km
-          data3[j] = this.allRides.results[i].totalCost;
-          j += 1;
-        }
-      }
-    }
-
-    var myChart1 = new Chart('chart1', {
-      type: 'bar',
-      data: {
-        labels: labels1,
-        datasets: [
-          {
-            label: '# of Rides',
-            data: data1,
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-
-    var myChart2 = new Chart('chart2', {
-      type: 'bar',
-      data: {
-        labels: labels1,
-        datasets: [
-          {
-            label: '# of Km',
-            data: data2,
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-
-    var myChart3 = new Chart('chart3', {
-      type: 'bar',
-      data: {
-        labels: labels1,
-        datasets: [
-          {
-            label: '# of Spent/Earned money',
-            data: data3,
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-  }
+  ngOnInit(): void {}
 
   requestForm = new FormGroup({
     from_date: new FormControl('', Validators.required),
@@ -209,6 +83,227 @@ export class ReportsAdminComponent implements OnInit {
     if (form != null) {
       if (form.style.display === 'none') {
         form.style.display = 'block';
+
+        const dates: ReportRequest = {
+          // from: this.requestForm.value.from_date!,
+          // to: this.requestForm.value.to_date!,
+          from: '2023-01-27',
+          to: '2023-02-02',
+        };
+
+        console.log(dates);
+
+        this.reportService.getReportDays(2, dates).subscribe((reportDays2) => {
+          this.reportDays = reportDays2;
+        });
+
+        this.reportService.getReportKms(2, dates).subscribe((reportDays2) => {
+          this.reportKms = reportDays2;
+        });
+
+        this.reportService.getReportMoney(2, dates).subscribe((reportDays2) => {
+          this.reportMoney = reportDays2;
+        });
+
+        console.log(this.reportDays);
+        const count1: number[] = [];
+        const count2: number[] = [];
+        const count3: number[] = [];
+        const dates1: string[] = [];
+        const dates2: string[] = [];
+        const dates3: string[] = [];
+
+        for (var i = 0; i < this.reportDays.results.length; i += 1) {
+          count1.push(this.reportDays.results[i].count);
+          dates1.push(this.reportDays.results[i].date.toDateString());
+        }
+        for (var i = 0; i < this.reportKms.results.length; i += 1) {
+          dates2.push(this.reportKms.results[i].date.toDateString());
+        }
+        for (var i = 0; i < this.reportMoney.results.length; i += 1) {
+          dates3.push(this.reportMoney.results[i].date.toDateString());
+        }
+
+        new Chart('chart1', {
+          type: 'bar',
+          data: {
+            labels: dates1,
+            datasets: [
+              {
+                label: 'Rides per day',
+                data: count1,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        var myChart2 = new Chart('chart2', {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+              {
+                label: 'Km per day',
+                data: count2,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        var myChart3 = new Chart('chart3', {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+              {
+                label: 'Money',
+                data: count3,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      } else {
+        form.style.display = 'none';
+      }
+    }
+  }
+
+  showAll(): void {
+    const form = document.getElementById('form');
+    if (form != null) {
+      if (form.style.display === 'none') {
+        form.style.display = 'block';
+
+        const dates: ReportRequest = {
+          // from: this.requestForm.value.from_date!,
+          // to: this.requestForm.value.to_date!,
+          from: '2023-01-27',
+          to: '2023-02-02',
+        };
+
+        console.log(dates);
+
+        this.reportService
+          .getAdminReportDays(dates)
+          .subscribe((reportDays2) => {
+            this.reportDays = reportDays2;
+          });
+
+        this.reportService.getAdminReportKms(dates).subscribe((reportDays2) => {
+          this.reportKms = reportDays2;
+        });
+
+        this.reportService
+          .getAdminReportMoney(dates)
+          .subscribe((reportDays2) => {
+            this.reportMoney = reportDays2;
+          });
+
+        console.log(this.reportDays);
+        const count1: number[] = [];
+        const count2: number[] = [];
+        const count3: number[] = [];
+        const dates1: string[] = [];
+        const dates2: string[] = [];
+        const dates3: string[] = [];
+
+        for (var i = 0; i < this.reportDays.results.length; i += 1) {
+          count1.push(this.reportDays.results[i].count);
+          dates1.push(this.reportDays.results[i].date.toDateString());
+        }
+        for (var i = 0; i < this.reportKms.results.length; i += 1) {
+          dates2.push(this.reportKms.results[i].date.toDateString());
+        }
+        for (var i = 0; i < this.reportMoney.results.length; i += 1) {
+          dates3.push(this.reportMoney.results[i].date.toDateString());
+        }
+
+        new Chart('chart1', {
+          type: 'bar',
+          data: {
+            labels: dates1,
+            datasets: [
+              {
+                label: 'Rides per day',
+                data: count1,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        var myChart2 = new Chart('chart2', {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+              {
+                label: 'Km per day',
+                data: count2,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        var myChart3 = new Chart('chart3', {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+              {
+                label: 'Money',
+                data: count3,
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
       } else {
         form.style.display = 'none';
       }

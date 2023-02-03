@@ -1,6 +1,5 @@
 import { ReportMoney, Reportmoney } from './../../model/Reports';
 import { Component, OnInit } from '@angular/core';
-import { parse } from 'date-fns';
 import { _countGroupLabelsBeforeOption } from '@angular/material/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReportsService } from 'src/app/service/reports/reports.service';
@@ -86,6 +85,14 @@ export class ReportComponent implements OnInit {
 
         this.reportService.getReportDays(2, dates).subscribe((reportDays2) => {
           this.reportDays = reportDays2;
+        });
+
+        this.reportService.getReportKms(2, dates).subscribe((reportDays2) => {
+          this.reportKms = reportDays2;
+        });
+
+        this.reportService.getReportMoney(2, dates).subscribe((reportDays2) => {
+          this.reportMoney = reportDays2;
         });
 
         console.log(this.reportDays);

@@ -93,6 +93,7 @@ export class RideDetailsComponent implements OnInit {
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
     this.rideService.getRide(1).subscribe((ride2) => (this.ride = ride2));
+    console.log(this.ride);
   }
 
   private initMap(): void {
