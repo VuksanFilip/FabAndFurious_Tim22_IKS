@@ -19,7 +19,7 @@ export class LoginGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ):
-    | Observable<boolean | UrlTree>
+     Observable<boolean | UrlTree> //obrisali |
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
