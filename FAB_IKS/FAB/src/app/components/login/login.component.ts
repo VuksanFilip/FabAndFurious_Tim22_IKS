@@ -39,7 +39,7 @@ export class LoginComponent {
           localStorage.setItem('user', JSON.stringify(result["accessToken"]));
           localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
         },
         error: (error) => {
           if (error instanceof HttpErrorResponse) {

@@ -42,7 +42,9 @@ export class DriverProfileComponent implements OnInit {
   ngOnInit(): void {
     const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
     this.driverService.getDriver(tokenInfo.id).subscribe((driverProfile) => (this.driver = driverProfile));
-    this.driverService.getDriverVehicle(5).subscribe((vehicleProfile) => (this.vehicle = vehicleProfile));
+    console.log(tokenInfo.role);
+
+    // this.driverService.getDriverVehicle(5).subscribe((vehicleProfile) => (this.vehicle = vehicleProfile));
   }
 
 }
