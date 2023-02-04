@@ -44,7 +44,7 @@ export class DriverProfileEditComponent {
       email: this.driverForm.value.email!,
       address: this.driverForm.value.address!,
     }
-    this.driverService.updateDriver(5, driver).subscribe((res) => {
+    this.driverService.sendRequestForEdit(5, driver).subscribe((res) => {
       console.log(res);
     });
   }
