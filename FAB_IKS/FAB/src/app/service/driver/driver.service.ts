@@ -45,7 +45,7 @@ export class DriverService {
   }
 
   sendRequestForEdit(id: number, requestDriverUpdate: any): Observable<any> {
-    return this.http.put<any>(
+    return this.http.post<any>(
       environment.apiHost + 'api/driver/' + id + '/request-edit',
       requestDriverUpdate
     );

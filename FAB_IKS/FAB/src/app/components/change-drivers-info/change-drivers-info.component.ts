@@ -54,8 +54,8 @@ ngOnInit(): void {
   this.driverService.getAllEditRequests().subscribe((requests2) => {
     this.allRequests = requests2;
     this.generateSmartTable();
+    console.log(this.allRequests);
   });
-  console.log(this.allRequests)
 }
 
 generateSmartTable() {
