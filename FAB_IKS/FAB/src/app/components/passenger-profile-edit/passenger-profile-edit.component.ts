@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/auth/token/token.service';
 import { DriverForUpdate } from 'src/app/model/Driver';
 import { PassengerUpdate } from 'src/app/model/Passenger';
@@ -21,7 +22,7 @@ export class PassengerProfileEditComponent{
     }
   )
 
-  constructor(private passengerService: PassengerService, private tokenDecoder: TokenService) { }
+  constructor(private passengerService: PassengerService, private tokenDecoder: TokenService, private router: Router) { }
 
 
   update() {
@@ -36,6 +37,7 @@ export class PassengerProfileEditComponent{
     const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
     this.passengerService.updatePassenger(tokenInfo.id, passenger).subscribe((res) => {
       console.log(res);
+      this.router.navigate(['passenger-profile']);
     });
   }
 
