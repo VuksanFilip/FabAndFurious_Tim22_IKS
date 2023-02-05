@@ -40,6 +40,7 @@ import { NotificationsAdminComponent } from './components/notifications-admin/no
 import { DriverProfileEditComponent } from './components/driver-profile-edit/driver-profile-edit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
+import { SocketComponent } from './components/socket/socket.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     NotificationsAdminComponent,
     DriverProfileEditComponent,
     PassengerProfileEditComponent,
+    SocketComponent,
   ],
   imports: [
     BrowserModule,
