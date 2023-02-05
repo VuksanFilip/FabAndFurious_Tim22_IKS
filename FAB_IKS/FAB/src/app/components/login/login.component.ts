@@ -7,8 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
-import { UserService } from 'src/app/service/user/user.service';
-import { Error } from 'src/app/model/Error';
 import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
@@ -24,10 +22,6 @@ export class LoginComponent {
   title = 'angularvalidate';
   submitted = false;
   hasError: boolean = false;
-
-  error: Error = {
-    message: '',
-  }
 
   constructor(private authService: AuthService, private router: Router, private tokenDecoder: TokenService) {}
 

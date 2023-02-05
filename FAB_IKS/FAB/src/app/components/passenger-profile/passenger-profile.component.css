@@ -1,5 +1,5 @@
 .bg {
-  height: 92vh;
+  height: 100vh;
   background: url("../../../assets/images/carFAB.jpg") no-repeat center center
     fixed;
   background-size: cover;
@@ -105,6 +105,7 @@ input {
 }
 
 #save-btn {
+  margin-top: 10vh;
   background-color: #805d84;
   color: white;
 }

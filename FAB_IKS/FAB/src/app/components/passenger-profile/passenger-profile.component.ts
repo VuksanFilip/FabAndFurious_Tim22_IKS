@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { PassengerUpdate } from 'src/app/model/Passenger';
+import { TokenService } from 'src/app/auth/token/token.service';
 import {
   Passenger,
   PassengerService,
@@ -22,11 +21,12 @@ export class PassengerProfileComponent implements OnInit {
     password: '',
   };
 
-  constructor(private passengerService: PassengerService) {}
+  constructor(private passengerService: PassengerService, private tokenDecoder: TokenService) {}
 
   ngOnInit(): void {
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
     this.passengerService
-      .getPassenger(2)
+      .getPassenger(tokenInfo.id)
       .subscribe((passenger2) => (this.passenger = passenger2));
   }
 }
