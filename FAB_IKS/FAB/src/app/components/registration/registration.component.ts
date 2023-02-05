@@ -31,7 +31,7 @@ export class RegistrationComponent{
   register() : void {
     console.log(this.registrationForm);
     if(this.registrationForm.valid){
-      alert("Uspeh!!!!!");
+      alert("Successful registration!");
       const passenger: Passenger = {
         name: this.registrationForm.value.name!,
         surname: this.registrationForm.value.surname!,
@@ -43,6 +43,7 @@ export class RegistrationComponent{
       };
       this.passengerService.registerNewPassenger(passenger).subscribe((res: any) => {
         console.log(res);
+        this.router.navigate(['login']);
       })
     }
   }
