@@ -21,6 +21,12 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+#cancel-btn {
+  background-color: white;
+  color: #805d84;
+  outline-color: #805d84;
+}
+
 #car-info-container {
   margin-top: 10vh;
   margin-bottom: 10vh;
