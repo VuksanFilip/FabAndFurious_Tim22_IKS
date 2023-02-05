@@ -8,7 +8,8 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { UserService } from 'src/app/service/user/user.service';
-// import { Token } from 'src/app/auth/model/token';
+import { Error } from 'src/app/model/Error';
+import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,11 @@ export class LoginComponent {
   submitted = false;
   hasError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private userService: UserService) {}
+  error: Error = {
+    message: '',
+  }
+
+  constructor(private authService: AuthService, private router: Router, private tokenDecoder: TokenService) {}
 
   login(){
     const loginVal = {
@@ -35,15 +40,22 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(loginVal).subscribe({
         next: (result : any) => {
-          alert("Successful login!");
+          alert("Successfull login!");
           localStorage.setItem('user', JSON.stringify(result["accessToken"]));
           localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();
-          // this.router.navigate(['/']); //gde se rutira?
+          const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+          if(tokenInfo.role == 'ADMIN'){
+            this.router.navigate(['map-admin']);
+          } else if(tokenInfo.role == 'DRIVER'){
+            this.router.navigate(['current-drive-driver']);
+          } else {
+            this.router.navigate(['map']);
+          }
         },
         error: (error) => {
           if (error instanceof HttpErrorResponse) {
-            this.hasError = true;
+            alert("Wrong username or password!");
           }
         },
       });
