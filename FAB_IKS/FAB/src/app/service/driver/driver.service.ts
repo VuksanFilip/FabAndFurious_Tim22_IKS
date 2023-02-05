@@ -44,6 +44,19 @@ export class DriverService {
     );
   }
 
+  sendRequestForEdit(id: number, requestDriverUpdate: any): Observable<any> {
+    return this.http.post<any>(
+      environment.apiHost + 'api/driver/' + id + '/request-edit',
+      requestDriverUpdate
+    );
+  }
+
+  getAllEditRequests(): Observable<any> {
+    return this.http.get<any>(
+      environment.apiHost + 'api/driver/edit-requests'
+    );
+  }
+
   addDriverDocument(id: number, requestDocument: any): Observable<any> {
     return this.http.post<any>(
       environment.apiHost + 'api/driver/' + id + '/documents',

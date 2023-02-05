@@ -59,3 +59,21 @@ export interface DriverRides {
   totalCount: number;
   results: RideWithNoStatus[];
 }
+
+export interface ChangeRequest {
+  name: string;
+  surname: string;
+  profilePicture: string;
+  telephoneNumber: string;
+  email: string;
+  address: string;
+}
+
+export interface ChangeDriverInfo{
+  driverId: string;
+  request: ChangeRequest;
+}
+
+export interface ChangeDriversInfo {
+  allRequests: ChangeDriverInfo[];
+}
