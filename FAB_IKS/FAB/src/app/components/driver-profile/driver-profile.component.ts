@@ -3,6 +3,7 @@ import { DriverService } from 'src/app/service/driver/driver.service';
 import { DriverProfile } from 'src/app/model/Driver';
 import { VehicleDriverProfile } from 'src/app/model/Vehicle';
 import { Location } from 'src/app/model/Location';
+import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
   selector: 'app-driver-profile',
@@ -36,11 +37,14 @@ export class DriverProfileComponent implements OnInit {
     petTransport: false,
   }
 
-  constructor(private driverService: DriverService) { }
+  constructor(private driverService: DriverService, private tokenDecoder: TokenService) { }
 
   ngOnInit(): void {
-    this.driverService.getDriver(5).subscribe((driverProfile) => (this.driver = driverProfile));
-    this.driverService.getDriverVehicle(5).subscribe((vehicleProfile) => (this.vehicle = vehicleProfile));
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    this.driverService.getDriver(tokenInfo.id).subscribe((driverProfile) => (this.driver = driverProfile));
+    console.log(tokenInfo.role);
+
+    // this.driverService.getDriverVehicle(5).subscribe((vehicleProfile) => (this.vehicle = vehicleProfile));
   }
 
 }

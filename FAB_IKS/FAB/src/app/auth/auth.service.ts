@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+// import { Token } from './model/token';
 
 @Injectable({
   providedIn: 'root',
@@ -35,7 +36,7 @@ export class AuthService {
 
   getRole(): any {
     if (this.isLoggedIn()) {
-      const accessToken: any = localStorage.getItem('user');
+      const accessToken: string = localStorage.getItem('user')!; //uzvicnik
       const helper = new JwtHelperService();
       const role = helper.decodeToken(accessToken).role[0].authority;
       return role;

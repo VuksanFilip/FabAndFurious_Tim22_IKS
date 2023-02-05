@@ -8,7 +8,6 @@ import { Route } from 'src/app/model/Location';
 import { ReasonAndTimeOfRejection } from 'src/app/model/Rejection';
 import { RideWithNoStatus } from './../../model/Ride';
 import { Location } from './../../model/Location';
-// import { parse } from 'date-fns';
 import { ReportsService } from 'src/app/service/reports/reports.service';
 import {
   Reportday,

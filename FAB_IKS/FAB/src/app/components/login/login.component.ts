@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
+import { UserService } from 'src/app/service/user/user.service';
+// import { Token } from 'src/app/auth/model/token';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +24,9 @@ export class LoginComponent {
   submitted = false;
   hasError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private userService: UserService) {}
 
-  login(): void {
+  login(){
     const loginVal = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
@@ -33,10 +35,11 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(loginVal).subscribe({
         next: (result : any) => {
+          console.log(result);
           localStorage.setItem('user', JSON.stringify(result["accessToken"]));
           localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
         },
         error: (error) => {
           if (error instanceof HttpErrorResponse) {
