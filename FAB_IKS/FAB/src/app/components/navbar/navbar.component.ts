@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
@@ -9,13 +11,22 @@ import { TokenService } from 'src/app/auth/token/token.service';
 export class NavbarComponent implements OnInit {
   role: string = 'UNREGISTERED';
 
-  constructor(private tokenDecoder: TokenService) { }
+  constructor(private tokenDecoder: TokenService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
-    if (tokenInfo != null){ //TODO proveriti kad implementiras logout
+    if(this.authService.isLoggedIn()){
+      const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
       this.role = tokenInfo.role;
     }
+  }
+
+  logout(){
+    this.authService.logout().subscribe((res) => {
+      this.role = 'UNREGISTERED';
+      localStorage.removeItem('user');
+      this.authService.setUser();
+      this.router.navigate(['map-unregistered']);
+    })
   }
 
 }
