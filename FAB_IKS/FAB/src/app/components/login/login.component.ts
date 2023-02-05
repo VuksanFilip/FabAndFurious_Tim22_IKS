@@ -35,11 +35,11 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(loginVal).subscribe({
         next: (result : any) => {
-          console.log(result);
+          alert("Successful login!");
           localStorage.setItem('user', JSON.stringify(result["accessToken"]));
           localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();
-          // this.router.navigate(['/']);
+          // this.router.navigate(['/']); //gde se rutira?
         },
         error: (error) => {
           if (error instanceof HttpErrorResponse) {

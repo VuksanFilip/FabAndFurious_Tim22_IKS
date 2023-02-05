@@ -3,7 +3,7 @@ form {
 }
 
 #bg {
-  height: 92vh;
+  height: 100vh;
   background: url("../../../assets/images/carFAB.jpg") no-repeat center center
     fixed;
   background-size: cover;
@@ -15,7 +15,8 @@ form {
   position: absolute;
   float: left;
   width: 50vw;
-  height: 92vh;
+  height: 80vh;
+  padding-top: 5%;
   background: rgba(255, 255, 255, 0.8);
   border-top-right-radius: 5%;
   border-bottom-right-radius: 5%;
