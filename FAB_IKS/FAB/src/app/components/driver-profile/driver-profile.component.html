@@ -1,70 +1,99 @@
 <div class="bg">
-    <div id="profile-container">
-      <div id="profile-picture"></div>
-      <br />
-      <h1 style="margin-top: 2vh">My profile</h1>
-      <div id="profile-info">
-        <fieldset>
-          <div class="form-group">
-            <label for="firstname">First Name</label>
-            <p>{{driver.name}}</p>
-          </div>
-          <div class="form-group">
-            <label for="lastname">Last Name</label>
-            <p>{{driver.surname}}</p>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <p>{{driver.telephoneNumber}}</p>
-          </div>
-          <div class="form-group">
-            <label for="address">Address</label>
-            <p>{{driver.address}}</p>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <p>{{driver.email}}</p>
-          </div>
-          <div class="form-group">
-            <button class="btn" id="save-btn" [routerLink]="['/driver-profile-edit']">Edit</button>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    <div id="car-info-container">
-      <h1>Vehicle info</h1>
-      <hr />
-      <div class="row">
-        <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
-          <div id="car-picture"></div>
+  <div id="profile-container">
+    <div id="profile-picture"></div>
+    <br />
+    <h1 style="margin-top: 2vh">My profile</h1>
+    <div id="profile-info">
+      <fieldset>
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <p>{{ driver.name }}</p>
         </div>
-        <div class="col-sm-6">
-          <div>
-            <label>Vehicle model</label>
-            <p>{{vehicle.model}}</p>
-          </div>
-          <div>
-            <label>Vehicle type</label>
-            <p>{{vehicle.vehicleType}}</p>
-          </div>
-          <div>
-            <label>License number</label>
-            <p>{{vehicle.licenseNumber}}</p>
-          </div>
-          <div>
-            <label>Number of seats</label>
-            <p>{{vehicle.passengerSeats}}</p>
-          </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <p>{{ driver.surname }}</p>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <p>{{ driver.telephoneNumber }}</p>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <p>{{ driver.address }}</p>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <p>{{ driver.email }}</p>
+        </div>
+        <div class="form-group">
+          <button
+            class="btn"
+            id="save-btn"
+            [routerLink]="['/driver-profile-edit']"
+          >
+            Edit
+          </button>
+        </div>
+        <form (ngSubmit)="show()">
+          <button
+            style="width: 30%"
+            class="btn row cancel-btn"
+            id="change"
+            type="submit"
+          >
+            Change password
+          </button>
+        </form>
+        <form [formGroup]="changePasswordForm" id="form" style="display: none">
+          <input formControlName="old" value="Old password" type="password" />
+          <input formControlName="new" value="New password" type="password" />
+          <form (ngSubmit)="changePassword()">
+            <button class="btn row" id="save-btn" type="submit">Done</button>
+          </form>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+  <div id="car-info-container">
+    <h1>Vehicle info</h1>
+    <hr />
+    <div class="row">
+      <div class="col-sm-6" style="padding-top: 5%; padding-left: 5%">
+        <div id="car-picture"></div>
+      </div>
+      <div class="col-sm-6">
+        <div>
+          <label>Vehicle model</label>
+          <p>{{ vehicle.model }}</p>
+        </div>
+        <div>
+          <label>Vehicle type</label>
+          <p>{{ vehicle.vehicleType }}</p>
+        </div>
+        <div>
+          <label>License number</label>
+          <p>{{ vehicle.licenseNumber }}</p>
+        </div>
+        <div>
+          <label>Number of seats</label>
+          <p>{{ vehicle.passengerSeats }}</p>
+        </div>
 
-          <label for="babies" style="width: 40%"> Babies</label><br />
-          <p>{{vehicle.babyTransport}}</p>
-          <label for="pets" style="width: 40%"> Pets </label><br />
-          <p>{{vehicle.petTransport}}</p>
-          <div class="form-group">
-            <button class="btn" id="save-btn" [routerLink]="['/driver-profile-edit']">Edit</button>
-          </div>
+        <label for="babies" style="width: 40%"> Babies</label><br />
+        <p>{{ vehicle.babyTransport }}</p>
+        <label for="pets" style="width: 40%"> Pets </label><br />
+        <p>{{ vehicle.petTransport }}</p>
+        <div class="form-group">
+          <button
+            class="btn"
+            id="save-btn"
+            [routerLink]="['/driver-profile-edit']"
+          >
+            Edit
+          </button>
         </div>
       </div>
-      <hr />
     </div>
+    <hr />
+  </div>
 </div>
