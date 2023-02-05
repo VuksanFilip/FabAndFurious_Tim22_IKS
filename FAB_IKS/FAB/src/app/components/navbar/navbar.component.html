@@ -1,13 +1,26 @@
-<link href="assets/img/favicon.png" rel="icon" />
-<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+<header *ngIf="role == 'UNREGISTERED'" id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+      <button mat-icon-button>
+          <mat-icon id="icon">menu</mat-icon>
+      </button>
+      <a href="index.html" class="logo d-flex align-items-center">
+          <span class="d-none d-lg-block">FAB Car</span>
+      </a>
+  </div>
 
-<link href="https://fonts.gstatic.com" rel="preconnect" />
-<link
-  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-  rel="stylesheet"
-/>
+  <nav class="header-nav ms-auto">
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
+          <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['registration']">
+              SignIn
+          </button>
+          <button class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0" [routerLink]="['login']">
+              LogIn
+          </button>
+      </a>
+  </nav>
+</header>
 
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header *ngIf="role == 'PASSENGER'" id="header" class="header fixed-top d-flex align-items-center">
   <div class="d-flex align-items-center justify-content-between">
     <button
       mat-icon-button
@@ -23,96 +36,183 @@
   </div>
 
   <nav class="header-nav ms-auto">
-    <ul class="d-flex align-items-center">
-      <li class="nav-item dropdown pe-3">
-        <a
-          class="nav-link nav-profile d-flex align-items-center pe-0"
-          data-bs-toggle="dropdown"
-        >
-          <button
-            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
-            [routerLink]="['passenger-profile']"
-          >
-            My profile-passenger
-          </button>
-          <button
-            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
-            [routerLink]="['driver-profile']"
-          >
-            My profile-driver
-          </button>
-          <button
-            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
-            [routerLink]="['admin-profile']"
-          >
-            My profile-admin
-          </button>
-          <button
-            class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
-            [routerLink]="['map-unregistered']"
-          >
-            SignOut
-          </button>
+    <a
+      class="nav-link nav-profile d-flex align-items-center pe-0"
+      data-bs-toggle="dropdown"
+    >
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['passenger-profile']"
+      >
+        MyProfile
+      </button>
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['map-unregistered']"
+      >
+        LogOut
+      </button>
 
-          <mat-menu #menu="matMenu" [overlapTrigger]="false">
-            <span
-              (mouseleave)="menuTrigger.closeMenu()"
-              id="sidebar"
-              class="sidebar"
-            >
-              <div>PASSENGER</div>
-              <button mat-menu-item [routerLink]="['/current-drive-passenger']">
-                <span>Current drive</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/map']">
-                <span>Find route</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/history-passenger']">
-                <span>Ride history</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/reports-passenger']">
-                <span>Reports</span>
-              </button>
-              <button
-                mat-menu-item
-                [routerLink]="['/incoming-rides-passenger']"
-              >
-                <span>Incoming rides</span>
-              </button>
-              <div>DRIVER</div>
-              <button mat-menu-item [routerLink]="['/current-drive-driver']">
-                <span>Current drive</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/history-driver']">
-                <span>Ride history</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/reports']">
-                <span>Reports</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/statistics']">
-                <span>Statistics</span>
-              </button>
-              <button mat-menu-item [routerLink]="['incoming-rides-driver']">
-                <span>Incoming rides</span>
-              </button>
-              <div>ADMINISTRATOR</div>
-              <button mat-menu-item [routerLink]="['/map-admin']">
-                <span>Map</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/add-driver']">
-                <span>Add driver</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/reports']">
-                <span>Requests</span>
-              </button>
-              <button mat-menu-item [routerLink]="['/reports-admin']">
-                <span>Rides and reports</span>
-              </button>
-            </span>
-          </mat-menu>
-        </a>
-      </li>
-    </ul>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <span
+          (mouseleave)="menuTrigger.closeMenu()"
+          id="sidebar"
+          class="sidebar"
+        >
+          <button mat-menu-item [routerLink]="['current-drive-passenger']">
+            <span>Map</span>
+          </button>
+          <button mat-menu-item [routerLink]="['history-passenger']">
+            <span>History</span>
+          </button>
+          <button mat-menu-item [routerLink]="['report']">
+            <span>Reports</span>
+          </button>
+          <button mat-menu-item [routerLink]="['notifications-passenger']">
+            <span>Notifications</span>
+          </button>
+          <button mat-menu-item>
+            <span>Live support</span>
+          </button>
+          <button mat-menu-item [routerLink]="['incoming-rides-passenger']">
+            <span>Incoming rides</span>
+          </button>
+        </span>
+      </mat-menu>
+    </a>
   </nav>
 </header>
-<!-- End Header -->
+
+<header *ngIf="role == 'DRIVER'" id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      (mouseover)="menuTrigger.openMenu()"
+    >
+      <mat-icon id="icon">menu</mat-icon>
+    </button>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">FAB Car</span>
+    </a>
+  </div>
+
+  <nav class="header-nav ms-auto">
+    <a
+      class="nav-link nav-profile d-flex align-items-center pe-0"
+      data-bs-toggle="dropdown"
+    >
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+      >
+        Go Offline
+      </button>
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['driver-profile']"
+      >
+        MyProfile
+      </button>
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['map-unregistered']"
+      >
+        LogOut
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <span
+          (mouseleave)="menuTrigger.closeMenu()"
+          id="sidebar"
+          class="sidebar"
+        >
+          <button mat-menu-item [routerLink]="['current-drive-driver']">
+            <span>Map</span>
+          </button>
+          <button mat-menu-item [routerLink]="['history-driver']">
+            <span>History</span>
+          </button>
+          <button mat-menu-item [routerLink]="['report']">
+            <span>Reports</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/statistics']">
+            <span>Statistics</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/notifications-driver']">
+            <span>Notifications</span>
+          </button>
+          <button mat-menu-item>
+            <span>Live support</span>
+          </button>
+          <button mat-menu-item [routerLink]="['incoming-rides-driver']">
+            <span>Incoming rides</span>
+          </button>
+        </span>
+      </mat-menu>
+    </a>
+  </nav>
+</header>
+
+<header *ngIf="role == 'ADMIN'" id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger="matMenuTrigger"
+      (mouseover)="menuTrigger.openMenu()"
+    >
+      <mat-icon id="icon">menu</mat-icon>
+    </button>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">FAB Car</span>
+    </a>
+  </div>
+
+  <nav class="header-nav ms-auto">
+    <a
+      class="nav-link nav-profile d-flex align-items-center pe-0"
+      data-bs-toggle="dropdown"
+    >
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['admin-profile']"
+      >
+        MyProfile
+      </button>
+      <button
+        class="d-none d-md-block ps-2 nav-link nav-profile d-flex align-items-center pe-0"
+        [routerLink]="['map-unregistered']"
+      >
+        LogOut
+      </button>
+
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <span
+          (mouseleave)="menuTrigger.closeMenu()"
+          id="sidebar"
+          class="sidebar"
+        >
+          <button mat-menu-item [routerLink]="['/map-admin']">
+            <span>Map</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/change-drivers-info']">
+            <span>Manage driver accounts</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/add-driver']">
+            <span>Add new driver</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/reports-admin']">
+            <span>Reports</span>
+          </button>
+          <button mat-menu-item>
+            <span>Live support</span>
+          </button>
+          <button mat-menu-item [routerLink]="['/notifications-admin']">
+            <span>Notifications</span>
+          </button>
+        </span>
+      </mat-menu>
+    </a>
+  </nav>
+</header>

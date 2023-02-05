@@ -27,10 +27,6 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportsPassengerComponent } from './components/reports-passenger/reports-passenger.component';
-import { NavbarUnregisteredUserComponent } from './components/navbar-unregistered-user/navbar-unregistered-user.component';
-import { NavbarPassengerComponent } from './components/navbar-passenger/navbar-passenger.component';
-import { NavbarDriverComponent } from './components/navbar-driver/navbar-driver.component';
-import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
 import { RideDetailsComponent } from './components/map/ride-details/ride-details.component';
 import { ReportsAdminComponent } from './components/reports-admin/reports-admin.component';
 import { ChangeDriversInfoComponent } from './components/change-drivers-info/change-drivers-info.component';
@@ -63,10 +59,6 @@ import { PassengerProfileEditComponent } from './components/passenger-profile-ed
     AdminProfileComponent,
     ReportComponent,
     ReportsPassengerComponent,
-    NavbarUnregisteredUserComponent,
-    NavbarPassengerComponent,
-    NavbarDriverComponent,
-    NavbarAdminComponent,
     RideDetailsComponent,
     ReportsAdminComponent,
     ChangeDriversInfoComponent,
