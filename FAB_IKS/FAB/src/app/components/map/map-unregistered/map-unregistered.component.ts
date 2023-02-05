@@ -92,10 +92,10 @@ export class MapUnregisteredComponent implements AfterViewInit {
 
   getAssumptionByClick(){
     if(this.markers.length == 0){
-      alert("Choose departure and destination by clicking on the map!");
+      alert("Choose departure and destination!");
     }
     if(this.markers.length == 1){
-      alert("Missing destination! Click on the map.");
+      alert("Missing destination!");
     }
     if(this.markers.length == 2){
       this.mapService.reverseSearch(this.markers[0].getLatLng().lat, this.markers[0].getLatLng().lng).subscribe((res) => {
@@ -127,6 +127,15 @@ export class MapUnregisteredComponent implements AfterViewInit {
   }
 
   getAssumptionByForm(){
+    if(this.routeForm.value.from == null && this.routeForm.value.to == null){
+      alert("Choose departure and destination!");
+    }
+    if(this.routeForm.value.from == null){
+      alert("Missing departure!");
+    }
+    if(this.routeForm.value.to == null){
+      alert("Missing destination!");
+    }
     this.mapService.search(this.routeForm.value.from).subscribe((res) => {
       this.departure.address = this.routeForm.value.from;
       this.departure.latitude = res[0].lat;
@@ -173,5 +182,13 @@ export class MapUnregisteredComponent implements AfterViewInit {
 
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
+  }
+
+  restore(): void{
+    for(var i = 0; i < this.markers.length; i++){
+      this.map.removeLayer(this.markers[i]);
+      this.estimatedValues.estimatedTimeInMinutes = 0;
+      this.estimatedValues.estimatedCost = 0;
+  }
   }
 }
