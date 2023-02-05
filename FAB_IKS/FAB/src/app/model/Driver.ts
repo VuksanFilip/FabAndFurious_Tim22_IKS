@@ -48,11 +48,11 @@ export interface WorkingHour {
 }
 
 export interface StartingWorkingHour {
-  start: string;
+  start: Date;
 }
 
 export interface EndingWorkingHour {
-  end: string;
+  end: Date;
 }
 
 export interface DriverRides {
