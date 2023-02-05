@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/auth/token/token.service';
 import { DriverForUpdate } from 'src/app/model/Driver';
 import { PassengerUpdate } from 'src/app/model/Passenger';
 import { Passenger, PassengerService } from 'src/app/service/passenger/passenger.service';
@@ -20,19 +21,20 @@ export class PassengerProfileEditComponent{
     }
   )
 
-  constructor(private passengerService: PassengerService) { }
+  constructor(private passengerService: PassengerService, private tokenDecoder: TokenService) { }
 
 
   update() {
     const passenger: PassengerUpdate = {
       name: this.passengerForm.value.name!,
       surname: this.passengerForm.value.surname!,
-      profilePicture: 'slika',
+      profilePicture: '',
       telephoneNumber: this.passengerForm.value.telephoneNumber!,
       email: this.passengerForm.value.email!,
       address: this.passengerForm.value.address!,
     }
-    this.passengerService.updatePassenger(2, passenger).subscribe((res) => {
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    this.passengerService.updatePassenger(tokenInfo.id, passenger).subscribe((res) => {
       console.log(res);
     });
   }
