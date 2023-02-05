@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +41,7 @@ import { DriverProfileEditComponent } from './components/driver-profile-edit/dri
 import { MatSelectModule } from '@angular/material/select';
 import { PassengerProfileEditComponent } from './components/passenger-profile-edit/passenger-profile-edit.component';
 import { SocketComponent } from './components/socket/socket.component';
+import { Interceptor } from './auth/interceptor/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,13 @@ import { SocketComponent } from './components/socket/socket.component';
     RouterModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

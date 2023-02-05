@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SocketService {
-  url: string = environment.apiHost + "api/socket"; //proveriti
-  restUrl: string = environment.apiHost + "/sendMessages rest";
+  url: string = environment.apiHost + "api/socket";
+  restUrl:string = environment.apiHost + "/sendMessageRest";
 
   constructor(private http: HttpClient) { }
 
