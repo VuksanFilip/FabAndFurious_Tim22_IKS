@@ -40,7 +40,7 @@ export class LoginComponent {
           this.authService.setUser();
           const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
           if(tokenInfo.role == 'ADMIN'){
-            this.router.navigate(['map-admin']);
+            this.router.navigate(['admin-profile']);
           } else if(tokenInfo.role == 'DRIVER'){
             this.router.navigate(['current-drive-driver']);
           } else {
