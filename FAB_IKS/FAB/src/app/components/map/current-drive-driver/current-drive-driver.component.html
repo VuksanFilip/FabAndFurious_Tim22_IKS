@@ -34,18 +34,15 @@
         margin: 15%;
         margin-top: 5vh;
       ">
-      <button
-      style="
-        width: 70%;
-        margin: 15%;
-        background-color: red;
-        color: white;
-      "
-      type="submit"
-    >
+      <button id="panicBtn" type="submit">
       PANIC
     </button>
     </form>
+    <div>
+      <button type="button" id="endBtn" (click)="endRide()">
+        End ride
+      </button>
+    </div>
   </div>
   <div class="map-container">
     <div id="map"></div>

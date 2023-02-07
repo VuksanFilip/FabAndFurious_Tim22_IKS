@@ -101,6 +101,7 @@ export interface CurrentRidePassenger {
 }
 
 export interface CurrentRideDriver {
+  id: number;
   startTime: string;
   endTime: string;
   passengerEmail: string;
