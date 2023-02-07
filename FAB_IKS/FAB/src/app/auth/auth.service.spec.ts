@@ -59,6 +59,22 @@ describe('AuthService', () => {
     expect(service.isLoggedIn()).toBeFalsy();
   });
 
+  it('should return null if there is no logged in user', () => {
+    localStorage.removeItem('user');
+    expect(service.getRole()).toBeNull();
+  });
 
+  it('should return the role of the logged in user', () => {
+    localStorage.setItem('user', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8');
+    const role = 'ADMIN';
+    const helper = new JwtHelperService();
+    spyOn(helper, 'decodeToken').and.returnValue({ role: [{ authority: role }] });
+    expect(service.getRole()).toEqual(role);
+  });
+
+  it('should return true if user is logged in', () => {
+    localStorage.setItem('user', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8');
+    expect(service.isLoggedIn()).toBeTruthy();
+  });
   
 });
