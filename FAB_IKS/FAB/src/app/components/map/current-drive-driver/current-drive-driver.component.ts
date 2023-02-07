@@ -8,7 +8,6 @@ import { RideService } from 'src/app/service/ride/ride.service';
 import { MapService } from '../map.service';
 import { Location } from 'src/app/model/Location';
 import { PanicReason } from 'src/app/model/Panic';
-import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
   selector: 'app-current-drive-driver',
@@ -37,7 +36,6 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
   }
 
   activeRide: CurrentRideDriver = {
-    id: 0,
     startTime: '',
     endTime: '',
     passengerEmail: '',
@@ -50,7 +48,7 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
     scheduledTime: '',
   }
 
-  constructor(private mapService: MapService, private passengerService: PassengerService, private rideService: RideService, private tokenDecoder: TokenService) {}
+  constructor(private mapService: MapService, private passengerService: PassengerService, private rideService: RideService) {}
 
   ngAfterViewInit(): void {
     let DefaultIcon = L.icon({
@@ -81,10 +79,7 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
   }
 
   ngOnInit(){
-    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
-    // console.log(tokenInfo.sub)
-    this.rideService.getActiveRideForDriver(tokenInfo.id).subscribe((res) => {
-      // console.log(res);
+    this.rideService.getActiveRideForDriver(5).subscribe((res) => {
       this.departure = res.locations[0].departure;
       this.destination = res.locations[0].destination;
       this.activeRide.startTime = res.startTime;
@@ -108,12 +103,6 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
     }
     this.rideService.setPanicReason(1, panic).subscribe((res) => {
       console.log(res);
-    });
-  }
-
-  endRide(){
-    this.rideService.endRide(this.activeRide.id).subscribe((res) => {
-      alert("Ended ride successfully!");
     });
   }
 }
