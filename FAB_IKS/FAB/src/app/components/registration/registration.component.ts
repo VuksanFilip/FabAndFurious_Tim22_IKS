@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Passenger, PassengerService } from 'src/app/service/passenger/passenger.service';
+import { UserService } from 'src/app/service/user/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,7 @@ import { Passenger, PassengerService } from 'src/app/service/passenger/passenger
   styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent{
-  constructor(private passengerService: PassengerService, private router: Router) {}
+  constructor(private passengerService: PassengerService, private userService: UserService, private router: Router) {}
 
   registrationForm = new FormGroup(
     {

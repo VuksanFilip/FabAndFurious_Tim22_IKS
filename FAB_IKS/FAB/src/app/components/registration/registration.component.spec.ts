@@ -18,7 +18,6 @@ describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
   let registerForm: HTMLElement;
-  let userService: UserService;
   let passengerService: PassengerService;
   let registerBtn: any;
   let nextButton: any;
@@ -42,13 +41,10 @@ describe('RegistrationComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(RegistrationComponent);
-    userService = TestBed.inject(UserService);
     passengerService = TestBed.inject(PassengerService);
     component = fixture.componentInstance;
     registerBtn = fixture.debugElement.query(By.css("#registrationButton")).nativeElement;
-    //nextButton = fixture.debugElement.query(By.css("#nextButton")).nativeElement;
     registerForm = fixture.debugElement.nativeElement.querySelectorAll("form")[0];
-    spyOn(component, "register").and.callThrough();
     fixture.detectChanges();
   });
 
@@ -83,8 +79,8 @@ describe('RegistrationComponent', () => {
     component.registrationForm.controls["surname"].setValue('Test');
     component.registrationForm.controls["telephoneNumber"].setValue('Test');
     component.registrationForm.controls["address"].setValue('Test');
-    // nextButton.click();
-    // fixture.detectChanges();
+    nextButton.click();
+    fixture.detectChanges();
     component.registrationForm.controls["email"].setValue('Test');
     component.registrationForm.controls["password"].setValue('Test');
     component.registrationForm.controls["confirmePassword"].setValue('Test');
@@ -97,15 +93,13 @@ describe('RegistrationComponent', () => {
   });
 
   it("Should not call register passenger in passenger service if password and password repeat fields are not the same", async () => {
-    component.registrationForm.controls["name"].setValue('Test');
-    component.registrationForm.controls["surname"].setValue('Test');
-    component.registrationForm.controls["telephoneNumber"].setValue('Test');
-    component.registrationForm.controls["address"].setValue('Test');
-    // nextButton.click();
-    // fixture.detectChanges();
-    component.registrationForm.controls["email"].setValue('Test');
-    component.registrationForm.controls["password"].setValue('Test');
-    component.registrationForm.controls["confirmePassword"].setValue('Test1');
+    component.registrationForm.controls["name"].setValue('ime');
+    component.registrationForm.controls["surname"].setValue('prezime');
+    component.registrationForm.controls["telephoneNumber"].setValue('1234567890');
+    component.registrationForm.controls["address"].setValue('adresa');
+   component.registrationForm.controls["email"].setValue('asd@gmail.com');
+    component.registrationForm.controls["password"].setValue('sifra');
+    component.registrationForm.controls["confirmePassword"].setValue('sifra1');
     registerBtn.click();
     fixture.whenStable().then(() => {
         expect(component.register).toHaveBeenCalled();
@@ -116,16 +110,16 @@ describe('RegistrationComponent', () => {
   });
 
   it("Should call register passenger in passenger service if the data is valid", async () => {
-    component.registrationForm.controls["name"].setValue('Todor');//izmeniti podatke
-    component.registrationForm.controls["surname"].setValue('Todorović');
-    component.registrationForm.controls["telephoneNumber"].setValue('+38162983143');
-    component.registrationForm.controls["address"].setValue('Bulevar oslobođenja 23');
+    component.registrationForm.controls["name"].setValue('Ime');
+    component.registrationForm.controls["surname"].setValue('Prezime');
+    component.registrationForm.controls["telephoneNumber"].setValue('38162983143');
+    component.registrationForm.controls["address"].setValue('adresa');
     nextButton.click();
     fixture.detectChanges();
-    component.registrationForm.controls["email"].setValue('mojmail@mail.com');
-    component.registrationForm.controls["password"].setValue('Test1test');
-    component.registrationForm.controls["confirmePassword"].setValue('Test1test');
-    spyOn(passengerService, 'registerNewPassenger').and.callThrough();
+    component.registrationForm.controls["email"].setValue('lol@gmail.com');
+    component.registrationForm.controls["password"].setValue('sifra');
+    component.registrationForm.controls["confirmePassword"].setValue('sifra');
+    spyOn(passengerService,'registerNewPassenger').and.callThrough();
     registerBtn.click();
     expect(component.register).toHaveBeenCalled();
     expect(passengerService.registerNewPassenger).toHaveBeenCalled();

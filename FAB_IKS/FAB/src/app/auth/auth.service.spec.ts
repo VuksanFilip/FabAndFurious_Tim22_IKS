@@ -3,12 +3,10 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AuthService } from './auth.service';
 import { Login } from './model/login';
 import { Token } from './model/token';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -18,8 +16,6 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        MatSnackBarModule,
-        BrowserAnimationsModule,
       ],
     });
     service = TestBed.inject(AuthService);
@@ -35,51 +31,50 @@ describe('AuthService', () => {
   });
 
   it('should return token', () => {
-    //ili vratiti nesto drugo zavisno od funkcije
     const loginCredentials: Login = {
-      email: 'pera.peric@mail.com', //promeniti
-      password: 'pera123',
+      email: 'marko.markovic@gmail.com', 
+      password: 'marko123',
     };
     const token: Token = {
-      accessToken: 'abc',
-      refreshToken: 'abc',
+      accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',//promeniti
+      refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
     };
-    service.login(loginCredentials).subscribe((result) => {
-      //expect(result.accessToken).toEqual('abc');
-      //expect(result.refreshToken).toEqual('abc'); //?
-    });
+    service.login(loginCredentials).subscribe(
+      result =>{
+        console.log(result);
+        // expect(result['access_token']).toEqual(token['accessToken']);
+        // expect(result['refresh_token']).toEqual(token['accessToken']);
+      }
+    );
 
     const req = httpController.expectOne({
-      method: 'POST',
-      url: 'http://localhost:8084/api/user/login', //?
+      url: 'http://localhost:8084/api/user/login', 
     });
-    req.flush(token); //?
+    expect(req.request.method).toEqual('POST');
+    req.flush(token);
   });
 
-  //obrisati valjda
-  // it('Should return user based on email', () => {
-  //   const loginCredentials: LoginCredentials = {
-  //     email: 'passenger1@mail.com',
-  //     password: 'Test2test',
-  //   };
-  //   const user: UserRetrieved = {
-  //     id: 1,
-  //     name: '',
-  //     surname: '',
-  //     profilePicture: '',
-  //     telephoneNumber: '',
-  //     email: 'mail@mail.com',
-  //     address: '',
-  //   };
+  it('should return false if user is not logged in', () => {
+    localStorage.removeItem('user');
+    expect(service.isLoggedIn()).toBeFalsy();
+  });
 
-  //   service.getUserIdByMail('mail@mail.com').subscribe((result) => {
-  //     expect(result).toEqual(user);
-  //   });
+  it('should return null if there is no logged in user', () => {
+    localStorage.removeItem('user');
+    expect(service.getRole()).toBeNull();
+  });
 
-  //   const req = httpController.expectOne({
-  //     method: 'GET',
-  //     url: 'http://localhost:8080/api/user/mail@mail.com/id',
-  //   });
-  //   req.flush(user);
-  // });
+  it('should return the role of the logged in user', () => {
+    localStorage.setItem('user', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8');
+    const role = 'ADMIN';
+    const helper = new JwtHelperService();
+    spyOn(helper, 'decodeToken').and.returnValue({ role: [{ authority: role }] });
+    expect(service.getRole()).toEqual(role);
+  });
+
+  it('should return true if user is logged in', () => {
+    localStorage.setItem('user', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8');
+    expect(service.isLoggedIn()).toBeTruthy();
+  });
+  
 });
