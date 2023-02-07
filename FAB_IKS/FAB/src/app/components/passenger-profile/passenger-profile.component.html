@@ -7,54 +7,26 @@
       <fieldset>
         <div class="form-group">
           <label for="firstname">First Name</label>
-          <p>{{ passenger.name }}</p>
+          <p>{{passenger.name}}</p>
         </div>
         <div class="form-group">
           <label for="lastname">Last Name</label>
-          <p>{{ passenger.surname }}</p>
+          <p>{{passenger.surname}}</p>
         </div>
         <div class="form-group">
           <label for="phone">Phone</label>
-          <p>{{ passenger.telephoneNumber }}</p>
+          <p>{{passenger.telephoneNumber}}</p>
         </div>
         <div class="form-group">
           <label for="address">Address</label>
-          <p>{{ passenger.address }}</p>
+          <p>{{passenger.address}}</p>
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <p>{{ passenger.email }}</p>
+          <p>{{passenger.email}}</p>
         </div>
         <div class="form-group">
-          <button
-            class="btn"
-            id="save-btn"
-            [routerLink]="['/passenger-profile-edit']"
-          >
-            Edit
-          </button>
-
-          <form (ngSubmit)="show()">
-            <button
-              style="width: 30%"
-              class="btn row cancel-btn"
-              id="change"
-              type="submit"
-            >
-              Change password
-            </button>
-          </form>
-          <form
-            [formGroup]="changePasswordForm"
-            id="form"
-            style="display: none"
-          >
-            <input formControlName="old" value="Old password" type="password" />
-            <input formControlName="new" value="New password" type="password" />
-            <form (ngSubmit)="changePassword()">
-              <button class="btn row" id="save-btn" type="submit">Done</button>
-            </form>
-          </form>
+          <button class="btn" id="save-btn" [routerLink]="['/passenger-profile-edit']">Edit</button>
         </div>
       </fieldset>
     </div>
