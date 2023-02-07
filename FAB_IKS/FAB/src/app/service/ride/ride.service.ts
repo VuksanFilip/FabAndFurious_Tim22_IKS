@@ -16,9 +16,9 @@ export class RideService {
     this.value$.next(test);
   }
 
-  createNewRide(requestNewRide: any): Observable<any> {
+  createNewRide(id: number, requestNewRide: any): Observable<any> {
     return this.http.post<any>(
-      environment.apiHost + 'api/ride',
+      environment.apiHost + 'api/ride/' + id,
       requestNewRide
     );
   }

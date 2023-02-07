@@ -8,6 +8,8 @@ import { RideService } from 'src/app/service/ride/ride.service';
 import { MapService } from '../map.service';
 import { Location } from 'src/app/model/Location';
 import { PanicReason } from 'src/app/model/Panic';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
   selector: 'app-current-drive-pessanger',
@@ -48,7 +50,7 @@ export class CurrentDrivePessangerComponent implements AfterViewInit {
     scheduledTime: '',
   }
 
-  constructor(private mapService: MapService, private passengerService: PassengerService, private rideService: RideService) {}
+  constructor(private mapService: MapService, private passengerService: PassengerService, private rideService: RideService, private tokenDecoder: TokenService) {}
 
   ngAfterViewInit(): void {
     let DefaultIcon = L.icon({
@@ -79,7 +81,8 @@ export class CurrentDrivePessangerComponent implements AfterViewInit {
   }
 
   ngOnInit(){
-    this.rideService.getActiveRideForPassenger(2).subscribe((res) => {
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    this.rideService.getActiveRideForPassenger(tokenInfo.id).subscribe((res) => {
       this.departure = res.locations[0].departure;
       this.destination = res.locations[0].destination;
       this.activeRide.startTime = res.startTime;

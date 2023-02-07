@@ -14,6 +14,7 @@ import { IdEmail } from 'src/app/model/User';
 import { TokenService } from 'src/app/auth/token/token.service';
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -63,7 +64,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     reservation: new FormControl('', [Validators.required]),
   });
 
-  constructor(private mapService: MapService, private unregisteredUserService: UnregisteredUserService, private rideService: RideService, private passengerService: PassengerService, private tokenDecoder: TokenService) {}
+  constructor(private mapService: MapService, private unregisteredUserService: UnregisteredUserService, private rideService: RideService, private passengerService: PassengerService, private tokenDecoder: TokenService, private router: Router) {}
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -219,9 +220,11 @@ export class MapRegisteredComponent implements AfterViewInit {
       petTransport: this.rideForm.value.pets!,
       scheduledTime: time,
     }
-    this.rideService.createNewRide(newRide).subscribe({
+    this.rideService.createNewRide(tokenInfo.id, newRide).subscribe({
       next: (result : any) => {
         console.log(result);
+        alert("Successfully oredered ride!");
+        this.router.navigate(['current-drive-passenger'])
       },
       error: (error) => {
         if (error instanceof HttpErrorResponse) {

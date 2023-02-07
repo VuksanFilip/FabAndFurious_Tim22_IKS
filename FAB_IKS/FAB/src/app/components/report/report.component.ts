@@ -77,8 +77,8 @@ export class ReportComponent implements OnInit {
         const dates: ReportRequest = {
           // from: this.requestForm.value.from_date!,
           // to: this.requestForm.value.to_date!,
-          from: '2023-01-27',
-          to: '2023-02-02',
+          from: "2023-01-27",
+          to: "2023-02-02"
         };
 
         console.log(dates);
