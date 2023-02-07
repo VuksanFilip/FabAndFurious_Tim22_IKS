@@ -1,4 +1,4 @@
-export interface MessageDTO{
+export interface Message{
     id: number;
     date: string;
     senderId: number;
@@ -10,11 +10,5 @@ export interface MessageDTO{
 
 export interface PageMessage{
     totalCount: number;
-    results: MessageDTO[];
-}
-
-export interface Message {
-    message: string,
-    fromId: string,
-    toId: string,
+    results: Message[];
 }
