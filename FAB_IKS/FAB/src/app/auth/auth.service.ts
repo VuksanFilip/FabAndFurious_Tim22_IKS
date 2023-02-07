@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { UserWithNoPassword } from '../model/User';
 
 @Injectable({
   providedIn: 'root',
@@ -52,5 +53,11 @@ export class AuthService {
 
   setUser(): void {
     this.user$.next(this.getRole());
+  }
+
+  //dodato
+  public getUserIdByMail(email : string) : Observable<UserWithNoPassword> {
+    const fullUrl = environment.apiHost  + "user/" + email + "/id";
+    return this.http.get<UserWithNoPassword>(fullUrl);
   }
 }

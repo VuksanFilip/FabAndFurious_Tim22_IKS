@@ -15,6 +15,8 @@ import { AuthService } from '../auth.service';
 export class LoginGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
+
+  //drugacije kod tima 9
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

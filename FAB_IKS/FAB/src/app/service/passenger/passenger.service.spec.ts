@@ -48,7 +48,7 @@ describe('PassengerService', () => {
 
     const req = httpController.expectOne({
       method: 'POST', //?
-      url: 'http://localhost:8080/api/passenger'
+      url: 'http://localhost:8084/api/passenger'
     });
     req.flush(user);
   })
