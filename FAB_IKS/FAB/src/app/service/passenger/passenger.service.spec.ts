@@ -24,30 +24,30 @@ describe('PassengerService', () => {
   });
 
   it('should return registered passenger', () => {
-    const user = { //promeniti podatke
-      name: 'Test',
-      surname: 'Test',
-      profilePicture: 'picture',
+    const user = {
+      name: 'ime',
+      surname: 'prezime',
+      profilePicture: 'slika',
       telephoneNumber: '0652780029',
-      address: 'Test',
-      email: 'mail234@mail.com',
-      password: 'Test1test'
+      address: 'adresa',
+      email: 'asd@gmail.com',
+      password: 'sifra'
     }
 
     service.registerNewPassenger(user).subscribe(result => {
       expect(result).toBeTruthy();
       if (result) {
-        expect(result.name).toEqual('Test');
-        expect(result.surname).toEqual('Test');
-        expect(result.profilePicture).toEqual('picture');
-        expect(result.telephoneNumber).toEqual('+0652780029');
-        expect(result.address).toEqual('Test');
-        expect(result.email).toEqual('mail234@mail.com');
+        expect(result.name).toEqual('ime');
+        expect(result.surname).toEqual('prezime');
+        expect(result.profilePicture).toEqual('slika');
+        expect(result.telephoneNumber).toEqual('0652780029');
+        expect(result.address).toEqual('adresa');
+        expect(result.email).toEqual('asd@gmail.com');
       }
     })
 
     const req = httpController.expectOne({
-      method: 'POST', //?
+      method: 'POST',
       url: 'http://localhost:8084/api/passenger'
     });
     req.flush(user);
