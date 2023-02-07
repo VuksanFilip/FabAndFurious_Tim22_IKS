@@ -184,3 +184,19 @@ select:focus {
 #map {
   height: 100%;
 }
+
+#panicBtn{
+  width: 70%;
+  margin: 15%;
+  margin-top: 0%;
+  background-color: red;
+  color: white;
+}
+#endBtn{
+  width: 70%;
+  margin: 15%;
+  margin-top: 0%;
+  background-color: #805d84;
+  color: white;
+  /* outline-color: #805d84; */
+}
