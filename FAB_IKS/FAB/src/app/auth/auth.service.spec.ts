@@ -51,12 +51,12 @@ describe('AuthService', () => {
 
     const req = httpController.expectOne({
       method: 'POST',
-      url: 'http://localhost:8080/api/user/login', //?
+      url: 'http://localhost:8084/api/user/login', //?
     });
     req.flush(token); //?
   });
 
-  //obrisati
+  //obrisati valjda
   // it('Should return user based on email', () => {
   //   const loginCredentials: LoginCredentials = {
   //     email: 'passenger1@mail.com',

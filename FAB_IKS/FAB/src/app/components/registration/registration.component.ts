@@ -69,4 +69,10 @@ export class RegistrationComponent{
       }
     };
   }
+  // check() {
+  //   if (this.registrationForm.valid &&
+  //     this.registrationForm.value.password === this.registrationForm.value.passwordRepeat) {
+  //     this.register();
+  //   }
+  // }
 }
