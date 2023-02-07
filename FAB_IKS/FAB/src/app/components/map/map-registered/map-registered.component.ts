@@ -11,6 +11,7 @@ import { RideService } from 'src/app/service/ride/ride.service';
 import { RequestRide } from 'src/app/model/Ride';
 import { PassengerService } from 'src/app/service/passenger/passenger.service';
 import { IdEmail } from 'src/app/model/User';
+import { TokenService } from 'src/app/auth/token/token.service';
 
 @Component({
   selector: 'app-map',
@@ -60,7 +61,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     reservation: new FormControl('', [Validators.required]),
   });
 
-  constructor(private mapService: MapService, private unregisteredUserService: UnregisteredUserService, private rideService: RideService, private passengerService: PassengerService) {}
+  constructor(private mapService: MapService, private unregisteredUserService: UnregisteredUserService, private rideService: RideService, private passengerService: PassengerService, private tokenDecoder: TokenService) {}
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -179,9 +180,9 @@ export class MapRegisteredComponent implements AfterViewInit {
       longitude: this.departure.longitude
     }
     const destination: Location = {
-      address: this.departure.address,
-      latitude: this.departure.latitude,
-      longitude: this.departure.longitude
+      address: this.destination.address,
+      latitude: this.destination.latitude,
+      longitude: this.destination.longitude
     }
     const route: Route = {
       departure: departure,
@@ -189,14 +190,17 @@ export class MapRegisteredComponent implements AfterViewInit {
     }
     const routes: Route[] = [];
     routes.push(route);
-    let passenger: IdEmail = {
+    const passenger: IdEmail = {
       id: 0,
       email: '',
     }
-    this.passengerService.getPassenger(2).subscribe((res) => {
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    this.passengerService.getPassenger(tokenInfo.id).subscribe((res) => {
       passenger.id = res.id;
       passenger.email = res.email;
+      console.log(passenger);
     });
+    console.log(passenger);
     const passengers: IdEmail[] = [];
     passengers.push(passenger);
     let time: Date = new Date();  
