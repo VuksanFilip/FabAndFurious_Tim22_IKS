@@ -12,6 +12,8 @@ import { RequestRide } from 'src/app/model/Ride';
 import { PassengerService } from 'src/app/service/passenger/passenger.service';
 import { IdEmail } from 'src/app/model/User';
 import { TokenService } from 'src/app/auth/token/token.service';
+import { DatePipe } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-map',
@@ -190,7 +192,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     }
     const routes: Route[] = [];
     routes.push(route);
-    const passenger: IdEmail = {
+    let passenger: IdEmail = {
       id: 0,
       email: '',
     }
@@ -198,10 +200,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     this.passengerService.getPassenger(tokenInfo.id).subscribe((res) => {
       passenger.id = res.id;
       passenger.email = res.email;
-      console.log(passenger);
-    });
-    console.log(passenger);
-    const passengers: IdEmail[] = [];
+      const passengers: IdEmail[] = [];
     passengers.push(passenger);
     let time: Date = new Date();  
     if(this.rideForm.value.time == "Reservation"){
@@ -210,17 +209,29 @@ export class MapRegisteredComponent implements AfterViewInit {
       time.setHours(Number(val[0]));
       time.setMinutes(Number(val[1]));
     }
+    const datepipe: DatePipe = new DatePipe('en-US')
+    let formattedDate = datepipe.transform(time, 'YYYY-MMM-ddTHH:mm:ss')
     const newRide: RequestRide = {
       locations: routes,
       passengers: passengers,
       vehicleType: this.rideForm.value.type!,
       babyTransport: this.rideForm.value.babies!,
       petTransport: this.rideForm.value.pets!,
-      scheduledTime: time.toString(),
+      scheduledTime: time,
     }
-    this.rideService.createNewRide(newRide).subscribe((res) => {
-      console.log(res);
+    this.rideService.createNewRide(newRide).subscribe({
+      next: (result : any) => {
+        console.log(result);
+      },
+      error: (error) => {
+        if (error instanceof HttpErrorResponse) {
+          alert("Cannot order this ride! There's none available drivers!");
+        }
+      },
     });
+    });
+
+    
   }
 
   ngAfterViewInit(): void {
@@ -230,5 +241,13 @@ export class MapRegisteredComponent implements AfterViewInit {
 
     L.Marker.prototype.options.icon = DefaultIcon;
     this.initMap();
+  }
+
+  restore(): void{
+    for(var i = 0; i < this.markers.length; i++){
+      this.map.removeLayer(this.markers[i]);
+      this.estimatedValues.estimatedTimeInMinutes = 0;
+      this.estimatedValues.estimatedCost = 0;
+  }
   }
 }

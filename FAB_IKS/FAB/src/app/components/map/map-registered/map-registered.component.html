@@ -11,7 +11,7 @@
                 name="from"
                 formControlName="from"
                 placeholder="From"
-                id="input"
+                id="from"
                 value="{{departure.address}}"
               />
             </mat-form-field>
@@ -22,7 +22,7 @@
                 name="to"
                 formControlName="to"
                 placeholder="To"
-                id="input"
+                id="to"
                 value="{{destination.address}}"
               />
             </mat-form-field>
@@ -41,7 +41,7 @@
             />
             <label for="pets" style="width: 40%"> Pets allowed</label><br />
             <label for="vehicleType">Vehicle type</label>
-              <select formControlName="type" name="type" class="form-control">
+              <select id="vehicleType" formControlName="type" name="type" class="form-control">
                 <option value="VAN">Van</option>
                 <option value="STANDARD">Standard</option>
                 <option value="LUXURY">Luxury</option>
@@ -74,7 +74,7 @@
             <div class="row" style="margin-top: 1vh">
               <div class="col-sm-6">
                 <label class="radiobtn"
-                  ><input formControlName="time" type="radio" name="time" value="Now" />Now</label
+                  ><input id="now" formControlName="time" type="radio" name="time" value="Now" />Now</label
                 >
               </div>
 
@@ -109,6 +109,7 @@
                   class="btn form-control"
                   type="reset"
                   value="reset"
+                  (click)="restore()"
                 >
                   Restore
                 </button>

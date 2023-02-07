@@ -79,7 +79,7 @@ export interface RequestRide {
   vehicleType: string;
   babyTransport: boolean;
   petTransport: boolean;
-  scheduledTime: string;
+  scheduledTime: Date;
 }
 
 export interface PageRides {
