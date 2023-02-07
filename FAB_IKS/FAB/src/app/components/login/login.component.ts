@@ -34,7 +34,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(loginVal).subscribe({
         next: (result : any) => {
-          alert("Successfull login!");
+          alert("Successful login!");
           localStorage.setItem('user', JSON.stringify(result["accessToken"]));
           localStorage.setItem('refreshToken', JSON.stringify(result["refreshToken"]));
           this.authService.setUser();

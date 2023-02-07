@@ -32,12 +32,12 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    this.authService.logout().subscribe((res) => {
+    // this.authService.logout().subscribe((res) => {
       this.role = 'UNREGISTERED';
       localStorage.removeItem('user');
       this.authService.setUser();
       this.router.navigate(['map-unregistered']);
-    })
+    // })
   }
 
   goOffline(){
