@@ -1,26 +1,39 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { environment } from 'src/environments/environment';
 
 import { PassengerService } from './passenger.service';
 
 describe('PassengerService', () => {
-  let service: PassengerService;
-  let httpController: HttpTestingController;
-
+  let passengerService: PassengerService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],});
-    service = TestBed.inject(PassengerService);
-    httpController = TestBed.inject(HttpTestingController);
-  }); 
-  
+      imports: [HttpClientTestingModule],
+      providers: [PassengerService],
+    });
+    passengerService = TestBed.inject(PassengerService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
   afterEach(() => {
-    httpController.verify();
+    httpMock.verify();
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(passengerService).toBeTruthy();
+  });
+
+  it('should return passengers', () => {
+    passengerService.getAllPassengers().subscribe((passengers) => {
+      expect(passengers).toBeGreaterThan(0);
+    });
+    const req = httpMock.expectOne(environment.apiHost + 'api/passenger');
+    expect(req.request.method).toEqual('GET');
   });
 
   it('should return registered passenger', () => {
@@ -31,10 +44,10 @@ describe('PassengerService', () => {
       telephoneNumber: '0652780029',
       address: 'adresa',
       email: 'asd@gmail.com',
-      password: 'sifra'
-    }
+      password: 'sifra',
+    };
 
-    service.registerNewPassenger(user).subscribe(result => {
+    passengerService.registerNewPassenger(user).subscribe((result) => {
       expect(result).toBeTruthy();
       if (result) {
         expect(result.name).toEqual('ime');
@@ -44,12 +57,11 @@ describe('PassengerService', () => {
         expect(result.address).toEqual('adresa');
         expect(result.email).toEqual('asd@gmail.com');
       }
-    })
-
-    const req = httpController.expectOne({
-      method: 'POST',
-      url: 'http://localhost:8084/api/passenger'
     });
+
+    const req = httpMock.expectOne(environment.apiHost + 'api/passenger');
+    expect(req.request.method).toEqual('POST');
+
     req.flush(user);
-  })
+  });
 });

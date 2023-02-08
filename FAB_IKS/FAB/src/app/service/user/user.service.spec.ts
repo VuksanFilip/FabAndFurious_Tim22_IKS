@@ -1,16 +1,59 @@
+import { NewOldPassword } from './../../model/User';
+import {
+  HttpTestingController,
+  HttpClientTestingModule,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { User } from 'src/app/model/User';
+import { environment } from 'src/environments/environment';
 
 import { UserService } from './user.service';
 
 describe('UserService', () => {
-  let service: UserService;
+  let userService: UserService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(UserService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [UserService],
+    });
+    userService = TestBed.inject(UserService);
+    httpMock = TestBed.get(HttpTestingController);
+  });
+
+  afterEach(() => {
+    httpMock.verify();
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(userService).toBeTruthy();
+  });
+
+  it('should update the password', () => {
+    const id = 1;
+    const changepassword: NewOldPassword = {
+      newPassword: 'marko456',
+      oldPassword: 'marko123',
+    };
+
+    userService.changePassword(id, changepassword).subscribe((res) => {
+      expect(res).toBeFalsy();
+    });
+    const req = httpMock.expectOne(
+      environment.apiHost + 'api/user/' + id + '/changePassword'
+    );
+    expect(req.request.method).toEqual('PUT');
+    req.flush(null);
+  });
+
+  it('should return users', () => {
+    userService.getUsers().subscribe((users) => {
+      expect(users).toBeGreaterThan(0);
+      console.log(users);
+    });
+
+    const req = httpMock.expectOne(environment.apiHost + 'api/user');
+    expect(req.request.method).toEqual('GET');
   });
 });
