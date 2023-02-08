@@ -38,7 +38,7 @@ describe('UserService', () => {
     };
 
     userService.changePassword(id, changepassword).subscribe((res) => {
-      expect(res).toBeFalsy();
+      expect(res).toBeFalsy(); //?
     });
     const req = httpMock.expectOne(
       environment.apiHost + 'api/user/' + id + '/changePassword'
@@ -50,7 +50,6 @@ describe('UserService', () => {
   it('should return users', () => {
     userService.getUsers().subscribe((users) => {
       expect(users).toBeGreaterThan(0);
-      console.log(users);
     });
 
     const req = httpMock.expectOne(environment.apiHost + 'api/user');
