@@ -86,6 +86,7 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
       // console.log(res);
       this.departure = res.locations[0].departure;
       this.destination = res.locations[0].destination;
+      this.activeRide.id = res.id;
       this.activeRide.startTime = res.startTime;
       this.activeRide.endTime = res.endTime;
       this.activeRide.passengerEmail = res.passengers[0].email;
@@ -97,8 +98,8 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
       this.activeRide.destination = this.destination;
       this.activeRide.scheduledTime = res.scheduledTime;
     })
-    L.marker([this.activeRide.departure.latitude, this.activeRide.departure.longitude]).addTo(this.map);
-    L.marker([this.activeRide.destination.latitude, this.activeRide.destination.longitude]).addTo(this.map);
+    // L.marker([this.activeRide.departure.latitude, this.activeRide.departure.longitude]).addTo(this.map);
+    // L.marker([this.activeRide.destination.latitude, this.activeRide.destination.longitude]).addTo(this.map);
   }
 
   panic(){

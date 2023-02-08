@@ -223,8 +223,7 @@ export class MapRegisteredComponent implements AfterViewInit {
     this.rideService.createNewRide(tokenInfo.id, newRide).subscribe({
       next: (result : any) => {
         console.log(result);
-        alert("Successfully oredered ride!");
-        this.router.navigate(['current-drive-passenger'])
+        alert("Successfully ordered ride!");
       },
       error: (error) => {
         if (error instanceof HttpErrorResponse) {
