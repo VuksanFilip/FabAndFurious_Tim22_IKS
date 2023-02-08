@@ -31,7 +31,7 @@ describe('UserService', () => {
   });
 
   it('should update the password', () => {
-    const id = 1;
+    const id = 2;
     const changepassword: NewOldPassword = {
       newPassword: 'marko456',
       oldPassword: 'marko123',

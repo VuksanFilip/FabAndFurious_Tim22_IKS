@@ -6,13 +6,8 @@ import { BrowserModule, By } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DebugElement } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { UserService } from 'src/app/service/user/user.service';
 import { PassengerService } from 'src/app/service/passenger/passenger.service';
-import { UserMockService } from 'src/app/tests/user-mock.service';
-import { PassengerMockService } from 'src/app/tests/passenger-mock.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
