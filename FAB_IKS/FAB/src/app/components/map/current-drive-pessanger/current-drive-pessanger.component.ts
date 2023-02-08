@@ -10,6 +10,7 @@ import { Location } from 'src/app/model/Location';
 import { PanicReason } from 'src/app/model/Panic';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/auth/token/token.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-current-drive-pessanger',
@@ -38,6 +39,7 @@ export class CurrentDrivePessangerComponent implements AfterViewInit {
   }
 
   activeRide: CurrentRidePassenger = {
+    id: 0,
     startTime: '',
     endTime: '',
     driverEmail: '',
@@ -85,6 +87,7 @@ export class CurrentDrivePessangerComponent implements AfterViewInit {
     this.rideService.getActiveRideForPassenger(tokenInfo.id).subscribe((res) => {
       this.departure = res.locations[0].departure;
       this.destination = res.locations[0].destination;
+      this.activeRide.id = res.id;
       this.activeRide.startTime = res.startTime;
       this.activeRide.endTime = res.endTime;
       this.activeRide.driverEmail = res.driver.email;
@@ -104,8 +107,17 @@ export class CurrentDrivePessangerComponent implements AfterViewInit {
     const panic: PanicReason = {
       reason: this.panicForm.value.reason!,
     }
-    this.rideService.setPanicReason(1, panic).subscribe((res) => {
-      console.log(res);
-    });
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    this.rideService.setPanicReason(tokenInfo.id, this.activeRide.id, panic).subscribe({
+      next: (res) => {
+        alert()
+      },
+      error: (error) => {
+        if(error instanceof HttpErrorResponse){
+          alert("Can not put panic!")
+        }
+      }
+    }
+      );
   }
 }

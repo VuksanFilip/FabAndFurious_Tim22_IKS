@@ -46,9 +46,9 @@ export class RideService {
     );
   }
 
-  setPanicReason(id: number, requestPanicReason: any): Observable<any> {
+  setPanicReason(userId: number, id: number, requestPanicReason: any): Observable<any> {
     return this.http.put<any>(
-      environment.apiHost + 'api/ride/' + id + '/panic',
+      environment.apiHost + 'api/ride/' + userId + '/' + id + '/panic',
       requestPanicReason
     );
   }

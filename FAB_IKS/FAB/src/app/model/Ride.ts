@@ -88,6 +88,7 @@ export interface PageRides {
 }
 
 export interface CurrentRidePassenger {
+  id: number;
   startTime: string;
   endTime: string;
   driverEmail: string;

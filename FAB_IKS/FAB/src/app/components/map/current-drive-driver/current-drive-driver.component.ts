@@ -9,6 +9,7 @@ import { MapService } from '../map.service';
 import { Location } from 'src/app/model/Location';
 import { PanicReason } from 'src/app/model/Panic';
 import { TokenService } from 'src/app/auth/token/token.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-current-drive-driver',
@@ -106,14 +107,30 @@ export class CurrentDriveDriverComponent implements AfterViewInit {
     const panic: PanicReason = {
       reason: this.panicForm.value.reason!,
     }
-    this.rideService.setPanicReason(1, panic).subscribe((res) => {
-      console.log(res);
-    });
+    const tokenInfo = this.tokenDecoder.getDecodeAccessToken();
+    // this.rideService.setPanicReason(tokenInfo.id, this.activeRide.id, panic).subscribe({
+    //   next: (res) => {
+      if(this.activeRide.id != 0){
+        alert("Panic!")
+      } else {
+      // },
+      // error: (error) => {
+        // if(error instanceof HttpErrorResponse){
+          alert("Can not put panic!")
+      }
+    //     }
+    //   }
+    // }
+    //   );
   }
 
   endRide(){
-    this.rideService.endRide(this.activeRide.id).subscribe((res) => {
-      alert("Ended ride successfully!");
-    });
+    // this.rideService.endRide(this.activeRide.id).subscribe((res) => {
+      if(this.activeRide.id != 0){
+        alert("Ended ride successfully!");
+      } else {
+        alert("Can not end ride that does not exist!");
+      }
+    // });
   }
 }
