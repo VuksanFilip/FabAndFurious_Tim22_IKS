@@ -20,11 +20,11 @@ describe('TokenService', () => {
     expect(decodedToken).toBeNull();
   });
 
-  it('should return the decoded access token (admin)', () => {
+  it('should return the decoded access token (driver)', () => {
     const testToken =
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8.eyJyb2xlIjpbeyJhdXRob3JpdHkiOiJBRE1JTiJ9XX0.ScQ_gN-hbxll68NU0pZPIFN-8zvgWzBvwjKlhRlYAK8';
     localStorage.setItem('user', testToken);
     const decodedToken = service.getDecodeAccessToken();
-    expect(decodedToken).toEqual({ role: [{ authority: 'ADMIN' }] });
+    expect(decodedToken).toEqual({ role: [{ authority: 'DRIVER' }] });
   });
 });

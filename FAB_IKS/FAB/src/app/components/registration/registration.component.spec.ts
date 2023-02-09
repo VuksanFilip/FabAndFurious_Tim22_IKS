@@ -61,8 +61,6 @@ describe('RegistrationComponent', () => {
     component.registrationForm.controls['surname'].setValue('');
     component.registrationForm.controls['telephoneNumber'].setValue('');
     component.registrationForm.controls['address'].setValue('');
-    // registerBtn.click();
-    // fixture.detectChanges();
     component.registrationForm.controls['email'].setValue('');
     component.registrationForm.controls['password'].setValue('');
     component.registrationForm.controls['confirmePassword'].setValue('');
@@ -81,8 +79,8 @@ describe('RegistrationComponent', () => {
       '1234567890'
     );
     component.registrationForm.controls['address'].setValue('adresa');
-    // registerBtn.click();
-    // fixture.detectChanges();
+    registerBtn.click();
+    fixture.detectChanges();
     component.registrationForm.controls['email'].setValue('asd');
     component.registrationForm.controls['password'].setValue('sifra');
     component.registrationForm.controls['confirmePassword'].setValue('sifra1');
